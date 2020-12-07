@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="pl" xmlns:th="http://www.w3.org/1999/xhtml">
+    <head>
+        <div th:replace="fragments/headFragment :: head"></div>
+    </head>
+    <body>
+        <div class="container-fluid">
+            <header>
+                <div th:replace="fragments/headerFragment :: header"></div>
+            </header>
+            <nav>
+                <div th:replace="fragments/navFragment :: nav"></div>
+            </nav>
+            <main>
+                <div id="slider">
+                    <div th:replace="fragments/sliderFragment :: #slider"></div>
+                </div>
+                <div id="news">
+                    <div th:replace="fragments/newsFragment :: #news"></div>
+                </div>
+                <div id="contact">
+                    <div th:replace="fragments/contactFragment :: #contact"></div>
+                </div>
+            </main>
+            <footer>
+            </footer>
+        </div>
+    </body>
+</html>

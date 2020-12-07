@@ -1,0 +1,545 @@
+<!doctype html>
+<html lang="pl">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <link rel="stylesheet" type="text/css" href="/stylebs.css" >
+        <link rel="stylesheet" type="text/css" href="/styleDz.css" >
+<!--    <link rel="stylesheet" type="text/css" href="styleWeb.css" >-->
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <script src="https://kit.fontawesome.com/33d86d5529.js" crossorigin="anonymous"></script>
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+        <script src="https://kit.fontawesome.com/95a02bd20d.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <title>Infomax - Więcej niż reklama</title>
+    </head>
+    <body>
+        <div class="container-fluid">
+            <header>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <a class="navbar-brand" href="index.html"><img class="col-xs-12 col-sm-12 col-md-12 col-lg-12" src="images/infomax-pl.png"></a>
+                    </div>
+                </div>
+            </header>
+            <nav class="navbar navbar-expand-lg navbar-light bg-link ">
+                <div class="row">
+                      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                      </button>
+                      <div class="collapse navbar-collapse col-xs-12 col-sm-12 col-md-12 col-lg-12" id="navbar">
+                        <ul class="navbar-nav">
+                          <li class="nav-item col-xs-12 col-sm-12 col-md-12 col-lg-3">
+                            <a class="nav-link" href="index"><i class="fas fa-home"></i> Strona główna</a>
+                          </li>
+                          <li class="nav-item col-xs-12 col-sm-12 col-md-12 col-lg-3">
+                            <a class="nav-link" href="index#news"><i class="fas fa-list"></i> Aktualności</a>
+                          </li>
+                          <li class="nav-item dropdown col-xs-12 col-sm-12 col-md-12 col-lg-3">
+                            <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              <i class="far fa-calendar-alt"></i> Kalendarze
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                              <a class="dropdown-item" href="dzielne">Naścienne</a>
+                              <a class="dropdown-item" href="#">Książkowe Marko</a>
+                              <a class="dropdown-item" href="#">Książkowe Natan</a>
+                              <a class="dropdown-item" href="#">Książkowe Róża</a>
+                              <a class="dropdown-item" href="#">Biurkowe</a>
+                              <a class="dropdown-item" href="#">Biuwary</a>
+                              <a class="dropdown-item" href="#">Planery</a>
+                              <a class="dropdown-item" href="#">Jednoplanszowe do wdruku</a>
+                              <a class="dropdown-item" href="#">Jednoplanszowe indywidualne</a>
+                              <a class="dropdown-item" href="#">Wieloplanszowe do wdruku</a>
+                              <a class="dropdown-item" href="#">Wieloplanszowe indywidualne</a>
+                              <a class="dropdown-item" href="#">Terminarze</a>
+                              <a class="dropdown-item" href="#">Listkowe</a>
+                            </div>
+                          </li>
+                          <li class="nav-item col-xs-12 col-sm-12 col-md-12 col-lg-3">
+                            <a class="nav-link" href="#"><i class="fas fa-book-open"></i> Infoteka</a>
+                          </li>
+                          <li class="nav-item col-xs-12 col-sm-12 col-md-12 col-lg-3">
+                            <a class="nav-link" href="#contact"><i class="far fa-envelope"></i> Kontakt</a>
+                          </li>
+                        </ul>
+                      </div>
+                </div>
+            </nav>
+            <main>
+ <!--               <div style="width: 40%; height: 110%;">
+                    <h4>Calendary type</h4>
+                    <select id="cal_type">
+                        <option id="pickType" value="pickType" disabled selected>Typ kalendarza</option>
+                        <option id="1dz" class="type" value="1dz" name="1dz">1dz</option>
+                        <option id="2dz" class="type" value="2dz" name="2dz">2dz</option>
+                        <option id="3dz" class="type" value="3dz" name="3dz">3dz</option>
+                    </select>
+                    <h4>Calendary line</h4>
+                    <select id="cal_line">
+                        <option id="pickLine" value="pickLine" disabled selected>Linia kalendarza</option>
+                        <option id="eko" class="line" value="eko">Eko</option>
+                        <option id="mid" class="line" value="mid">Mid</option>
+                        <option id="pre" class="line" value="pre">Premium</option>
+                    </select>
+                    <h4>Calendary width</h4>
+                    <select id="cal_width">
+                        <option id="pickWidth" value="pickWidth" disabled selected>Szerokość kalendarza</option>
+                        <option id="std" class="width" value="std">Standard</option>
+                        <option id="wid" class="width" value="wid">Szeroki</option>
+                    </select>
+                    <h4>Calendary connect</h4>
+                    <select id="cal_connect">
+                        <option id="pickConnect" value="pickConnect" disabled selected>Łączenie kalendarza</option>
+                        <option id="big" class="connect" value="big" selected="selected">Bigowanie</option>
+                        <option id="spi" class="connect" value="spi">Spiralowanie</option>
+                    </select>
+                    <h4>Calendary clock</h4>
+                    <select id="cal_clock">
+                        <option id="pickClock" value="pickClock" disabled selected>Mechanizm zegarowy</option>
+                        <option id="noclock" class="clk" value="noclock">Nie</option>
+                        <option id="clock" class="clk" value="clock">Tak</option>
+                    </select>
+                    <h4>Calendary advert</h4>
+                    <select id="cal_adv">
+                        <option id="pickAdv" value="pickAdv" disabled selected>Wdruk reklamowy</option>
+                        <option id="noadv" class="adv" value="noadv">Brak</option>
+                        <option id="1adv" class="adv" value="1adv">1 reklama</option>
+                        <option id="3adv" class="adv" value="3adv">3 reklamy</option>
+                    </select>
+                    <h4>Calendary back colour</h4>
+                    <select id="cal_back">
+                        <option id="pickBack" value="pickBack" disabled selected>Kolor plecek</option>
+                        <option id="c1" class="back" value="c1">Biały + napisy 1 kolor sito</option>
+                        <option id="c2" class="back" value="c2">Apla 1 kolor sito + białe napisy</option>
+                        <option id="c3" class="back" value="c3">4 kolory CMYK</option>
+                    </select>
+                    <h4>Calendary var</h4>
+                    <select id="cal_var">
+                        <option id="pickVar" value="pickVar" disabled selected>Wariant kalendarium</option>
+                        <option id="w1" class="var" value="w1">Wariant 1</option>
+                        <option id="w2" class="var" value="w2">Wariant 2</option>
+                        <option id="w3" class="var" value="w3">Wariant 3</option>
+                        <option id="w4" class="var" value="w4">Wariant 4</option>
+                    </select>
+                    <h4>Calendary pack</h4>
+                    <select id="cal_pack">
+                        <option id="pickPack" value="pickPack" disabled selected>Opakowanie jednostkowe</option>
+                        <option id="pack_0" class="pack" value="w1">Brak</option>
+                        <option id="pack_kp" class="pack" value="pack_kp">Koperta papierowa</option>
+                        <option id="pack_kf" class="pack" value="pack_kf">Koperta foliowa</option>
+                        <option id="pack_e" class="pack" value="pack_e">Etui</option>
+                        <option id="pack_p" class="pack" value="pack_p">Pudełko</option>
+                    </select>
+                    <h4>Calendary graphic design</h4>
+                    <select id="cal_gd">
+                        <option id="pickGd" value="pickGd" disabled selected>Opracowanie graficzne</option>
+                        <option id="gd0" class="graphic" value="gd0">projekt klienta zamknięty - PDF produkcyjny</option>
+                        <option id="gd1" class="graphic" value="gd1">Przygotowanie przez INFOMAX - Wariant 1</option>
+                        <option id="gd2" class="graphic" value="gd2">Przygotowanie przez INFOMAX - Wariant 2</option>
+                        <option id="gd3" class="graphic" value="gd3">Przygotowanie przez INFOMAX - Wariant 3</option>
+                        <option id="gd4" class="graphic" value="gd4">Przygotowanie przez INFOMAX - Wariant 4</option>
+                    </select>
+                    <h4>Calendary print production</h4>
+                    <select id="cal_print">
+                        <option id="pickPrint" value="pickPrint" disabled selected>Odbitka produkcyjna</option>
+                        <option id="printNo" class="print" value="printNo">Brak</option>
+                        <option id="printYes" class="print" value="printYes">Tak</option>
+                    </select>
+                    <h4>Calendary transport</h4>
+                    <select id="cal_transport">
+                        <option id="pickTrans" value="pickTrans" disabled selected>Transport</option>
+                        <option id="t1" class="trans" value="t1">Klient odbiera osobiście w siedzibie INFOMAX w Kielcach</option>
+                        <option id="t2" class="trans" value="t2">Wysyłka kurierem klienta</option>
+                        <option id="t3" class="trans" value="t3">Wysyłka kurierem INFOMAX do klienta</option>
+                    </select>
+                    <h4>Calendary Payment</h4>
+                    <select id="cal_payment">
+                        <option id="pickPayment" value="pickPayment" disabled selected>Płatność</option>
+                        <option id="p7d" class="payment" value="p7d">Przelew 7 dni</option>
+                        <option id="p14d" class="payment" value="p14d">Przelew 14 dni</option>
+                        <option id="pp100" class="payment" value="pp100">Przedpłata 100%</option>
+                    </select>
+
+                    <script src="dzielne.js"></script>
+                </div>
+                <div id="graphic" style="height: 110%; float: right; position: relative; top: -100%;">
+                    <div id="cal_img" style="box-shadow: 1px 1px 10px rgba(0,0,0,0.5);">
+                        <div id="head">
+                            <img id="headImg" >
+                        </div>
+                        <div id="back">
+                            <div id="fold" ></div>
+                            <div id="advert">
+                                <p id="ad" style="border: 1px solid red; color: red; font-family: Verdana; text-align: center; padding-top: 20px; padding-bottom: 20px; margin-left: 13.5px; margin-right: 13.5px; font-size: 0.8em;"> NAPIS REKLAMOWY 270mm x 60mm </p>
+                            </div>
+                            &lt;!&ndash;                    <div id="advertMid">
+                                                    <p style="border: 1px solid red; color: red; font-family: Verdana; text-align: center; padding-top: 20px; padding-bottom: 20px; margin-left: 13.5px; margin-right: 13.5px; font-size: 0.8em;"> NAPIS REKLAMOWY 270mm x 150mm </p>
+                                                </div>&ndash;&gt;
+                        </div>
+
+
+
+                    </div>
+
+                    <img id="width">
+                    <img id="connect">
+&lt;!&ndash;                    <img id="clock">&ndash;&gt;
+                </div>-->
+                <div id="conf" class="row">
+                        <div class="title col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <b><i class="far fa-calendar-alt"></i> Skonfiguruj swój  kalendarz naścienny</b>
+                        </div>
+                        <div class="config col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <div class="row configurator col-xs-12 col-sm-12 col-md-12 col-lg-4">
+                                <div class="title col-xs-12 col-sm-12 col-md-12 col-lg-12">Konfigurator</div>
+                                <div class="headTitle col-xs-12 col-sm-12 col-md-12 col-lg-12">Rodzaj</div>
+                                    <ul class="allTypes col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                        <li class="1dz col-xs-12 col-sm-12 col-md-4 col-lg-4 active">Jednodzielny</li>
+                                        <li class="2dz col-xs-12 col-sm-12 col-md-4 col-lg-4">Dwudzielny</li>
+                                        <li class="3dz col-xs-12 col-sm-12 col-md-4 col-lg-4">Trójdzielny</li>
+                                    </ul>
+                                <div class="headTitle col-xs-12 col-sm-12 col-md-12 col-lg-12">Linia</div>
+                                    <ul class="allLines col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                        <li class="eko col-xs-12 col-sm-12 col-md-4 col-lg-4 active">Eko</li>
+                                        <li class="mid col-xs-12 col-sm-12 col-md-4 col-lg-4">Mid</li>
+                                        <li class="premium col-xs-12 col-sm-12 col-md-4 col-lg-4">Premium</li>
+                                    </ul>
+                                <div class="headTitle col-xs-12 col-sm-12 col-md-12 col-lg-12">Szerokość</div>
+                                    <ul class="allWidths col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                        <li class="standard col-xs-12 col-sm-6 col-md-6 col-lg-6 active">Standard</li>
+                                        <li class="width col-xs-12 col-sm-6 col-md-6 col-lg-6">Szeroki</li>
+                                    </ul>
+                                <div class="headTitle col-xs-12 col-sm-12 col-md-12 col-lg-12">Łączenie</div>
+                                    <ul class="allConnects col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                        <li class="big col-xs-12 col-sm-6 col-md-6 col-lg-6 active">Bigowanie</li>
+                                        <li class="helix col-xs-12 col-sm-6 col-md-6 col-lg-6">Spiralowanie</li>
+                                    </ul>
+                                <div class="headTitle col-xs-12 col-sm-12 col-md-12 col-lg-12">Mechanizm zegarowy</div>
+                                    <ul class="allClocks col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                        <li class="noclock col-xs-12 col-sm-6 col-md-6 col-lg-6 active">Nie</li>
+                                        <li class="clock col-xs-12 col-sm-6 col-md-6 col-lg-6">Tak</li>
+                                    </ul>
+                                <div class="headTitle col-xs-12 col-sm-12 col-md-12 col-lg-12">Wdruk reklamowy</div>
+                                    <ul class="allAdverts col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                        <li class="adv0 col-xs-12 col-sm-6 col-md-6 col-lg-4 active">Brak</li>
+                                        <li class="adv1 col-xs-12 col-sm-6 col-md-6 col-lg-4">1 reklama</li>
+                                        <li class="adv3 col-xs-12 col-sm-6 col-md-6 col-lg-4">3 reklama</li>
+                                    </ul>
+                                <div class="headTitle col-xs-12 col-sm-12 col-md-12 col-lg-12">Kolor plecek</div>
+                                    <ul class="allBackColour col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                        <li class="c1 col-xs-12 col-sm-6 col-md-6 col-lg-4 active">Biały + Napisy 1 kolor sito</li>
+                                        <li class="c2 col-xs-12 col-sm-6 col-md-6 col-lg-4">Apla 1 kolor sito + białe napisy</li>
+                                        <li class="c3 col-xs-12 col-sm-6 col-md-6 col-lg-4">4 kolory CMYK</li>
+                                    </ul>
+                                <div class="headTitle col-xs-12 col-sm-12 col-md-12 col-lg-12">Wariant kalendarium</div>
+                                    <ul class="allVarCal col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                        <li class="w1 col-xs-12 col-sm-12 col-md-3 col-lg-3 active">Wariant 1</li>
+                                        <li class="w2 col-xs-12 col-sm-12 col-md-3 col-lg-3">Wariant 2</li>
+                                        <li class="w3 col-xs-12 col-sm-12 col-md-3 col-lg-3">Wariant 3</li>
+                                        <li class="w3 col-xs-12 col-sm-12 col-md-3 col-lg-3">Wariant 4</li>
+                                    </ul>
+<!--                                <div class="row options col-xs-12 col-sm-12 col-md-12 col-lg-12">-->
+<!--                                    <div class="option col-xs-12 col-sm-12 col-md-3 col-lg-3"> -->
+<!--                                        Wariant 1-->
+<!--                                    </div>-->
+<!--                                    <div class="option col-xs-12 col-sm-12 col-md-3 col-lg-3"> -->
+<!--                                        Wariant 2-->
+<!--                                    </div>-->
+<!--                                    <div class="option col-xs-12 col-sm-12 col-md-3 col-lg-3"> -->
+<!--                                        Wariant 3-->
+<!--                                    </div>-->
+<!--                                    <div class="option col-xs-12 col-sm-12 col-md-3 col-lg-3"> -->
+<!--                                        Wariant 4-->
+<!--                                    </div>-->
+<!--                                </div>-->
+
+                                <div class="headTitle col-xs-12 col-sm-12 col-md-12 col-lg-12">Opakowanie jednostkowe</div>
+                                    <ul class="allPacks col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                        <li class="pack0 col-xs-12 col-sm-12 col-md-3 col-lg-3 active">Brak</li>
+                                        <li class="packkp col-xs-12 col-sm-12 col-md-3 col-lg-3">Koperta papierowa</li>
+                                        <li class="packkf col-xs-12 col-sm-12 col-md-3 col-lg-3">Koperta foliowa</li>
+                                        <li class="packe col-xs-12 col-sm-12 col-md-3 col-lg-3">Etui</li>
+                                        <li class="packp col-xs-12 col-sm-12 col-md-3 col-lg-3">Pudełko</li>
+                                    </ul>
+<!--                                <div class="row options col-xs-12 col-sm-12 col-md-12 col-lg-12">-->
+<!--                                    <div class="option col-xs-12 col-sm-12 col-md-3 col-lg-3"> -->
+<!--                                        Brak-->
+<!--                                    </div>-->
+<!--                                    <div class="option col-xs-12 col-sm-12 col-md-3 col-lg-3"> -->
+<!--                                        Koperta papierowa-->
+<!--                                    </div>-->
+<!--                                    <div class="option col-xs-12 col-sm-12 col-md-3 col-lg-3"> -->
+<!--                                        Koperta foliowa-->
+<!--                                    </div>-->
+<!--                                    <div class="option col-xs-12 col-sm-12 col-md-3 col-lg-3"> -->
+<!--                                        Etui-->
+<!--                                    </div>-->
+<!--                                    <div class="option col-xs-12 col-sm-12 col-md-3 col-lg-3"> -->
+<!--                                        Pudełko-->
+<!--                                    </div>-->
+<!--                                </div>-->
+                                <div class="headTitle col-xs-12 col-sm-12 col-md-12 col-lg-12">Opracowanie graficzne</div>
+                                    <ul class="allGraphicDesigns col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                        <li class="gown col-xs-12 col-sm-12 col-md-12 col-lg-12">projekt klienta plik zamknięty - PDF produkcyjny</li>
+                                        <li class="gw1 col-xs-12 col-sm-12 col-md-12 col-lg-12 active">przygotowanie przez INFOMAX - wariant 1</li>
+                                        <li class="gw2 col-xs-12 col-sm-12 col-md-12 col-lg-12">przygotowanie przez INFOMAX - wariant 2</li>
+                                        <li class="gw3 col-xs-12 col-sm-12 col-md-12 col-lg-12">przygotowanie przez INFOMAX - wariant 3</li>
+                                        <li class="gw4 col-xs-12 col-sm-12 col-md-12 col-lg-12">przygotowanie przez INFOMAX - wariant 4</li>
+                                    </ul>
+<!--                                <div class="row options col-xs-12 col-sm-12 col-md-12 col-lg-12">-->
+<!--                                    <div class="option col-xs-12 col-sm-12 col-md-12 col-lg-12"> -->
+<!--                                        projekt klienta plik zamknięty - PDF produkcyjny-->
+<!--                                    </div>-->
+<!--                                    <div class="option col-xs-12 col-sm-12 col-md-12 col-lg-12"> -->
+<!--                                        przygotowanie przez INFOMAX - wariant 1-->
+<!--                                    </div>-->
+<!--                                    <div class="option col-xs-12 col-sm-12 col-md-12 col-lg-12"> -->
+<!--                                        przygotowanie przez INFOMAX - wariant 2-->
+<!--                                    </div>-->
+<!--                                    <div class="option col-xs-12 col-sm-12 col-md-12 col-lg-12"> -->
+<!--                                        przygotowanie przez INFOMAX - wariant 3-->
+<!--                                    </div>-->
+<!--                                    <div class="option col-xs-12 col-sm-12 col-md-12 col-lg-12"> -->
+<!--                                        przygotowanie przez INFOMAX - wariant 4-->
+<!--                                    </div>-->
+<!--                                </div>-->
+                                <div class=" headTitle col-xs-12 col-sm-12 col-md-12 col-lg-12">Odbitka produkcyjna</div>
+                                    <ul class="allPrintProductions col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                        <li class="noprint  col-xs-12 col-sm-6 col-md-6 col-lg-6 active">Brak</li>
+                                        <li class="print col-xs-12 col-sm-6 col-md-6 col-lg-6">Tak</li>
+                                    </ul>
+<!--                                <div class="row options col-xs-12 col-sm-12 col-md-12 col-lg-12">-->
+<!--                                    <div class="option col-xs-12 col-sm-6 col-md-6 col-lg-6"> -->
+<!--                                        Brak-->
+<!--                                    </div>-->
+<!--                                    <div class="option col-xs-12 col-sm-6 col-md-6 col-lg-6"> -->
+<!--                                        Tak-->
+<!--                                    </div>-->
+<!--                                </div>-->
+                                <div class=" headTitle col-xs-12 col-sm-12 col-md-12 col-lg-12">Transport</div>
+                                    <ul class="allTrans col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                        <li class="personally col-xs-12 col-sm-12 col-md-12 col-lg-12 active">Odbiór osobisty w siedzibie INFOMAX w Kielcach</li>
+                                        <li class="clientC col-xs-12 col-sm-12 col-md-12 col-lg-12">Wysyłka kurierem klienta</li>
+                                        <li class="infomaxC col-xs-12 col-sm-12 col-md-12 col-lg-12">Wysyłka kurierem INFOMAX do klienta</li>
+                                    </ul>
+                                    <!--<div class="row options col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                        <div class="option col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                            Odbiór osobisty w siedzibie INFOMAX w Kielcach
+                                        </div>
+                                        <div class="option col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                            Wysyłka kurierem klienta
+                                        </div>
+                                        <div class="option col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                            Wysyłka kurierem INFOMAX do klienta
+                                        </div>
+                                    </div>-->
+                                <div class=" headTitle col-xs-12 col-sm-12 col-md-12 col-lg-12">Płatność</div>
+                                    <ul class="allPayments col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                        <li class="p7d  col-xs-12 col-sm-6 col-md-6 col-lg-4 active">Przelew 7 dni</li>
+                                        <li class="p14d col-xs-12 col-sm-6 col-md-6 col-lg-4">Przelew 14 dni</li>
+                                        <li class="pp100 col-xs-12 col-sm-6 col-md-6 col-lg-4">Przedpłata 100%</li>
+                                    </ul>
+                                <!--<div class="row options col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                    <div class="option col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                                        Przelew 7 dni
+                                    </div>
+                                    <div class="option col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                                        Przelew 14 dni
+                                    </div>
+                                    <div class="option col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                                        Przedpłata 100%
+                                    </div>
+                                </div>-->
+                            </div>
+                            <div class="row graphic col-xs-12 col-sm-12 col-md-12 col-lg-4">
+                                <div class="title col-xs-12 col-sm-12 col-md-12 col-lg-12">Wizualizacja</div>
+                                <div class="imgHeader">
+                                    <img class="clock" src="images/dzielne/1dz_nie.jpg">
+                                    <img class="conn" style="background-color: blue;" src="images/dzielne/1dz_big.png">
+                                </div>
+                            </div>
+                            <div class="row pricing col-xs-12 col-sm-12 col-md-12 col-lg-4">
+                                <div class="title col-xs-12 col-sm-12 col-md-12 col-lg-12">Wycena</div>
+                                <div class="price"></div>
+                            </div>
+<!--                            <script src="scripts/fold.js"></script>-->
+<!--                            <script src="scripts/foldOptions.js"></script>-->
+                            <script src="scripts/dzielneOrg.js"></script>
+
+
+                        </div>
+
+
+                </div>
+
+                <div id="contact">
+                    <div class="row">
+                        <div class="title col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <b><i class="far fa-envelope"></i> Kontakt</b>
+                        </div>
+                        <div class="info col-xs-10 col-sm-10 col-md-10 col-lg-11">
+                            <h4>Napisz do nas e-mail</h4>
+                            <div class="row">
+
+                            <!--Grid column-->
+                            <div class="col-md-9 mb-md-0 mb-5">
+                                <form id="contact-form" name="contact-form" action="mail.php" method="POST">
+
+                                    <!--Grid row-->
+                                    <div class="row">
+
+                                        <!--Grid column-->
+                                        <div class="col-md-6">
+                                            <div class="md-form mb-0">
+                                                <input type="text" id="name" name="name" class="form-control" placeholder="Podaj swoje imię"><br>
+<!--                                                <label for="name" class="">Your name</label>-->
+                                            </div>
+                                        </div>
+                                        <!--Grid column-->
+
+                                        <!--Grid column-->
+                                        <div class="col-md-6">
+                                            <div class="md-form mb-0">
+                                                <input type="text" id="email" name="email" class="form-control" placeholder="Podaj swój adres e-mail"><br>
+<!--                                                <label for="email" class="">Your email</label>-->
+                                            </div>
+                                        </div>
+                                        <!--Grid column-->
+
+                                    </div>
+                                    <!--Grid row-->
+
+                                    <!--Grid row-->
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="md-form mb-0">
+                                                <input type="text" id="subject" name="subject" class="form-control" placeholder="Temat"><br>
+<!--                                                <label for="subject" class="">Subject</label>-->
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--Grid row-->
+
+                                    <!--Grid row-->
+                                    <div class="row">
+
+                                        <!--Grid column-->
+                                        <div class="col-md-12">
+
+                                            <div class="md-form">
+                                                <textarea type="text" id="message" name="message" rows="2" class="form-control md-textarea" placeholder="Twoja wiadomość"></textarea>
+<!--                                                <label for="message">Your message</label>-->
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <!--Grid row-->
+
+                                </form>
+
+                                <div class="text-center text-md-left">
+                                    <a class="btn btn-primary" onclick="document.getElementById('contact-form').submit();">Wyślij</a>
+                                </div>
+                                <div class="status"></div>
+                            </div>
+                            <!--Grid column-->
+
+                            <!--Grid column-->
+                            <div class="col-md-3 text-center">
+                                <ul class="list-unstyled mb-0">
+                                    <li><i class="fas fa-map-marker-alt fa-2x"></i>
+                                        <p>Kielce, ul. Marii Opielińskiej 21</p>
+                                    </li>
+
+                                    <li><i class="fas fa-phone mt-4 fa-2x"></i>
+                                        <p>(48) 41 343-10-40</p>
+                                    </li>
+
+                                    <li><i class="fas fa-envelope mt-4 fa-2x"></i>
+                                        <address>
+                              
+                              <a href="mailto:#">infomax@infomax.pl</a>
+                            </address>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!--Grid column-->
+
+                        </div>
+                        </div>
+                        <table class="table">
+                          <thead class="thead-dark">
+                            <tr>
+                              <th scope="col">imię i nazwisko</th>
+                              <th scope="col">numer telefonu</th>
+                              <th scope="col">adres e-mail</th>
+                            </tr>
+                            
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>Jan Nowak</td>
+                              <td>102-330-440</td>
+                              <td>dsds@mdo.pl</td>
+                            </tr>
+                            <tr>
+                              <td>Jan Nowak</td>
+                              <td>102-330-440</td>
+                              <td>dsds@mdo.pl</td>
+                            </tr>
+                            <tr>
+                              <td>Jan Nowak</td>
+                              <td>102-330-440</td>
+                              <td>dsds@mdo.pl</td>
+                            </tr>
+                            <tr>
+                              <td>Jan Nowak</td>
+                              <td>102-330-440</td>
+                              <td>dsds@mdo.pl</td>
+                            </tr>
+                            <tr>
+                              <td>Jan Nowak</td>
+                              <td>102-330-440</td>
+                              <td>dsds@mdo.pl</td>
+                            </tr>
+                            <tr>
+                              <td>Jan Nowak</td>
+                              <td>102-330-440</td>
+                              <td>dsds@mdo.pl</td>
+                            </tr>
+                            <tr>
+                              <td>Jan Nowak</td>
+                              <td>102-330-440</td>
+                              <td>dsds@mdo.pl</td>
+                            </tr>
+                            <tr>
+                              <td>Jan Nowak</td>
+                              <td>102-330-440</td>
+                              <td>dsds@mdo.pl</td>
+                            </tr>
+                            <tr>
+                              <td>Jan Nowak</td>
+                              <td>102-330-440</td>
+                              <td>dsds@mdo.pl</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                    
+                    </div>
+                    
+                </div>
+
+            </main>
+            <footer>
+
+            </footer>
+        </div>
+    </body>
+</html>
