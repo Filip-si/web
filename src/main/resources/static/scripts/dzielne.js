@@ -409,7 +409,7 @@ function visualisation(){
                         if($("select#cal_adv").val() == "1adv") $("#back").css('height','295px');
                         }
                      if(connect == "spi"){
-//                        $("#fold").css('margin-top','-6px');
+                        $("#fold").css('margin-top','-7px');
                         $("#fold").css('background-image','url(images/dzielne/1dz_spi.png)');
                         $("#helix").css('width','320px');
                         $("#helix").css('height','16px');
@@ -417,6 +417,11 @@ function visualisation(){
                         $("#helix").css('overflow','hidden');
                         $("#helix").css('display','block');
                         $("#helix").css('margin-top','-8px');
+                        $("#back").css('margin-top','-8px');
+                        $("#helix").css('position','relative');
+
+
+
                         if($("select#cal_adv").val() == "noadv") $("#back").css('height','215px');
                         if($("select#cal_adv").val() == "1adv") $("#back").css('height','295px');
                         }
