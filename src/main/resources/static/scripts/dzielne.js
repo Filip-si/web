@@ -1,6 +1,6 @@
-//config();
+config();
 visualisation();
-/*function config(){
+function config(){
 $(document).ready(function(){
     $("select#cal_type").change(function(){
         var selected_type = $(this).children("option:selected").val();
@@ -11,7 +11,7 @@ $(document).ready(function(){
             $("#w3").hide();
             $("#w4").hide();
             $("select#cal_var").val("w1");
-            
+
 //            $("select#cal_line").val("eko");
             if($("select#cal_line").val() == "eko"){
                 $("#std").show();
@@ -25,12 +25,12 @@ $(document).ready(function(){
                 $("#clock").hide();
                 $("#noclock").show();
                 $("select#cal_clock").val("noclock");
-                
+
                 $("#1adv").show();
                 $("#3adv").hide();
                 $("#noadv").show();
                 $("select#cal_adv").val("1adv");
-                
+
                 $("#c1").show();
                 $("#c2").show();
                 $("#c3").show();
@@ -48,12 +48,12 @@ $(document).ready(function(){
                 $("#clock").show();
                 $("#noclock").show();
                 $("select#cal_clock").val("noclock");
-                
+
                 $("#1adv").show();
                 $("#3adv").hide();
                 $("#noadv").show();
                 $("select#cal_adv").val("1adv");
-                
+
                 $("#c1").show();
                 $("#c2").show();
                 $("#c3").show();
@@ -64,7 +64,7 @@ $(document).ready(function(){
                 $("#3adv").hide();
                 $("#noadv").hide();
                 $("select#cal_adv").val("1adv");
-                
+
                 $("#c1").hide();
                 $("#c2").hide();
                 $("#c3").show();
@@ -91,12 +91,12 @@ $(document).ready(function(){
                 $("#clock").hide();
                 $("#noclock").show();
                 $("select#cal_clock").val("noclock");
-                
+
                 $("#3adv").hide();
                 $("#1adv").show();
                 $("#noadv").show();
                 $("select#cal_adv").val("1adv");
-                
+
                 $("#c1").show();
                 $("#c2").show();
                 $("#c3").show();
@@ -114,18 +114,18 @@ $(document).ready(function(){
                 $("#clock").show();
                 $("#noclock").show();
                 $("select#cal_clock").val("noclock");
-                
+
                 $("#3adv").hide();
                 $("#1adv").show();
                 $("#noadv").show();
                 $("select#cal_adv").val("1adv");
-                
+
                 $("#c1").show();
                 $("#c2").show();
                 $("#c3").show();
                 $("select#cal_back").val("c3");
             }
-            
+
         }
         else if(selected_type == "3dz"){
             $("#mid").hide();
@@ -147,17 +147,17 @@ $(document).ready(function(){
                 $("#clock").hide();
                 $("#noclock").show();
                 $("select#cal_clock").val("noclock");
-                
+
                 $("#3adv").show();
                 $("#1adv").show();
                 $("#noadv").show();
                 $("select#cal_adv").val("3adv");
-                
+
                 $("#c1").show();
                 $("#c2").show();
                 $("#c3").show();
                 $("select#cal_back").val("c1");
-                
+
             }
             else if($("select#cal_line").val() == "pre"){
                 $("#std").show();
@@ -171,21 +171,21 @@ $(document).ready(function(){
                 $("#clock").show();
                 $("#noclock").show();
                 $("select#cal_clock").val("noclock");
-                
+
                 $("#3adv").show();
                 $("#1adv").show();
                 $("#noadv").show();
                 $("select#cal_adv").val("3adv");
-                
+
                 $("#c1").show();
                 $("#c2").show();
                 $("#c3").show();
                 $("select#cal_back").val("c3");
-             
+
             }
         }
     })
-    
+
     $("select#cal_line").change(function(){
         var selected_line = $(this).children("option:selected").val();
         if(selected_line == "eko"){
@@ -200,13 +200,13 @@ $(document).ready(function(){
             $("#clock").hide();
             $("#noclock").show();
             $("select#cal_clock").val("noclock");
-            
+
             $("#1adv").show();
             $("#noadv").show();
 //            $("select#cal_adv").val("noadv");
             if($("select#cal_type").val("3dz"))  $("#3adv").show();
             if($("select#cal_type").val("1dz"))  $("#3adv").hide();
-            
+
             $("#c1").show();
             $("#c2").show();
             $("#c3").show();
@@ -224,12 +224,12 @@ $(document).ready(function(){
             $("#clock").hide();
             $("#noclock").show();
             $("select#cal_clock").val("noclock");
-            
+
             $("#c1").hide();
             $("#c2").hide();
             $("#c3").show();
             $("select#cal_back").val("c3");
-            
+
             $("#1adv").show();
             $("#3adv").hide();
             $("#noadv").hide();
@@ -247,7 +247,7 @@ $(document).ready(function(){
             $("#clock").show();
             $("#noclock").show();
             $("select#cal_clock").val("noclock");
-            
+
             $("#c1").show();
             $("#c2").show();
             $("#c3").show();
@@ -255,9 +255,9 @@ $(document).ready(function(){
 
         }
     })
-    
+
 });
-}*/
+}
 
 
 function visualisation(){
@@ -276,11 +276,13 @@ function visualisation(){
             
 /*
             $("select#cal_line").val("eko");
-*/           
+*/
             $("select#cal_line").change(function(){
             if($("select#cal_line").val() == "eko"){
+
                 $("#back").css('height','215px');
                 $("#advert").css('display','none');
+                $("#helix").css('display','none');
                 $("#std").show();
                 $("#wid").hide();
                 $("select#cal_width").val("std");
@@ -296,69 +298,57 @@ function visualisation(){
                 $("#1adv").show();
                 $("#3adv").hide();
                 $("#noadv").show();
-                
+                $("select#cal_adv").val("noadv");
+
                 $("#c1").show();
                 $("#c2").show();
                 $("#c3").show();
                 
-                $("#head").css('background-image','url(dzielne/1dz_nie.jpg)');
+                $("#head").css('background-image','url(images/dzielne/1dz_nie.jpg)');
                 $("#head").css('width','320px');
                 $("#head").css('height','210px');
-                $("#fold").css('background-image','url(dzielne/1dz_big.png)');
+                $("#head").css('box-shadow','none');
+                $("#fold").css('background-image','url(images/dzielne/1dz_big.png)');
                 $("#fold").css('width','320px');
                 $("#fold").css('height','215px');
-                            if($("select#cal_width").val("std")){
-                                    if($("select#cal_connect").val("big")){
-                                            if($("select#cal_clock").val("noclock")){
-                                                $("select#cal_adv").change(function(){
-                                                    var adv = $(this).children("option:selected").val();
-                                                    if(adv == "noadv"){
-                                                        $("#advert").css('display','none');
-                                                        $("#back").css('height','215px');
-                                                        $("select#cal_back").change(function(){
-                                                            var back = $(this).children("option:selected").val();
-                                                            if(back == "c1"){
-                                                                $("#back").css('background-color','#fff');   
-                                                            }
-                                                            if(back == "c2"){
-                                                                $("#back").css('background-color','#1aabde');  
-                                                                
-                                                            }
-                                                            if(back == "c3"){
-                                                                $("#back").css('background-color','#000');  
+                $("select#cal_width").val("std");
+                $("select#cal_connect").val("big");
+                $("select#cal_clock").val("noclock");
+                $("select#cal_adv").change(function(){
+                     var adv = $(this).children("option:selected").val();
+                     if(adv == "noadv"){
+                        $("#advert").css('display','none');
+                        $("#back").css('height','215px');
+                        $("select#cal_back").change(function(){
+                            var back = $(this).children("option:selected").val();
+                                if(back == "c1") $("#back").css('background-color','#fff');
+                                if(back == "c2") $("#back").css('background-color','#1aabde');
+                                if(back == "c3") $("#back").css('background-color','#000');
+                        })
+                     }
+                     if(adv == "1adv"){
+                        $("#advert").css('display','block');
+                        $("#back").css('height','295px');
+                        $("select#cal_back").change(function(){
+                           var back = $(this).children("option:selected").val();
+                                if(back == "c1") $("#back").css('background-color','#fff');
+                                if(back == "c2") $("#back").css('background-color','#1aabde');
+                                if(back == "c3") $("#back").css('background-color','linear-gradient(0deg, rgba(198,120,212,1) 0%, rgba(73,167,147,1) 100%)');
 
-                                                            }
-                                                        })
-                                                        
-                                                    }
-                                                    if(adv == "1adv"){
-                                                        $("#advert").css('display','block');
-                                                        $("#back").css('height','295px');
-                                                        $("select#cal_back").change(function(){
-                                                            var back = $(this).children("option:selected").val();
-                                                            if(back == "c1"){
-                                                                $("#back").css('background-color','#fff');   
-                                                            }
-                                                            if(back == "c2"){
-                                                                $("#back").css('background-color','#1aabde');  
-                                                                
-                                                            }
-                                                            if(back == "c3"){
-                                                                $("#back").css('background-color','linear-gradient(0deg, rgba(198,120,212,1) 0%, rgba(73,167,147,1) 100%)');  
+                        })
+                     }
 
-                                                            }
-                                                        })
-                                                        
-                                                    }
-                                                })
+                })
                                                 
-                                            }
+
                                         
-                                    }
-                            }
+
+
             }
-            // pozmieniać wszystko dla premium główka cień std/szer big/spirala zegar/bezzegara reklamy
+            // pozmieniać std/szer big/spirala
             else if($("select#cal_line").val() == "pre"){
+                $("#back").css('height','215px');
+                $("#advert").css('display','none');
                 $("#std").show();
                 $("#wid").show();
                 $("select#cal_width").val("std");
@@ -374,362 +364,99 @@ function visualisation(){
                 $("#1adv").show();
                 $("#3adv").hide();
                 $("#noadv").show();
-                $("select#cal_adv").val("1adv");
+                $("select#cal_adv").val("noadv");
                 
                 $("#c1").show();
                 $("#c2").show();
                 $("#c3").show();
-                $("select#cal_back").val("c3");
+                $("select#cal_back").val("c1");
                 
-                $("#head").css('background-image','url(dzielne/1dz_tak.jpg)');
+                $("#head").css('background-image','url(images/dzielne/1dz_nie.jpg)');
                 $("#head").css('width','320px');
                 $("#head").css('height','210px');
                 $("#head").css('box-shadow','inset 4px 4px 15px 0px #000000');
+                $("#fold").css('background-image','url(images/dzielne/1dz_big.png)');
+                $("#fold").css('width','320px');
+                $("#fold").css('height','215px');
                 
+//                $("select#cal_width").change(function(){
+//                     var width = $(this).children("option:selected").val();
+//                     if(width == "std"){
+//                        $("#cal_img").css('width','320px');
+//                        $("#head").css('width','320px');
+//                        $("#headImg").css('width','320px');
+//                        $("#back").css('width','320px');
+//                        $('#fold').css('width','320px');
+//                        $('#advert').css('width','320px');
+//                        }
+//                     if(width == "wid"){
+//                        $("#cal_img").css('width','330px');
+//                        $("#head").css('width','330px');
+//                        $("#headImg").css('width','330px');
+//                        $("#back").css('width','330px');
+//                        $('#fold').css('width','330px');
+//                        $('#advert').css('width','330px');
+//                        }
+//                })
 
-/*                
-                $("select#cal_width").change(function(){
-                    var width = $(this).children("option:selected").val();
-                    if(width == "std"){
-                        $("select#cal_connect").change(function(){
-                            var connect = $(this).children("option:selected").val();
-                            if(connect == "big"){
-                                $("select#cal_clock").change(function(){
-                                    var clock = $(this).children("option:selected").val();
-                                    if(clock == "noclock"){
-                                        $("select#cal_adv").change(function(){
-                                            var advert = $(this).children("option:selected").val();
-                                            if(advert == "noadv"){
-                                                $("select#cal_back").change(function(){
-                                                    var back = $(this).children("option:selected").val();
-                                                    if(back == "c1") $("#back").css('background-color','#1aabde'); 
-                                                    if(back == "c2") $("#back").css('background-color','#1a2dde'); 
-                                                    if(back == "c3") $("#back").css('background-color','#a5abde'); 
-                                                })
-                                            }
-                                            if(advert == "1adv"){
-                                                $("select#cal_back").change(function(){
-                                                    var back = $(this).children("option:selected").val();
-                                                    if(back == "c1") $("#back").css('background-color','#1aabde');
-                                                    if(back == "c2") $("#back").css('background-color','#1a2dde'); 
-                                                    if(back == "c3") $("#back").css('background-color','#a5abde'); 
-                                                })
-                                            }                              
-                                        })
-                                    }
-                                    if(clock == "clock"){
-                                        $("select#cal_adv").change(function(){
-                                            var advert = $(this).children("option:selected").val();
-                                            if(advert == "noadv"){
-                                                $("select#cal_back").change(function(){
-                                                    var back = $(this).children("option:selected").val();
-                                                    if(back == "c1")
-                                                    if(back == "c2")
-                                                    if(back == "c3")
-                                                })
-                                            }
-                                            if(advert == "1adv"){
-                                                $("select#cal_back").change(function(){
-                                                    var back = $(this).children("option:selected").val();
-                                                    if(back == "c1")
-                                                    if(back == "c2")
-                                                    if(back == "c3")
-                                                })
-                                            }                              
-                                        })
-                                    }
-                                })
-                            }
-                            if(connect == "spi"){
-                                $("select#cal_clock").change(function(){
-                                    var clock = $(this).children("option:selected").val();
-                                    if(clock == "noclock"){
-                                        $("select#cal_adv").change(function(){
-                                            var advert = $(this).children("option:selected").val();
-                                            if(advert == "noadv"){
-                                                $("select#cal_back").change(function(){
-                                                    var back = $(this).children("option:selected").val();
-                                                    if(back == "c1")
-                                                    if(back == "c2")
-                                                    if(back == "c3")
-                                                })
-                                            }
-                                            if(advert == "1adv"){
-                                                $("select#cal_back").change(function(){
-                                                    var back = $(this).children("option:selected").val();
-                                                    if(back == "c1")
-                                                    if(back == "c2")
-                                                    if(back == "c3")
-                                                })
-                                            }                              
-                                        })
-                                    }
-                                    if(clock == "clock"){
-                                        $("select#cal_adv").change(function(){
-                                            var advert = $(this).children("option:selected").val();
-                                            if(advert == "noadv"){
-                                                $("select#cal_back").change(function(){
-                                                    var back = $(this).children("option:selected").val();
-                                                    if(back == "c1")
-                                                    if(back == "c2")
-                                                    if(back == "c3")
-                                                })
-                                            }
-                                            if(advert == "1adv"){
-                                                $("select#cal_back").change(function(){
-                                                    var back = $(this).children("option:selected").val();
-                                                    if(back == "c1")
-                                                    if(back == "c2")
-                                                    if(back == "c3")
-                                                })
-                                            }                              
-                                        })
-                                    }
-                                }) 
-                            }
-                        })
-                    }
-                    if(width == "wid"){
-                        $("select#cal_connect").change(function(){
-                            var connect = $(this).children("option:selected").val();
-                            if(connect == "big"){
-                                $("select#cal_clock").change(function(){
-                                    var clock = $(this).children("option:selected").val();
-                                    if(clock == "noclock"){
-                                        $("select#cal_adv").change(function(){
-                                            var advert = $(this).children("option:selected").val();
-                                            if(advert == "noadv"){
-                                                $("select#cal_back").change(function(){
-                                                    var back = $(this).children("option:selected").val();
-                                                    if(back == "c1")
-                                                    if(back == "c2")
-                                                    if(back == "c3")
-                                                })
-                                            }
-                                            if(advert == "1adv"){
-                                                $("select#cal_back").change(function(){
-                                                    var back = $(this).children("option:selected").val();
-                                                    if(back == "c1")
-                                                    if(back == "c2")
-                                                    if(back == "c3")
-                                                })
-                                            }                              
-                                        })
-                                    }
-                                    if(clock == "clock"){
-                                        $("select#cal_adv").change(function(){
-                                            var advert = $(this).children("option:selected").val();
-                                            if(advert == "noadv"){
-                                                $("select#cal_back").change(function(){
-                                                    var back = $(this).children("option:selected").val();
-                                                    if(back == "c1")
-                                                    if(back == "c2")
-                                                    if(back == "c3")
-                                                })
-                                            }
-                                            if(advert == "1adv"){
-                                                $("select#cal_back").change(function(){
-                                                    var back = $(this).children("option:selected").val();
-                                                    if(back == "c1")
-                                                    if(back == "c2")
-                                                    if(back == "c3")
-                                                })
-                                            }                              
-                                        })
-                                    }
-                                })
-                            }
-                            if(connect == "spi"){
-                                $("select#cal_clock").change(function(){
-                                    var clock = $(this).children("option:selected").val();
-                                    if(clock == "noclock"){
-                                        $("select#cal_adv").change(function(){
-                                            var advert = $(this).children("option:selected").val();
-                                            if(advert == "noadv"){
-                                                $("select#cal_back").change(function(){
-                                                    var back = $(this).children("option:selected").val();
-                                                    if(back == "c1")
-                                                    if(back == "c2")
-                                                    if(back == "c3")
-                                                })
-                                            }
-                                            if(advert == "1adv"){
-                                                $("select#cal_back").change(function(){
-                                                    var back = $(this).children("option:selected").val();
-                                                    if(back == "c1")
-                                                    if(back == "c2")
-                                                    if(back == "c3")
-                                                })
-                                            }                              
-                                        })
-                                    }
-                                    if(clock == "clock"){
-                                        $("select#cal_adv").change(function(){
-                                            var advert = $(this).children("option:selected").val();
-                                            if(advert == "noadv"){
-                                                $("select#cal_back").change(function(){
-                                                    var back = $(this).children("option:selected").val();
-                                                    if(back == "c1")
-                                                    if(back == "c2")
-                                                    if(back == "c3")
-                                                })
-                                            }
-                                            if(advert == "1adv"){
-                                                $("select#cal_back").change(function(){
-                                                    var back = $(this).children("option:selected").val();
-                                                    if(back == "c1")
-                                                    if(back == "c2")
-                                                    if(back == "c3")
-                                                })
-                                            }                              
-                                        })
-                                    }
-                                }) 
-                            }
-                        })
-                    }
-                        
+                $("select#cal_connect").change(function(){
+                     var connect = $(this).children("option:selected").val();
+                     if(connect == "big"){
+                        $("#helix").css('display','none');
+                        $("#fold").css('background-image','url(images/dzielne/1dz_big.png)');
+                        $("#fold").css('margin-top','0px');
+                        if($("select#cal_adv").val() == "noadv") $("#back").css('height','215px');
+                        if($("select#cal_adv").val() == "1adv") $("#back").css('height','295px');
+                        }
+                     if(connect == "spi"){
+//                        $("#fold").css('margin-top','-6px');
+                        $("#fold").css('background-image','url(images/dzielne/1dz_spi.png)');
+                        $("#helix").css('width','320px');
+                        $("#helix").css('height','16px');
+                        $("#helix").css('background-image','url(images/dzielne/helix.png)');
+                        $("#helix").css('overflow','hidden');
+                        $("#helix").css('display','block');
+                        $("#helix").css('margin-top','-8px');
+                        if($("select#cal_adv").val() == "noadv") $("#back").css('height','215px');
+                        if($("select#cal_adv").val() == "1adv") $("#back").css('height','295px');
+                        }
                 })
-             */   
-                if($("select#cal_width").val("std")){
-                    if($("select#cal_connect").val("big")){
-                        $("#fold").css('background-image','url(dzielne/1dz_big.png)');
-                        $("#fold").css('width','320px');
-                        $("#fold").css('height','215px');
-                        if($("select#cal_clock").val("noclock")){
-                            $("#head").css('background-image','url(dzielne/1dz_nie.jpg)');
 
-                            if($("select#cal_adv").val("noadv")){
-                                if($("select#cal_back").val("c1")) $("#back").css('background-color','#fff');   
-                                if($("select#cal_back").val("c2")) $("#back").css('background-color','#12433a');   
-                                if($("select#cal_back").val("c3")) $("#back").css('background-color','#aa4411');   
-                            }
-                            if($("select#cal_adv").val("1adv")){
-                                if($("select#cal_back").val("c1")) $("#back").css('background-color','#fff');   
-                                if($("select#cal_back").val("c2")) $("#back").css('background-color','#12433a');   
-                                if($("select#cal_back").val("c3")) $("#back").css('background-color','#aa4411');   
-                            }
-                        }
-                        if($("select#cal_clock").val("clock")){
-                            $("#head").css('background-image','url(dzielne/1dz_tak.jpg)');
-                            
-                            if($("select#cal_adv").val("noadv")){
-                                if($("select#cal_back").val("c1")) $("#back").css('background-color','#fff');   
-                                if($("select#cal_back").val("c2")) $("#back").css('background-color','#12433a');   
-                                if($("select#cal_back").val("c3")) $("#back").css('background-color','#aa4411');   
-                            }
-                            if($("select#cal_adv").val("1adv")){
-                                if($("select#cal_back").val("c1")) $("#back").css('background-color','#fff');   
-                                if($("select#cal_back").val("c2")) $("#back").css('background-color','#12433a');   
-                                if($("select#cal_back").val("c3")) $("#back").css('background-color','#aa4411');   
-                            }
-                        }
-                    }
-                    if($("select#cal_connect").val("spi")){
-                        $("#fold").css('background-image','url(dzielne/1dz_spi.png)');
-                        $("#fold").css('width','320px');
-                        $("#fold").css('height','215px');
-                        if($("select#cal_clock").val("noclock")){
-                            $("#head").css('background-image','url(dzielne/1dz_nie.jpg)');
-                            
-                            if($("select#cal_adv").val("noadv")){
-                                if($("select#cal_back").val("c1")) $("#back").css('background-color','#fff');   
-                                if($("select#cal_back").val("c2")) $("#back").css('background-color','#12433a');   
-                                if($("select#cal_back").val("c3")) $("#back").css('background-color','#aa4411');   
-                            }
-                            if($("select#cal_adv").val("1adv")){
-                                if($("select#cal_back").val("c1")) $("#back").css('background-color','#fff');   
-                                if($("select#cal_back").val("c2")) $("#back").css('background-color','#12433a');   
-                                if($("select#cal_back").val("c3")) $("#back").css('background-color','#aa4411');   
-                            }
-                        }
-                        if($("select#cal_clock").val("clock")){
-                            $("#head").css('background-image','url(dzielne/1dz_tak.jpg)');
-                            
-                            if($("select#cal_adv").val("noadv")){
-                                if($("select#cal_back").val("c1")) $("#back").css('background-color','#fff');   
-                                if($("select#cal_back").val("c2")) $("#back").css('background-color','#12433a');   
-                                if($("select#cal_back").val("c3")) $("#back").css('background-color','#aa4411');   
-                            }
-                            if($("select#cal_adv").val("1adv")){
-                                if($("select#cal_back").val("c1")) $("#back").css('background-color','#fff');   
-                                if($("select#cal_back").val("c2")) $("#back").css('background-color','#12433a');   
-                                if($("select#cal_back").val("c3")) $("#back").css('background-color','#aa4411');   
-                            }
-                        }
-                    }
-                }
-                if($("select#cal_width").val("wid")){
-                    if($("select#cal_connect").val("big")){
-                        $("#fold").css('background-image','url(dzielne/1dz_big.png)');
-                        $("#fold").css('width','320px');
-                        $("#fold").css('height','215px');
-                        if($("select#cal_clock").val("noclock")){
-                            $("#head").css('background-image','url(dzielne/1dz_nie.jpg)');
+                $("select#cal_clock").change(function(){
+                     var clock = $(this).children("option:selected").val();
+                     if(clock == "clock"){
+                        $("#head").css('background-image','url(images/dzielne/1dz_tak.jpg)');
+                     }
+                     if(clock == "noclock"){
+                        $("#head").css('background-image','url(images/dzielne/1dz_nie.jpg)');
+                     }
+                })
 
-                            if($("select#cal_adv").val("noadv")){
-                                if($("select#cal_back").val("c1")) $("#back").css('background-color','#fff');   
-                                if($("select#cal_back").val("c2")) $("#back").css('background-color','#12433a');   
-                                if($("select#cal_back").val("c3")) $("#back").css('background-color','#aa4411');   
-                            }
-                            if($("select#cal_adv").val("1adv")){
-                                if($("select#cal_back").val("c1")) $("#back").css('background-color','#fff');   
-                                if($("select#cal_back").val("c2")) $("#back").css('background-color','#12433a');   
-                                if($("select#cal_back").val("c3")) $("#back").css('background-color','#aa4411');   
-                            }
-                        }
-                        if($("select#cal_clock").val("clock")){
-                            $("#head").css('background-image','url(dzielne/1dz_tak.jpg)');
-                            
-                            if($("select#cal_adv").val("noadv")){
-                                if($("select#cal_back").val("c1")) $("#back").css('background-color','#fff');   
-                                if($("select#cal_back").val("c2")) $("#back").css('background-color','#12433a');   
-                                if($("select#cal_back").val("c3")) $("#back").css('background-color','#aa4411');   
-                            }
-                            if($("select#cal_adv").val("1adv")){
-                                if($("select#cal_back").val("c1")) $("#back").css('background-color','#fff');   
-                                if($("select#cal_back").val("c2")) $("#back").css('background-color','#12433a');   
-                                if($("select#cal_back").val("c3")) $("#back").css('background-color','#aa4411');   
-                            }
-                        }
-                    }
-                    if($("select#cal_connect").val("spi")){
-                        $("#fold").css('background-image','url(dzielne/1dz_spi.png)');
-                        $("#fold").css('width','320px');
-                        $("#fold").css('height','215px');
-                        if($("select#cal_clock").val("noclock")){
-                            $("#head").css('background-image','url(dzielne/1dz_nie.jpg)');
+                $("select#cal_adv").change(function(){
+                     var adv = $(this).children("option:selected").val();
+                     if(adv == "noadv"){
+                        $("#advert").css('display','none');
+                        $("#back").css('height','215px');
 
-                            if($("select#cal_adv").val("noadv")){
-                                if($("select#cal_back").val("c1")) $("#back").css('background-color','#fff');   
-                                if($("select#cal_back").val("c2")) $("#back").css('background-color','#12433a');   
-                                if($("select#cal_back").val("c3")) $("#back").css('background-color','#aa4411');   
-                            }
-                            if($("select#cal_adv").val("1adv")){
-                                if($("select#cal_back").val("c1")) $("#back").css('background-color','#fff');   
-                                if($("select#cal_back").val("c2")) $("#back").css('background-color','#12433a');   
-                                if($("select#cal_back").val("c3")) $("#back").css('background-color','#aa4411');   
-                            }
+                     }
+                     if(adv == "1adv"){
+                        $("#advert").css('display','block');
+                        $("#back").css('height','295px');
                         }
-                        if($("select#cal_clock").val("clock")){
-                            $("#head").css('background-image','url(dzielne/1dz_tak.jpg)');
 
-                            if($("select#cal_adv").val("noadv")){
-                                if($("select#cal_back").val("c1")) $("#back").css('background-color','#fff');   
-                                if($("select#cal_back").val("c2")) $("#back").css('background-color','#12433a');   
-                                if($("select#cal_back").val("c3")) $("#back").css('background-color','#aa4411');   
-                            }
-                            if($("select#cal_adv").val("1adv")){
-                                if($("select#cal_back").val("c1")) $("#back").css('background-color','#fff');   
-                                if($("select#cal_back").val("c2")) $("#back").css('background-color','#12433a');   
-                                if($("select#cal_back").val("c3")) $("#back").css('background-color','#aa4411');   
-                            }
-                        }
-                    }
-                }
+                })
+
+                $("select#cal_back").change(function(){
+                          var back = $(this).children("option:selected").val();
+                              if(back == "c1") $("#back").css('background-color','#fff');
+                              if(back == "c2") $("#back").css('background-color','#1aabde');
+                              if(back == "c3") $("#back").css('background-color','#000');
+                })
+
                 
             }
             else if($("select#cal_line").val() == "mid"){
+                $("#helix").css('display','none');
                 $("#1adv").show();
                 $("#3adv").hide();
                 $("#noadv").hide();
@@ -742,15 +469,16 @@ function visualisation(){
                 
                 $("#advert").css('display','block');
                 $("#advert").css('height','200px');
-                $("#head").css('background-image','url(dzielne/1dz_nie.jpg)');
+                $("#head").css('background-image','url(images/dzielne/1dz_nie.jpg)');
                 $("#head").css('width','320px');
                 $("#head").css('height','210px');
-                $("#fold").css('background-image','url(dzielne/1dz_big.png)');
+                $("#head").css('box-shadow','none');
+                $("#fold").css('background-image','url(images/dzielne/1dz_big.png)');
                 $("#fold").css('width','320px');
                 $("#fold").css('height','215px');
                 $("#back").css('height','385px');
                 $("#back").css('background-color','#000'); 
-                                                   
+
                 if($("select#cal_width").val("std")){
                         if($("select#cal_connect").val("big")){
                                 if($("select#cal_clock").val("noclock")){
@@ -758,25 +486,30 @@ function visualisation(){
                                         if($("select#cal_adv").val("1adv")){
                                             $("#advert").css('display','block');
                                             $("#back").css('height','385px');
-//                                            $("#ad").css('padding-top' '20px');
-//                                            $("#ad").css('padding-bottom', '20px')
+
 
                                                 if($("select#cal_back").val("c3")){
-                                                        $("#back").css('background-color','#000');  
+                                                        $("#back").css('background-color','#000');
 
                                                 }
-                                                        
+
                                         }
-                                                
+
                                 }
-                                        
+
                         }
-                                
+
                  }
             }
             })
             
                 
+            }
+            if(type == "2dz"){
+                $('#back').css('height', '420px');
+                if($("select#cal_connect").val() == "big"){
+                    $("#fold").css('background-image','url(images/dzielne/2dz_big.png)');
+                }
             }
                                                 
         })
