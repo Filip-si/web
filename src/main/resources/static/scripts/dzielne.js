@@ -305,12 +305,13 @@ function visualisation(){
                 $("#c3").show();
                 
                 $("#head").css('background-image','url(images/dzielne/1dz_nie.jpg)');
-                $("#head").css('width','320px');
+                $("#head").css('width','297px');
                 $("#head").css('height','210px');
                 $("#head").css('box-shadow','none');
                 $("#fold").css('background-image','url(images/dzielne/1dz_big.png)');
-                $("#fold").css('width','320px');
+                $("#fold").css('width','297px');
                 $("#fold").css('height','215px');
+                $("#fold").css('margin-left','-11.5px');
                 $("select#cal_width").val("std");
                 $("select#cal_connect").val("big");
                 $("select#cal_clock").val("noclock");
@@ -348,6 +349,7 @@ function visualisation(){
             // pozmieniać std/szer big/spirala
             else if($("select#cal_line").val() == "pre"){
                 $("#back").css('height','215px');
+                $("#back").css('width','297px');
                 $("#advert").css('display','none');
                 $("#std").show();
                 $("#wid").show();
@@ -372,46 +374,49 @@ function visualisation(){
                 $("select#cal_back").val("c1");
                 
                 $("#head").css('background-image','url(images/dzielne/1dz_nie.jpg)');
-                $("#head").css('width','320px');
+                $("#head").css('width','297px');
                 $("#head").css('height','210px');
                 $("#head").css('box-shadow','inset 4px 4px 15px 0px #000000');
                 $("#fold").css('background-image','url(images/dzielne/1dz_big.png)');
-                $("#fold").css('width','320px');
+                $("#fold").css('width','297px');
                 $("#fold").css('height','215px');
+                $("#fold").css('margin-left','-11.5px');
                 
-//                $("select#cal_width").change(function(){
-//                     var width = $(this).children("option:selected").val();
-//                     if(width == "std"){
-//                        $("#cal_img").css('width','320px');
-//                        $("#head").css('width','320px');
-//                        $("#headImg").css('width','320px');
-//                        $("#back").css('width','320px');
-//                        $('#fold').css('width','320px');
-//                        $('#advert').css('width','320px');
-//                        }
-//                     if(width == "wid"){
-//                        $("#cal_img").css('width','330px');
-//                        $("#head").css('width','330px');
-//                        $("#headImg").css('width','330px');
-//                        $("#back").css('width','330px');
-//                        $('#fold').css('width','330px');
-//                        $('#advert').css('width','330px');
-//                        }
-//                })
+                $("select#cal_width").change(function(){
+                     var width = $(this).children("option:selected").val();
+                     if(width == "std"){
+                        $("#head").css('width','297px');
+                        $("#fold").css('width','297px');
+                        $("#fold").css('margin-left','-11.5px');
+                        $("#helix").css('width','297px');
+                        $("#helix").css('overflow','hidden');
+                        $("#back").css('width','297px');
+                        }
+                     if(width == "wid"){
+                        $("#head").css('width','320px');
+                        $("#fold").css('width','320px');
+                        $("#fold").css('margin-left','0px');
+                        $("#helix").css('width','320px');
+                        $("#helix").css('overflow','hidden');
+                        $("#back").css('width','320px');
+                        }
+                })
 
                 $("select#cal_connect").change(function(){
                      var connect = $(this).children("option:selected").val();
                      if(connect == "big"){
                         $("#helix").css('display','none');
                         $("#fold").css('background-image','url(images/dzielne/1dz_big.png)');
-                        $("#fold").css('margin-top','0px');
+                        $("#fold").css('margin-top','6px');
+                        if($("select#cal_wid").val() == "std") $("#helix").css('width','297px');
+                        if($("select#cal_wid").val() == "wid") $("#helix").css('width','320px');
                         if($("select#cal_adv").val() == "noadv") $("#back").css('height','215px');
                         if($("select#cal_adv").val() == "1adv") $("#back").css('height','295px');
                         }
                      if(connect == "spi"){
                         $("#fold").css('margin-top','-7px');
                         $("#fold").css('background-image','url(images/dzielne/1dz_spi.png)');
-                        $("#helix").css('width','320px');
+//                        $("#helix").css('width','320px');
                         $("#helix").css('height','16px');
                         $("#helix").css('background-image','url(images/dzielne/helix.png)');
                         $("#helix").css('overflow','hidden');
@@ -420,8 +425,8 @@ function visualisation(){
                         $("#back").css('margin-top','-8px');
                         $("#helix").css('position','relative');
 
-
-
+                        if($("select#cal_wid").val() == "std") $("#helix").css('width','297px');
+                        if($("select#cal_wid").val() == "wid") $("#helix").css('width','320px');
                         if($("select#cal_adv").val() == "noadv") $("#back").css('height','215px');
                         if($("select#cal_adv").val() == "1adv") $("#back").css('height','295px');
                         }
@@ -475,12 +480,13 @@ function visualisation(){
                 $("#advert").css('display','block');
                 $("#advert").css('height','200px');
                 $("#head").css('background-image','url(images/dzielne/1dz_nie.jpg)');
-                $("#head").css('width','320px');
+                $("#head").css('width','297px');
                 $("#head").css('height','210px');
                 $("#head").css('box-shadow','none');
                 $("#fold").css('background-image','url(images/dzielne/1dz_big.png)');
-                $("#fold").css('width','320px');
+                $("#fold").css('width','297px');
                 $("#fold").css('height','215px');
+                $("#fold").css('margin-left','-11.5px');
                 $("#back").css('height','385px');
                 $("#back").css('background-color','#000'); 
 
