@@ -277,9 +277,10 @@ function visualisation(){
             $("#w4").hide();
             $("select#cal_var").val("w1");
             
-            $("select#cal_line").val("pickType");
+            $("select#cal_line").val("pickLine");
             $("select#cal_line").change(function(){
             if($("select#cal_line").val() == "eko"){
+                $("select#cal_type").val("1dz");
                 $("#back").css('width','297px');
                 $("#back").css('height','215px');
                 $("#advert").css('display','none');
@@ -349,6 +350,7 @@ function visualisation(){
             }
             // pozmieniać std/szer big/spirala
             else if($("select#cal_line").val() == "pre"){
+                $("select#cal_type").val("1dz");
                 $("#back").css('height','215px');
                 $("#back").css('width','297px');
                 $("#advert").css('display','none');
@@ -425,6 +427,7 @@ function visualisation(){
                         $("#helix").css('margin-top','-8px');
                         $("#back").css('margin-top','-8px');
                         $("#helix").css('position','relative');
+                        $("#helix2").css('display','none');
 
                         if($("select#cal_wid").val() == "std") $("#helix").css('width','297px');
                         if($("select#cal_wid").val() == "wid") $("#helix").css('width','320px');
@@ -467,6 +470,7 @@ function visualisation(){
                 
             }
             else if($("select#cal_line").val() == "mid"){
+                $("select#cal_type").val("1dz");
                 $("#helix").css('display','none');
                 $("#1adv").show();
                 $("#3adv").hide();
@@ -529,9 +533,10 @@ function visualisation(){
                 $("select#cal_var").val("w1");
 
 
-                $("select#cal_line").val("pickType");
+                $("select#cal_line").val("pickLine");
                 $("select#cal_line").change(function(){
                 if($("select#cal_line").val() == "eko"){
+                    $("select#cal_type").val("2dz");
                     $("#head").css('box-shadow','none');
                     $("#back").css('height','368px');
                     $("#advert").css('display','none');
@@ -588,7 +593,7 @@ function visualisation(){
                     })
                 }
                 if($("select#cal_line").val() == "pre"){
-
+                    $("select#cal_type").val("2dz");
                     $("#1adv").show();
                     $("#3adv").hide();
                     $("#noadv").show();
