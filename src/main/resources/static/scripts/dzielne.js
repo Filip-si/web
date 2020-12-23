@@ -305,7 +305,7 @@ function visualisation(){
                 $("#c1").show();
                 $("#c2").show();
                 $("#c3").show();
-                
+                $("#fold").css('margin-top','6px');
                 $("#head").css('background-image','url(images/dzielne/1dz_nie.jpg)');
                 $("#head").css('width','297px');
                 $("#head").css('height','210px');
@@ -321,6 +321,7 @@ function visualisation(){
                      var adv = $(this).children("option:selected").val();
                      if(adv == "noadv"){
                         $("#advert").css('display','none');
+                        $("#advert2dz").css('display','none');
                         $("#back").css('height','215px');
                         $("select#cal_back").change(function(){
                             var back = $(this).children("option:selected").val();
@@ -331,6 +332,7 @@ function visualisation(){
                      }
                      if(adv == "1adv"){
                         $("#advert").css('display','block');
+                        $("#advert2dz").css('display','none');
                         $("#back").css('height','295px');
                         $("select#cal_back").change(function(){
                            var back = $(this).children("option:selected").val();
@@ -419,7 +421,7 @@ function visualisation(){
                      if(connect == "spi"){
                         $("#fold").css('margin-top','-7px');
                         $("#fold").css('background-image','url(images/dzielne/1dz_spi.png)');
-//                        $("#helix").css('width','320px');
+
                         $("#helix").css('height','16px');
                         $("#helix").css('background-image','url(images/dzielne/helix.png)');
                         $("#helix").css('overflow','hidden');
@@ -450,11 +452,13 @@ function visualisation(){
                      var adv = $(this).children("option:selected").val();
                      if(adv == "noadv"){
                         $("#advert").css('display','none');
+                        $("#advert2dz").css('display','none');
                         $("#back").css('height','215px');
 
                      }
                      if(adv == "1adv"){
                         $("#advert").css('display','block');
+                        $("#advert2dz").css('display','none');
                         $("#back").css('height','295px');
                         }
 
@@ -539,6 +543,7 @@ function visualisation(){
                     $("select#cal_type").val("2dz");
                     $("#head").css('box-shadow','none');
                     $("#back").css('height','368px');
+                    $("#back").css('width','297px');
                     $("#advert").css('display','none');
                     $("#advert2dz").css('display','none');
                     $("#helix").css('display','none');
@@ -573,6 +578,7 @@ function visualisation(){
                     $("#fold").css('width','297px');
                     $("#fold").css('height','368px');
                     $("#fold").css('margin-left','-11.5px');
+                    $("#fold").css('margin-top','6px');
 
                     $("select#cal_adv").change(function(){
                     if($("select#cal_adv").val() == "noadv"){
@@ -602,6 +608,9 @@ function visualisation(){
                     $("#c2").show();
                     $("#c3").show();
 
+                    $("#helix").css('display','none');
+                    $("#helix2").css('display','none');
+
 
                     $("select#cal_adv").val("noadv");
                     $("#head").css('background-image','url(images/dzielne/2dz_nie.jpg)');
@@ -622,6 +631,7 @@ function visualisation(){
                         $("#fold").css('width','297px');
                         $("#fold").css('margin-left','-11.5px');
                         $("#helix").css('width','297px');
+                        $("#helix2").css('width','297px');
                         $("#helix").css('overflow','hidden');
                         $("#back").css('width','297px');
                         }
@@ -630,6 +640,7 @@ function visualisation(){
                         $("#fold").css('width','320px');
                         $("#fold").css('margin-left','0px');
                         $("#helix").css('width','320px');
+                        $("#helix2").css('width','320px');
                         $("#helix").css('overflow','hidden');
                         $("#back").css('width','320px');
                         }
@@ -650,7 +661,7 @@ function visualisation(){
                          if(connect == "spi"){
                             $("#fold").css('margin-top','-7px');
                             $("#fold").css('background-image','url(images/dzielne/2dz_spi.png)');
-    //                        $("#helix").css('width','320px');
+
                             $("#helix").css('height','16px');
                             $("#helix2").css('height','16px');
                             $("#helix").css('background-image','url(images/dzielne/helix.png)');
