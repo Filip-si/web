@@ -10,19 +10,6 @@ $(document).ready(function(){
             $("#w3").hide();
             $("#w4").hide();
             $("select#cal_var").val("w1");
-//                $("#head").css('background-image','url(images/dzielne/1dz_nie.jpg)');
-//                $("#head").css('width','320px');
-//                $("#head").css('height','210px');
-//
-//                $("#fold").css('background-image','url(images/dzielne/1dz_big.png');
-//                $("#fold").css('width','320px');
-//                $("#fold").css('height','215px');
-//                if($("select#cal_adv").val() == "noadv"){
-//                       $("#advert").css('display','none');
-//
-//                }else if($("select#cal_adv").val() == "1adv"){
-//                       $("#advert").css('display','block');
-//                }
 
             if($("select#cal_line").val() == "eko"){
 

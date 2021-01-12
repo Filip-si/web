@@ -78,7 +78,7 @@ $(document).ready(function(){
             $("#w3").hide();
             $("#w4").hide();
             $("select#cal_var").val("w1");
-//            $("select#cal_line").val("eko");
+
             if($("select#cal_line").val() == "eko"){
 
                 $("#std").show();
@@ -350,7 +350,6 @@ function visualisation(){
 
 
             }
-            // pozmieniać std/szer big/spirala
             else if($("select#cal_line").val() == "pre"){
                 $("select#cal_type").val("1dz");
                 $("#back").css('height','215px');
@@ -573,7 +572,6 @@ function visualisation(){
                     $("#head").css('background-image','url(images/dzielne/2dz_nie.jpg)');
                     $("#head").css('width','297px');
                     $("#head").css('height','210px');
-                    $("#head").css('box-shadow','none');
                     $("#fold").css('background-image','url(images/dzielne/2dz_big.png)');
                     $("#fold").css('width','297px');
                     $("#fold").css('height','368px');
@@ -652,7 +650,7 @@ function visualisation(){
                             $("#helix").css('display','none');
                             $("#helix2").css('display','none');
                             $("#fold").css('background-image','url(images/dzielne/2dz_big.png)');
-                            $("#fold").css('margin-top','6px');
+                            $("#fold").css('margin-top','0px');
                             if($("select#cal_wid").val() == "std") $("#helix").css('width','297px');
                             if($("select#cal_wid").val() == "wid") $("#helix").css('width','320px');
                             if($("select#cal_adv").val() == "noadv") $("#back").css('height','368px');
@@ -722,10 +720,7 @@ function visualisation(){
             })
     }
             if(type == "3dz"){
-//            $("#1adv").show();
-//            $("#3adv").show();
-//            $("#noadv").show();
-//            $("select#cal_adv").val("3adv");
+
 
             $("select#cal_line").val("pickLine");
             $("select#cal_line").change(function(){
@@ -849,6 +844,150 @@ function visualisation(){
                                   }
                     })
 
+
+            }
+            if($("select#cal_line").val() == "pre"){
+                $("select#cal_type").val("3dz");
+                $("#head").css('background-image','url(images/dzielne/3dz_nie.jpg)');
+                $("#head").css('box-shadow','inset 4px 4px 15px 0px #000000');
+                $("#head").css('width','297px');
+                $("#head").css('height','210px');
+
+                $("#back").css('width','297px');
+                $("#back").css('height','630px');
+
+                $("#fold").css('background-image','url(images/dzielne/3dz_big_1.png)');
+                $("#fold").css('width','297px');
+                $("#fold").css('height','510px');
+                $("#fold").css('margin-left','-11.5px');
+                $("#fold").css('margin-top','0px');
+
+                $("#helix").css('display','none');
+                $("#helix2").css('display','none');
+
+                $("#1adv").show();
+                $("#3adv").show();
+                $("#noadv").show();
+
+                $("select#cal_width").change(function(){
+                    var width = $(this).children("option:select").val();
+                        if(width == "std"){
+                            $("#head").css('width','297px');
+                            $("#fold").css('width','297px');
+                            $("#fold").css('margin-left','-11.5px');
+                            $("#helix").css('width','297px');
+                            $("#helix").css('overflow','hidden');
+                            $("#back").css('width','297px');
+                        }
+
+                        if(width == "wid"){
+                            $("#head").css('width','320px');
+                            $("#fold").css('width','320px');
+                            $("#fold").css('margin-left','0px');
+                            $("#helix").css('width','320px');
+                            $("#helix").css('overflow','hidden');
+                            $("#back").css('width','320px');
+                        }
+
+                })
+
+
+
+                $("select#cal_back").change(function(){
+                              var back = $(this).children("option:selected").val();
+                                  if(back == "c1") $("#back").css('background-color','#fff');
+                                  if(back == "c2") $("#back").css('background-color','#1aabde');
+                                  if(back == "c3") $("#back").css('background-color','#000');
+                    })
+
+                $("select#cal_var").change(function(){
+                              var varCal = $(this).children("option:selected").val();
+                                  if(varCal == "w1" && $("select#cal_adv").val("noadv")){
+                                    $("#fold").css('background-image','url(images/dzielne/3dz_big_1.png)');
+                                    $("#fold").css('height','510px');
+                                    }
+                                  if(varCal == "w1" && $("select#cal_adv").val("1adv")){
+                                    $("#fold").css('background-image','url(images/dzielne/3dz_big_1.png)');
+                                    $("#fold").css('height','510px');
+                                    }
+                                  if(varCal == "w1" && $("select#cal_adv").val("3adv") ){
+                                    $("#fold").css('background-image','url(images/dzielne/3dz_big_13.png)');
+                                    $("#fold").css('height','630px');
+                                    }
+                                  if(varCal == "w2" && $("select#cal_adv").val("noadv")){
+                                    $("#fold").css('background-image','url(images/dzielne/3dz_big_2.png)');
+                                    $("#fold").css('height','510px');
+                                    }
+                                  if(varCal == "w2" && $("select#cal_adv").val("1adv")){
+                                    $("#fold").css('background-image','url(images/dzielne/3dz_big_2.png)');
+                                    $("#fold").css('height','510px');
+                                    }
+                                  if(varCal == "w2" && $("select#cal_adv").val("3adv") ){
+                                    $("#fold").css('background-image','url(images/dzielne/3dz_big_23.png)');
+                                    $("#fold").css('height','630px');
+                                  }
+                                  if(varCal == "w3" && $("select#cal_adv").val("noadv")){
+                                    $("#fold").css('background-image','url(images/dzielne/3dz_big_3.png)');
+                                    $("#fold").css('height','510px');
+                                  }
+                                  if(varCal == "w3" && $("select#cal_adv").val("1adv")){
+                                    $("#fold").css('background-image','url(images/dzielne/3dz_big_3.png)');
+                                    $("#fold").css('height','510px');
+                                  }
+                                  if(varCal == "w3" && $("select#cal_adv").val("3adv") ){
+                                    $("#fold").css('background-image','url(images/dzielne/3dz_big_33.png)');
+                                    $("#fold").css('height','630px');
+                                  }
+                                  if(varCal == "w4" && $("select#cal_adv").val("noadv") ){
+                                    $("#fold").css('background-image','url(images/dzielne/3dz_big_4.png)');
+                                    $("#fold").css('height','510px');
+                                  }
+                                  if(varCal == "w4" && $("select#cal_adv").val("1adv") ){
+                                    $("#fold").css('background-image','url(images/dzielne/3dz_big_4.png)');
+                                    $("#fold").css('height','510px');
+                                  }
+                                  if(varCal == "w4" && $("select#cal_adv").val("3adv") ) {
+                                    $("#fold").css('background-image','url(images/dzielne/3dz_big_43.png)');
+                                    $("#fold").css('height','630px');
+                                  }
+                    })
+
+                $("select#cal_adv").change(function(){
+                              var adv = $(this).children("option:selected").val();
+                                  if(adv == "noadv"){
+                                        $("#back").css('height','510px');
+                                        $("#fold").css('height','510px');
+                                        $("#advert").css('display','none');
+                                        $("#advert2").css('display','none');
+                                        if($("select#cal_var").val() == "w1") $("#fold").css('background-image','url(images/dzielne/3dz_big_1.png)');
+                                        if($("select#cal_var").val() == "w2") $("#fold").css('background-image','url(images/dzielne/3dz_big_2.png)');
+                                        if($("select#cal_var").val() == "w3") $("#fold").css('background-image','url(images/dzielne/3dz_big_3.png)');
+                                        if($("select#cal_var").val() == "w4") $("#fold").css('background-image','url(images/dzielne/3dz_big_4.png)');
+                                  }
+                                  if(adv == "1adv"){
+                                        $("#back").css('height','630px');
+                                        $("#fold").css('height','510px');
+                                        $("#advert").css('display','none');
+                                        $("#advert2").css('display','none');
+                                        if($("select#cal_var").val() == "w1") $("#fold").css('background-image','url(images/dzielne/3dz_big_1.png)');
+                                        if($("select#cal_var").val() == "w2") $("#fold").css('background-image','url(images/dzielne/3dz_big_2.png)');
+                                        if($("select#cal_var").val() == "w3") $("#fold").css('background-image','url(images/dzielne/3dz_big_3.png)');
+                                        if($("select#cal_var").val() == "w4") $("#fold").css('background-image','url(images/dzielne/3dz_big_4.png)');
+
+                                  }
+                                  if(adv == "3adv"){
+                                        $("#back").css('height','630px');
+                                        $("#fold").css('height','630px');
+                                        $("#advert").css('display','none');
+                                        $("#advert2").css('display','none');
+
+                                        if($("select#cal_var").val() == "w1") $("#fold").css('background-image','url(images/dzielne/3dz_big_13.png)');
+                                        if($("select#cal_var").val() == "w2") $("#fold").css('background-image','url(images/dzielne/3dz_big_23.png)');
+                                        if($("select#cal_var").val() == "w3") $("#fold").css('background-image','url(images/dzielne/3dz_big_33.png)');
+                                        if($("select#cal_var").val() == "w4") $("#fold").css('background-image','url(images/dzielne/3dz_big_43.png)');
+
+                                  }
+                    })
 
             }
             })
