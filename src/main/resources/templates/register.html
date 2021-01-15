@@ -49,19 +49,19 @@
         </div>
         <div id="form" class="col-xs-12 col-sm-12 col-md-12 col-lg-6" >
             <p class="name col-xs-12 col-sm-12 col-md-12 col-lg-12" >Rejestracja</p>
-            <form id="registerForm" class="col-xs-12 col-sm-12 col-md-12 col-lg-12" >
+            <form id="registerForm" class="col-xs-12 col-sm-12 col-md-12 col-lg-12" th:action="@{/register}"  th:object="${appUser}" method="post">
                 <br>
-                <input class="field col-xs-12 col-sm-12 col-md-12 col-lg-12" placeholder="Wpisz swój adres e-mail" >
-                <br>
-                <br>
-                <input class="field col-xs-12 col-sm-12 col-md-12 col-lg-12" type="password" placeholder="Wpisz hasło..." >
+                <input class="field col-xs-12 col-sm-12 col-md-12 col-lg-12" th:field="*{appUserEmail}" placeholder="Wpisz swój adres e-mail" >
                 <br>
                 <br>
-                <input class="field col-xs-12 col-sm-12 col-md-12 col-lg-12"  type="password" placeholder="Powtórz hasło..." >
+                <input class="field col-xs-12 col-sm-12 col-md-12 col-lg-12" th:field="*{appUserEncryptedPassword}" type="password" placeholder="Wpisz hasło..." >
+                <br>
+                <br>
+                <input class="field col-xs-12 col-sm-12 col-md-12 col-lg-12" th:field="*{appUserEncryptedPassword}" type="password" placeholder="Powtórz hasło..." >
                 <br><br>
                 <input class="checkboxField" type="checkbox"> Akceptuję <a href="rules">regulamin</a>
                 <br><br>
-                <button  type="button" class="but1 btn-info col-xs-12 col-sm-12 col-md-12 col-lg-12" >Utwórz konto</button>
+                <button  type="submit" class="but1 btn-info col-xs-12 col-sm-12 col-md-12 col-lg-12" >Utwórz konto</button>
                 <br><br>
                 <a href="login"><button  type="button" class="but2 btn btn-success col-xs-12 col-sm-12 col-md-12 col-lg-12" >Posiadasz już u nas konto? Zaloguj się.</button></a>
             </form>

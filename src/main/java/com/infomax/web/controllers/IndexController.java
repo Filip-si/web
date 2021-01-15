@@ -36,12 +36,7 @@ public class IndexController {
         return modelAndView;
     }
 
-    @RequestMapping(value = "/register", method = RequestMethod.GET)
-    public ModelAndView showRegistration(){
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("register");
-        return modelAndView;
-    }
+
 
 
 
