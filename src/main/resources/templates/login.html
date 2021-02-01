@@ -49,11 +49,11 @@
         <div id="form" class="col-xs-12 col-sm-12 col-md-12 col-lg-6" >
 
             <p class="name col-xs-12 col-sm-12 col-md-12 col-lg-12" >Logowanie</p>
-            <form id="loginForm" class="col-xs-12 col-sm-12 col-md-12 col-lg-12" th:action="@{/login}" method="post">
+            <form id="loginForm" class="col-xs-12 col-sm-12 col-md-12 col-lg-12" th:action="@{/login}"  commandName="appUser" method="post">
                 <br>
-                <input class="field col-xs-12 col-sm-12 col-md-12 col-lg-12" type="email" name="username" placeholder="Wpisz swój adres e-mail" >
+                <input class="field col-xs-12 col-sm-12 col-md-12 col-lg-12"  id="email" type="email" name="email" placeholder="Wpisz swój adres e-mail" >
                 <br><br>
-                <input class="field col-xs-12 col-sm-12 col-md-12 col-lg-12" type="password" name="password" placeholder="Wpisz hasło..." >
+                <input class="field col-xs-12 col-sm-12 col-md-12 col-lg-12"  id="password" type="password"  name="password" placeholder="Wpisz hasło..." >
                 <br><br>
                 <p th:if="${loginError}" class="error">Niepoprawne dane logowania<br></p>
                 <button  type="submit" class="but1 btn btn-success col-xs-12 col-sm-12 col-md-12 col-lg-12" >Zaloguj</button>
@@ -69,5 +69,4 @@
     </footer>
 </div>
 </body>
-</html>
 </html>

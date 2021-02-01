@@ -7,8 +7,9 @@ import org.springframework.stereotype.Repository;
 import java.math.BigInteger;
 import java.util.List;
 
-@Repository
+@Repository("appUserRepository")
 public interface AppUserRepository extends JpaRepository<AppUser, BigInteger> {
-    List<AppUser> findByAppUserEmail(String email);
+//    List<AppUser> findByAppUserEmail(String email);
     List<AppUser> findAll();
+    AppUser findByAppUserEmail(String email);
 }

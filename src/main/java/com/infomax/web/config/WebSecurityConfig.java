@@ -1,45 +1,62 @@
 package com.infomax.web.config;
 
 
+
+import com.infomax.web.services.AppUserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.web.authentication.logout.LogoutSuccessHandler;
-import org.thymeleaf.spring5.SpringTemplateEngine;
+
+import javax.sql.DataSource;
 
 
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+
+    @Autowired
+    private DataSource dataSource;
+
+    @Autowired
+    public BCryptPasswordEncoder bCryptPasswordEncoder;
+
+    @Value("${spring.queries.users-query}")
+    private String usersQuery;
+
+    @Value("${spring.queries.roles-query}")
+    private String rolesQuery;
+
     @Override
-    protected void configure(final AuthenticationManagerBuilder auth) throws  Exception{
-        auth.inMemoryAuthentication()
-                .withUser("us1").password(passwordEncoder().encode("pasus1")).roles("USER")
-                .and()
-                .withUser("us2").password(passwordEncoder().encode("pasus2")).roles("USER")
-                .and()
-                .withUser("ad1").password(passwordEncoder().encode("pasad1")).roles("ADMIN");
+    protected void configure(AuthenticationManagerBuilder auth) throws  Exception{
+        auth.jdbcAuthentication()
+                .usersByUsernameQuery(usersQuery)
+                .authoritiesByUsernameQuery(rolesQuery)
+                .dataSource(dataSource).passwordEncoder(bCryptPasswordEncoder);
     }
+
     @Override
     protected void configure(final HttpSecurity http) throws Exception{
-                http
-                        .csrf().disable()
-                        .authorizeRequests()
-                        .antMatchers("/admin/**").hasRole("ADMIN")
-                        .antMatchers("/logout").hasRole("USER")
-                        .antMatchers("/","/index","/index#contact","/login","/register").anonymous()
+                http.authorizeRequests()
+                        .antMatchers("/admin/**" , "/news").hasRole("{ROLE_ADMIN}")
+                        .antMatchers("/logout").hasAnyRole("{ROLE_USER}","{ROLE_ADMIN}")
+                        .antMatchers("/","/index","/index#contact","/login","/register","/login-error").anonymous()
                         .antMatchers("/dzielne","/dzielne#contact","/logout").authenticated()
                         .and()
+                        .csrf().disable()
                         .formLogin()
                         .loginPage("/login")
                         .loginProcessingUrl("/login")
                         .defaultSuccessUrl("/dzielne")
+                        .usernameParameter("email")
+                        .passwordParameter("password")
                         .failureUrl("/login-error")
                         //.failureHandler(authe)
                         .and()
@@ -51,10 +68,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 
 
-    @Bean
-    public PasswordEncoder passwordEncoder(){
-        return new BCryptPasswordEncoder();
-    }
+
 
 
 

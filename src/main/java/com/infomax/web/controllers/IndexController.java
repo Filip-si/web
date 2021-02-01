@@ -20,24 +20,12 @@ public class IndexController {
         modelAndView.setViewName("index");
         return modelAndView;
     }
-
-    @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public ModelAndView showLogin(){
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("login");
-        return modelAndView;
-    }
-
-    @RequestMapping(value = "/login-error")
+    @RequestMapping(value = "/login-error", method = RequestMethod.GET)
     public ModelAndView loginError(Model model){
         ModelAndView modelAndView = new ModelAndView();
         model.addAttribute("loginError", true);
         modelAndView.setViewName("login");
         return modelAndView;
     }
-
-
-
-
 
 }
