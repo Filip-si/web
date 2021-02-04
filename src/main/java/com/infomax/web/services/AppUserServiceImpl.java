@@ -41,29 +41,5 @@ public class AppUserServiceImpl implements AppUserService{
         return appUserRepository.findByAppUserEmail(email);
     }
 
-    /*    @Autowired
-    private BCryptPasswordEncoder passwordEncoder;
 
-    public AppUserDetailsServiceImpl(AppUserRepository appUserRepository){
-        super();
-        this.appUserRepository = appUserRepository;
-    }*/
-
-
-/*    @Override
-    public AppUser save(AppUserDTO registrationDTO) {
-        AppUser appUser = new AppUser(registrationDTO.getFirstName(),registrationDTO.getLastName(),registrationDTO.getAppUserEmail(),
-                                        passwordEncoder.encode(registrationDTO.getAppUserEncryptedPassword()),registrationDTO.getStatus());
-        return appUserRepository.save(appUser);
-    }*/
-
-/*    @Override
-    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        final Optional<AppUser> optionalAppUser = appUserRepository.findByAppUserEmail(email);
-        if(optionalAppUser.isPresent()){
-            return (UserDetails) optionalAppUser.get();
-        }else {
-            throw new UsernameNotFoundException(MessageFormat.format("User with email {0} cannot be found", email));
-        }
-    }*/
 }

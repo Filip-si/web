@@ -44,15 +44,24 @@
                     <li class="nav-item col-xs-12 col-sm-12 col-md-12 col-lg-2">
                         <a class="nav-link" href="#contact"><i class="far fa-envelope"></i> Kontakt</a>
                     </li>
-                    <li sec:authorize="!hasAuthority('USER')" class="nav-item col-xs-12 col-sm-12 col-md-12 col-lg-2">
+                    <li class="nav-item col-xs-12 col-sm-12 col-md-12 col-lg-2">
+                        <a class="nav-link" href="about"><i class="far fa-envelope"></i> O nas</a>
+                    </li>
+                    <li th:if="${loggedUser} == null" class="nav-item col-xs-12 col-sm-12 col-md-12 col-lg-2">
                         <a class="nav-link" href="login"><i class="fas fa-sign-in-alt"></i> Zaloguj się</a>
                     </li>
-                    <li sec:authorize="hasAuthority('USER')" class="nav-item col-xs-12 col-sm-12 col-md-12 col-lg-2">
+                    <li th:if="${loggedUser}!=null" class="nav-item col-xs-12 col-sm-12 col-md-12 col-lg-3">
+                        <a class="nav-link"><i class="fas fa-user-alt"></i> Moje konto [<label th:text="${loggedUser.firstName}"></label>]</a>
+                    </li>
+                    <li th:if="${loggedUser} != null" class="nav-item col-xs-12 col-sm-12 col-md-12 col-lg-2">
                         <a class="nav-link" href="logout"><i class="fas fa-sign-out-alt"></i> Wyloguj</a>
                     </li>
-                    <li sec:authorize="!hasAuthority('USER')" class="nav-item col-xs-12 col-sm-12 col-md-12 col-lg-2">
+                    <li th:if="${loggedUser} == null" class="nav-item col-xs-12 col-sm-12 col-md-12 col-lg-2">
                         <a class="nav-link" href="register"><i class="fas fa-user-plus"></i> Utwórz konto</a>
                     </li>
+
+
+
                 </ul>
             </div>
         </div>

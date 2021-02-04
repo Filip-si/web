@@ -49,7 +49,7 @@
         </div>
         <div id="form" class="col-xs-12 col-sm-12 col-md-12 col-lg-6" >
             <p class="name col-xs-12 col-sm-12 col-md-12 col-lg-12" >Rejestracja</p>
-            <form id="registerForm" class="col-xs-12 col-sm-12 col-md-12 col-lg-12" th:action="@{/register}"  modelAttribute="appUser" th:object="${appUser}" method="post">
+            <form id="registerForm" class="col-xs-12 col-sm-12 col-md-12 col-lg-12" th:action="@{/register}" th:object="${appUser}" method="post">
                 <br>
                 <input class="field col-xs-12 col-sm-12 col-md-12 col-lg-12" th:field="*{firstName}" placeholder="Wpisz swoje imię" >
                 <br>

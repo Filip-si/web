@@ -20,8 +20,6 @@ public class AppRole {
     @OneToMany(mappedBy = "id")
     private Set<AppUser> appUsers;
 
-/*    @OneToMany(mappedBy = "appRole", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private Set<AppUser> appUsers;*/
 
     public AppRole(){}
 

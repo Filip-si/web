@@ -33,16 +33,6 @@ public class AppUser {
     private Set<AppRole> appRoles;
 
 
-/*    @ManyToMany
-    private Set<AppRole> roles;*/
-
-//    @Column(name = "id_role")
-//    public final static AppRole DEFAULT_ROLE = new AppRole(1L,"ROLE_USER");
-//    @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
-//    @JoinColumn(name = "id_role", referencedColumnName = "id"  )
-//    private AppRole role = DEFAULT_ROLE;
-
-
     public AppUser() {
     }
 
@@ -109,5 +99,13 @@ public class AppUser {
 
     public void setAppUserEncryptedPasswordConfirm(String appUserEncryptedPasswordConfirm) {
         this.appUserEncryptedPasswordConfirm = appUserEncryptedPasswordConfirm;
+    }
+
+    public Set<AppRole> getAppRoles() {
+        return appRoles;
+    }
+
+    public void setAppRoles(Set<AppRole> appRoles) {
+        this.appRoles = appRoles;
     }
 }

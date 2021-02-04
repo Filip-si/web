@@ -2,16 +2,17 @@ package com.infomax.web.controllers;
 
 import com.infomax.web.models.AppUser;
 import com.infomax.web.services.AppUserDetailsServiceImpl;
+import com.infomax.web.services.UserPrincipalDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
-
-
-import java.util.Map;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class LoginController {
@@ -19,35 +20,29 @@ public class LoginController {
     @Autowired
     private AppUserDetailsServiceImpl appUserService;
 
-    @GetMapping(value = "/login")
-    public String showLogin(Model model){
+    @Autowired
+    private UserPrincipalDetailsService principalDetailsService;
 
-        return "login";
-
-    }
-
-
-
-/*    @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public String showLogin(Map<String, Object> model){
-        AppUser appUser = new AppUser();
-        model.put("appUser", appUser.getAppUserEmail());
-        model.put("appUser", appUser.getAppUserEncryptedPassword());
-        return "login";
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    public ModelAndView showLogin(){
+        ModelAndView mav = new ModelAndView();
+        mav.addObject("loggedUser",principalDetailsService.getLoggedUser());
+        mav.addObject("roleUser",principalDetailsService.isAdmin());
+        mav.setViewName("login");
+        return mav;
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public String login(AppUser appUser){
-        appUserService.loadUserByUsername(appUser.getAppUserEmail());
-        return "login";
-    }*/
+    public ModelAndView login(AppUser appUser){
+        ModelAndView mav = new ModelAndView();
+        return mav;
+    }
 
-//
-//    @PostMapping("/login")
-//    public String loginForm(@ModelAttribute("appUser") AppUserDTO appUser){
-//        Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(appUser.getAppUserEmail(),appUser.getAppUserEncryptedPassword()));
-//
-//        return "news";
+//    @RequestMapping(value = "/login", method = RequestMethod.POST)
+//    public String login(ModelMap model, @RequestParam String email,@RequestParam String password){
+//        model.put("appUserEmail", email);
+//        model.put("appUserEncryptedPasswordConfirm", password);
+//        return "index";
 //    }
 
 

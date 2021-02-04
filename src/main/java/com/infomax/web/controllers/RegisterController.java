@@ -7,6 +7,7 @@ import com.infomax.web.models.AppUser;
 import com.infomax.web.services.AppUserDetailsServiceImpl;
 import com.infomax.web.services.AppUserServiceImpl;
 
+import com.infomax.web.services.UserPrincipalDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Controller;
@@ -20,6 +21,9 @@ public class RegisterController {
     @Autowired
     private AppUserServiceImpl appUserService;
 
+    @Autowired
+    private UserPrincipalDetailsService principalDetailsService;
+
 /*    @Autowired
     private AppUserValidator appUserValidator;
 
@@ -29,12 +33,15 @@ public class RegisterController {
     @GetMapping("/register")
     public String showRegisterPage(Model model){
         model.addAttribute("appUser", new AppUser());
+        model.addAttribute("loggedUser", principalDetailsService.getLoggedUserEmail());
+        model.addAttribute("roleUser", principalDetailsService.isAdmin());
         return "register";
     }
 
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     public String registration(@ModelAttribute("appUser") AppUserDTO appUser, BindingResult bindingResult, Model model){
 //        appUserValidator.validate(appUser, bindingResult);
+
 
         if(bindingResult.hasErrors()){
             return "register";
