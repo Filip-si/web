@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
 </head>
@@ -11,7 +11,9 @@
         </div>
 
         <div class="info col-xs-10 col-sm-10 col-md-10 col-lg-11">
-            <h4>Napisz do nas e-mail</h4>
+            <h4 th:if="${loggedUser} != null">Witaj <label th:text="${loggedUser.firstName}"></label> napisz do nas e-mail</h4>
+            <h4 ><p th:if="${loggedUser} == null">Witaj napisz do nas e-mail</p></h4>
+            <br>
             <div class="row">
 
                 <!--Grid column-->
@@ -22,7 +24,7 @@
                         <div class="row">
 
                             <!--Grid column-->
-                            <div class="col-md-6">
+                            <div class="col-md-6" th:if="${loggedUser} == null">
                                 <div class="md-form mb-0">
                                     <input type="text" id="name" name="name" class="form-control" placeholder="Podaj swoje imię"><br>
                                     <!--                                                <label for="name" class="">Your name</label>-->
@@ -31,9 +33,9 @@
                             <!--Grid column-->
 
                             <!--Grid column-->
-                            <div class="col-md-6">
+                            <div class="col-md-6" th:if="${loggedUser} == null">
                                 <div class="md-form mb-0">
-                                    <input type="text" id="email" name="email" class="form-control" placeholder="Podaj swój adres e-mail"><br>
+                                    <input type="email" id="email" name="email" class="form-control" placeholder="Podaj swój adres e-mail"><br>
                                     <!--                                                <label for="email" class="">Your email</label>-->
                                 </div>
                             </div>
@@ -46,7 +48,13 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="md-form mb-0">
-                                    <input type="text" id="subject" name="subject" class="form-control" placeholder="Temat"><br>
+<!--                                    <input type="text" id="subject" name="subject" class="form-control" placeholder="Temat"><br>-->
+                                    <select id="subject" name="subject" class="form-control" placeholder="Temat">
+                                        <option selected="true" disabled>Wybierz temat wiadomości</option>
+                                        <option>Konfiguracja</option>
+                                        <option>Zapytanie o produkt</option>
+                                        <option>Zamówienie</option>
+                                    </select>
                                     <!--                                                <label for="subject" class="">Subject</label>-->
                                 </div>
                             </div>
@@ -54,6 +62,7 @@
                         <!--Grid row-->
 
                         <!--Grid row-->
+                        <br>
                         <div class="row">
 
                             <!--Grid column-->
@@ -112,49 +121,74 @@
             </thead>
             <tbody>
             <tr>
-                <td>Jan Nowak</td>
+                <td>Duda Barbara</td>
                 <td>102-330-440</td>
-                <td>dsds@mdo.pl</td>
+                <td>barbara.duda@infomax.pl</td>
             </tr>
             <tr>
-                <td>Jan Nowak</td>
+                <td>Kopeć Małgorzata</td>
                 <td>102-330-440</td>
-                <td>dsds@mdo.pl</td>
+                <td>malgorzata.kopec@infomax.pl</td>
             </tr>
             <tr>
-                <td>Jan Nowak</td>
+                <td>Topolska Iwona</td>
                 <td>102-330-440</td>
-                <td>dsds@mdo.pl</td>
+                <td>iwona.topolska@infomax.pl</td>
             </tr>
             <tr>
-                <td>Jan Nowak</td>
+                <td>Lewicka Irena</td>
                 <td>102-330-440</td>
-                <td>dsds@mdo.pl</td>
+                <td>irena.lewicka@infomax.pl</td>
             </tr>
             <tr>
-                <td>Jan Nowak</td>
+                <td>Orzechowski Dariusz</td>
                 <td>102-330-440</td>
-                <td>dsds@mdo.pl</td>
+                <td>transport@infomax.pl</td>
             </tr>
             <tr>
-                <td>Jan Nowak</td>
+                <td>Windys Grażyna</td>
                 <td>102-330-440</td>
-                <td>dsds@mdo.pl</td>
+                <td>transport@infomax.pl</td>
             </tr>
             <tr>
-                <td>Jan Nowak</td>
+                <td>Stanek Joanna</td>
                 <td>102-330-440</td>
-                <td>dsds@mdo.pl</td>
+                <td>joanna.stanek@infomax.pl</td>
             </tr>
             <tr>
-                <td>Jan Nowak</td>
+                <td>Malec Irena</td>
                 <td>102-330-440</td>
-                <td>dsds@mdo.pl</td>
+                <td>irena.malec@infomax.pl</td>
             </tr>
             <tr>
-                <td>Jan Nowak</td>
+                <td>Bojczuk Ewa</td>
                 <td>102-330-440</td>
-                <td>dsds@mdo.pl</td>
+                <td>ewa.bojczuk@infomax.pl</td>
+            </tr>
+            <tr>
+                <td>Kalinowska Monika</td>
+                <td>102-330-440</td>
+                <td>monika.kalinowska@infomax.pl</td>
+            </tr>
+            <tr>
+                <td>Grzelak Marta</td>
+                <td>102-330-440</td>
+                <td>marta.grzelak@infomax.pl</td>
+            </tr>
+            <tr>
+                <td>Działowski Waldemar</td>
+                <td>102-330-440</td>
+                <td>waldemar.dzialowski@infomax.pl</td>
+            </tr>
+            <tr>
+                <td>Lewicki Grzegorz</td>
+                <td>102-330-440</td>
+                <td>grzegorz.lewicki@infomax.pl</td>
+            </tr>
+            <tr>
+                <td>Szczepanik Zbigniew</td>
+                <td>102-330-440</td>
+                <td>zbigniew.szczepanik@infomax.pl</td>
             </tr>
             </tbody>
         </table>

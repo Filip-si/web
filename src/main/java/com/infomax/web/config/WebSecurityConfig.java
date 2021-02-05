@@ -2,7 +2,7 @@ package com.infomax.web.config;
 
 
 
-import com.infomax.web.services.AppUserDetailsServiceImpl;
+//import com.infomax.web.services.AppUserDetailsServiceImpl;
 import com.infomax.web.services.AppUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -33,8 +33,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     public PasswordEncoder bCryptPasswordEncoder;
 
 
-    @Autowired
-    public AppUserDetailsServiceImpl appUserDetailsService;
+//    @Autowired
+//    public AppUserDetailsServiceImpl appUserDetailsService;
 
     @Value("${spring.queries.users-query}")
     private String usersQuery;
@@ -57,7 +57,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .csrf().disable()
                 .authorizeRequests()
                 .antMatchers("/admin/**" , "/news").hasAuthority("2")
-                .antMatchers("/","/index/**","/login*","/register","/login-error").permitAll()
+                .antMatchers("/","/index/**","/login*","/register","/login-error","/admin-panel","/admin-panel/**").permitAll()
                 .antMatchers("/dzielne").hasAuthority("1")
                 .and()
                 .formLogin()

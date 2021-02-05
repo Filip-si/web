@@ -19,7 +19,26 @@ import java.util.Properties;
 @Controller
 public class IndexController {
     @Autowired
+
     private UserPrincipalDetailsService principalDetailsService;
+
+    @RequestMapping(value = "/", method = RequestMethod.GET)
+    public ModelAndView showPage(){
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("index");
+        modelAndView.addObject("loggedUser",principalDetailsService.getLoggedUser());
+        modelAndView.addObject("roleUser",principalDetailsService.isAdmin());
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/contact", method = RequestMethod.GET)
+    public ModelAndView showContact(){
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("contact");
+        modelAndView.addObject("loggedUser",principalDetailsService.getLoggedUser());
+        modelAndView.addObject("roleUser",principalDetailsService.isAdmin());
+        return modelAndView;
+    }
 
     @RequestMapping(value = "/index", method = RequestMethod.GET)
     public ModelAndView showIndex(){

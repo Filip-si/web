@@ -1,7 +1,7 @@
 package com.infomax.web.controllers;
 
 import com.infomax.web.models.AppUser;
-import com.infomax.web.services.AppUserDetailsServiceImpl;
+//import com.infomax.web.services.AppUserDetailsServiceImpl;
 import com.infomax.web.services.UserPrincipalDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -17,8 +17,8 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class LoginController {
 
-    @Autowired
-    private AppUserDetailsServiceImpl appUserService;
+//    @Autowired
+//    private AppUserDetailsServiceImpl appUserService;
 
     @Autowired
     private UserPrincipalDetailsService principalDetailsService;
