@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.thymeleaf.TemplateEngine;
-import org.thymeleaf.context.Context;
 
 @Controller
 public class EmailController {
@@ -25,27 +24,32 @@ public class EmailController {
         this.templateEngine = templateEngine;
     }
 
-    @RequestMapping(value = "/sendmail", method = RequestMethod.GET)
-    public ModelAndView getContentEmail(@RequestParam("email") String email){
+    @RequestMapping(value = "/send", method = RequestMethod.GET)
+    public ModelAndView getContentEmail(@RequestParam(value = "email", required = false) String email, @RequestParam("subject") String subject, @RequestParam("message") String message){
         ModelAndView mav = new ModelAndView();
         mav.setViewName("index");
-        if(principalDetailsService.getLoggedUser() != null){
-            mav.addObject("loggedUser",principalDetailsService.getLoggedUser());
-            mav.addObject("roleUser",principalDetailsService.isAdmin());
-            emailSender.sendEmail("d11","dddd");
-        }else{
-            emailSender.sendEmail(email,"anonim","gall");
-        }
         return mav;
     }
 
-//    @RequestMapping(value = "/index#contact", method = RequestMethod.POST)
-//    public ModelAndView sendEmail(@RequestParam("email") String email,@RequestParam("subject") String subject, @RequestParam("message") String message){
-////        Context context = new Context();
-////        context.setVariable("header ");
-//        ModelAndView mav = new ModelAndView();
-//        emailSender.sendEmail(email,subject,message);
-//        mav.setViewName("index");
-//        return mav;
-//    }
+    @RequestMapping(value = "/send", method = RequestMethod.POST)
+    public ModelAndView sendEmailing(@RequestParam(value = "email", required = false) String email,@RequestParam("subject") String subject, @RequestParam("message") String message){
+//        Context context = new Context();
+//        context.setVariable("header ");
+        ModelAndView mav = new ModelAndView();
+        if(principalDetailsService.getLoggedUser() != null && email == null){
+            mav.addObject("subject",subject);
+            mav.addObject("message",message);
+            mav.addObject("email",principalDetailsService.getLoggedUserEmail());
+            mav.addObject("loggedUser",principalDetailsService.getLoggedUser());
+            mav.addObject("roleUser",principalDetailsService.isAdmin());
+            emailSender.sendEmail(subject,message);
+        }else{
+            mav.addObject("email",email);
+            mav.addObject("subject",subject);
+            mav.addObject("message",message);
+            emailSender.sendEmail(email,subject,message);
+        }
+        mav.setViewName("index");
+        return mav;
+    }
 }

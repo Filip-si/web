@@ -1,14 +1,12 @@
 package com.infomax.web.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
 
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
-import java.util.Properties;
 
 @Service
 public class EmailSenderImpl implements EmailSender{
@@ -26,7 +24,8 @@ public class EmailSenderImpl implements EmailSender{
             MimeMessageHelper helper = new MimeMessageHelper(mail, true);
             helper.setTo("filip.infomax@gmail.com");//principalDetailsService.getLoggedUserEmail()); TU SIE WYSYLAJA WIADOMOSCI
 //            helper.setFrom("filip.infomax@gmail.com");
-            helper.setSubject(subject + " Użytkownik: " + principalDetailsService.getLoggedUser().getFirstName() + " E-mail: "+ principalDetailsService.getLoggedUser().getAppUserEmail());
+
+            helper.setSubject(subject +  " E-mail: "+ principalDetailsService.getLoggedUser().getAppUserEmail());
             helper.setText(content,true);
         } catch (MessagingException e) {
             e.printStackTrace();
@@ -41,7 +40,7 @@ public class EmailSenderImpl implements EmailSender{
             MimeMessageHelper helper = new MimeMessageHelper(mail, true);
             helper.setTo("filip.infomax@gmail.com");
 //            helper.setFrom(email);
-            helper.setSubject(subject);
+            helper.setSubject(subject +" - "+ email);
             helper.setText(content,true);
         } catch (MessagingException e) {
             e.printStackTrace();

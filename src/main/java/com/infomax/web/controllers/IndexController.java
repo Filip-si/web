@@ -31,15 +31,6 @@ public class IndexController {
         return modelAndView;
     }
 
-    @RequestMapping(value = "/contact", method = RequestMethod.GET)
-    public ModelAndView showContact(){
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("contact");
-        modelAndView.addObject("loggedUser",principalDetailsService.getLoggedUser());
-        modelAndView.addObject("roleUser",principalDetailsService.isAdmin());
-        return modelAndView;
-    }
-
     @RequestMapping(value = "/index", method = RequestMethod.GET)
     public ModelAndView showIndex(){
         ModelAndView modelAndView = new ModelAndView();
@@ -48,6 +39,7 @@ public class IndexController {
         modelAndView.addObject("roleUser",principalDetailsService.isAdmin());
         return modelAndView;
     }
+
     @RequestMapping(value = "/login-error", method = RequestMethod.GET)
     public ModelAndView loginError(Model model){
         ModelAndView modelAndView = new ModelAndView();
