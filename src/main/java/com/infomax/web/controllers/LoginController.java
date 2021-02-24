@@ -38,12 +38,6 @@ public class LoginController {
         return mav;
     }
 
-//    @RequestMapping(value = "/login", method = RequestMethod.POST)
-//    public String login(ModelMap model, @RequestParam String email,@RequestParam String password){
-//        model.put("appUserEmail", email);
-//        model.put("appUserEncryptedPasswordConfirm", password);
-//        return "index";
-//    }
 
 
 }

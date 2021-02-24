@@ -3,6 +3,7 @@ package com.infomax.web;
 import com.infomax.web.models.AppUser;
 import com.infomax.web.repositories.AppUserRepository;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Assertions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
@@ -27,6 +28,7 @@ public class AppUserRepositoryTests {
         appUser.setFirstName("aaa");
         appUser.setAppUserEmail("test@test.pl");
         appUser.setAppUserEncryptedPassword("test123");
+
 
     }
 }

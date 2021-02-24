@@ -32,6 +32,9 @@ public class AppUser {
     @OneToMany(mappedBy = "id")
     private Set<AppRole> appRoles;
 
+    @OneToMany(mappedBy = "id")
+    private Set<Article> article;
+
 
     public AppUser() {
     }

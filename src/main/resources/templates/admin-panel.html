@@ -13,16 +13,16 @@
     </nav>
     <main>
         <div class="manageNews" >
-            <form th:action="@{/add-news}" method="post" >
+            <form th:action="@{/add-news}" method="post" th:object="${file}" enctype="multipart/form-data">
                 <h6>Dodaj artykuł</h6>
                 <br>
-                <input class="field col-xs-12 col-sm-12 col-md-12 col-lg-12" type="text" placeholder="Tytuł gazetki..." >
+                <input class="field col-xs-12 col-sm-12 col-md-12 col-lg-12" name="title" type="text" placeholder="Tytuł gazetki..." >
                 <br>
                 <br>
-                <input class="field col-xs-12 col-sm-12 col-md-12 col-lg-12" type="text" placeholder="Krótki opis... (do 100 słów)" >
+                <input class="field col-xs-12 col-sm-12 col-md-12 col-lg-12" name="description" type="text" placeholder="Krótki opis... (do 100 słów)" >
                 <br>
                 <br>
-                <input class="field col-xs-12 col-sm-12 col-md-12 col-lg-12" type="file" placeholder="Załącz obrazek" >
+                <input class="field col-xs-12 col-sm-12 col-md-12 col-lg-12" name="file" type="file" placeholder="Załącz obrazek" >
                 <br>
                 <br>
                 <button  type="submit" class="but1 btn-info col-xs-12 col-sm-12 col-md-12 col-lg-12" >Dodaj nowy artykuł</button>

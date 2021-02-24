@@ -18,7 +18,7 @@ public class EmailSenderImpl implements EmailSender{
     private UserPrincipalDetailsService principalDetailsService;
 
     @Override
-    public void sendEmail(String subject, String content) {
+    public void  sendEmail(String subject, String content) {
         MimeMessage mail = javaMailSender.createMimeMessage();
         try{
             MimeMessageHelper helper = new MimeMessageHelper(mail, true);

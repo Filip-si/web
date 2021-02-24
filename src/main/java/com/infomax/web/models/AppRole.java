@@ -11,7 +11,6 @@ public class AppRole {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", unique = true, nullable = false)
     private Long id;
-
     @Column(name = "role_name")
     private String appRoleName;
     @Column(name = "role_desc")
