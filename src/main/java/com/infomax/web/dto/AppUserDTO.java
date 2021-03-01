@@ -2,11 +2,8 @@ package com.infomax.web.dto;
 
 import com.infomax.web.models.AppRole;
 import com.sun.istack.NotNull;
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
-import javax.persistence.*;
-import java.util.Set;
 
 @Component
 public class AppUserDTO {

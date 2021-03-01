@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
 
@@ -10,6 +10,32 @@
         <div class="title col-xs-12 col-sm-12 col-md-12 col-lg-12">
             <b><i class="fas fa-list "></i> Aktualności</b>
         </div>
+<!--            <tr th:if="${allNews.empty}">-->
+<!--                <td>we have not any news :( !!!</td>-->
+<!--            </tr>-->
+            <tr class="article col-xs-12 col-sm-6 col-md-4 col-lg-3" th:each="article : ${allNews}">
+                <a  th:href="@{/article/} + ${article.title}">
+                    <div class="imgNews col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <div class="ver_mas text-center">
+                            <span id="click" class="lnr lnr-eye">Czytaj więcej</span>
+                        </div>
+                        <article class="desc col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <td><h2>INFOMAX</h2><h4><span th:text="${article.title}"> </span></h4></td>
+                            <td><h5><span th:text="${article.description}"> </span></h5></td>
+                        </article>
+        <!--                <td><img  th:src="@{'/index/' + @{newa.icon}}"></td>-->
+                        <td>
+
+                            <img  class="col-xs-12 col-sm-12 col-md-12 col-lg-12" alt="" th:src="*{'data:image/jpeg;base64,'+{article.icon}}" >
+
+                        </td>
+                    </div>
+                </a>
+<!--                <td><a><img style="width:100px; height:100px;" alt="" th:src="*{'data:image/jpeg;base64,'+{article.icon}}"></a></td>-->
+<!--                <td><img th:src="${'data:image/jpeg;charset=utf-8;base64,' + newa.icon}">KLIK </td>-->
+<!--                <a ><img src="/images/akt2.jpg" th:src="@{images/akt2.jpg}">IMAGE</a>-->
+<!--                <a ><img  th:src="@{$newa.icon}">IMAGE</a>-->
+            </tr>
         <div class="article col-xs-12 col-sm-6 col-md-4 col-lg-3">
             <div class="imgNews col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <div class="ver_mas text-center">

@@ -21,9 +21,14 @@ public class Article {
     @Column(name = "description")
     private String description;
     @Lob
-    @Type(type = "org.hibernate.type.BinaryType")
-    @Column(name = "news")
-    private byte[] newspaper;
+//    @Type(type = "org.hibernate.type.BinaryType")
+    @Column(name = "content", columnDefinition = "MEDIUMBLOB")
+    private String content;
+    @Lob
+//    @Type(type = "org.hibernate.type.BinaryType")
+    @Column(name = "icon", columnDefinition = "MEDIUMBLOB")
+    private String icon;
+
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "author_id")
@@ -34,16 +39,11 @@ public class Article {
     public Article() {
     }
 
-    public Article(String title, String description, byte[] newspaper, AppUser articleAuthor) {
+    public Article(String title, String description, String content, String icon, AppUser articleAuthor) {
         this.title = title;
         this.description = description;
-        this.newspaper = newspaper;
-        this.articleAuthor = articleAuthor;
-    }
-
-    public Article(String title, String description, AppUser articleAuthor) {
-        this.title = title;
-        this.description = description;
+        this.content = content;
+        this.icon = icon;
         this.articleAuthor = articleAuthor;
     }
 
@@ -71,14 +71,6 @@ public class Article {
         this.description = description;
     }
 
-    public byte[] getNewspaper() {
-        return newspaper;
-    }
-
-    public void setNewspaper(byte[] newspaper) {
-        this.newspaper = newspaper;
-    }
-
     public AppUser getArticleAuthor() {
         return articleAuthor;
     }
@@ -87,5 +79,19 @@ public class Article {
         this.articleAuthor = articleAuthor;
     }
 
+    public String getContent() {
+        return content;
+    }
 
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public String getIcon() {
+        return icon;
+    }
+
+    public void setIcon(String icon) {
+        this.icon = icon;
+    }
 }

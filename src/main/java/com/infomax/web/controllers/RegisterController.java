@@ -3,10 +3,7 @@ package com.infomax.web.controllers;
 
 import com.infomax.web.dto.AppUserDTO;
 import com.infomax.web.models.AppUser;
-
-//import com.infomax.web.services.AppUserDetailsServiceImpl;
 import com.infomax.web.services.AppUserServiceImpl;
-
 import com.infomax.web.services.UserPrincipalDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;

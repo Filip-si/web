@@ -22,7 +22,10 @@
                 <input class="field col-xs-12 col-sm-12 col-md-12 col-lg-12" name="description" type="text" placeholder="Krótki opis... (do 100 słów)" >
                 <br>
                 <br>
-                <input class="field col-xs-12 col-sm-12 col-md-12 col-lg-12" name="file" type="file" placeholder="Załącz obrazek" >
+                <input class="field col-xs-12 col-sm-12 col-md-12 col-lg-12" name="content" type="file" placeholder="Załącz obrazek" >
+                <br>
+                <br>
+                <input class="field col-xs-12 col-sm-12 col-md-12 col-lg-12" name="icon" type="file" placeholder="Załącz obrazek" >
                 <br>
                 <br>
                 <button  type="submit" class="but1 btn-info col-xs-12 col-sm-12 col-md-12 col-lg-12" >Dodaj nowy artykuł</button>
@@ -32,7 +35,7 @@
             <form th:action="@{/delete-news}" method="post" >
                 <h6>Usuń artykuł ze strony</h6>
                 <br>
-                <input class="field col-xs-12 col-sm-12 col-md-12 col-lg-12" type="text" placeholder="Tytuł gazetki..." >
+                <input class="field col-xs-12 col-sm-12 col-md-12 col-lg-12" name="title" type="text" placeholder="Tytuł gazetki..." >
                 <br>
                 <br>
                 <button  type="submit" class="but1 btn-info col-xs-12 col-sm-12 col-md-12 col-lg-12" >Usuń artykuł</button>
