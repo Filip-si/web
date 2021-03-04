@@ -32,10 +32,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     public PasswordEncoder bCryptPasswordEncoder;
 
-
-//    @Autowired
-//    public AppUserDetailsServiceImpl appUserDetailsService;
-
     @Value("${spring.queries.users-query}")
     private String usersQuery;
 
@@ -56,16 +52,16 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/admin/**" , "/news").hasAuthority("2")
-                .antMatchers("/","/index/**","/login*","/register","/login-error","/admin-panel","/admin-panel/**").permitAll()
-                .antMatchers("/dzielne").hasAuthority("1")
+                .antMatchers("/admin/**" , "/news", "/user","/admin-panel","/admin-panel/**").hasAuthority("2")
+                .antMatchers("/","/index/**","/login*","/register","/login-error").permitAll()
+                .antMatchers("/dzielne", "/user").hasAuthority("1")
                 .and()
                 .formLogin()
                 .loginPage("/login")
                 .usernameParameter("username")
                 .passwordParameter("password")
                 .loginProcessingUrl("/login")
-                .defaultSuccessUrl("/")
+                .defaultSuccessUrl("/user")
                 .failureUrl("/login-error")
                 //.failureHandler(authe)
                 .and()

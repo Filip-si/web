@@ -25,6 +25,7 @@ import java.util.Base64;
 
 @Controller
 public class IndexController {
+
     @Autowired
     private UserPrincipalDetailsService principalDetailsService;
 
@@ -37,7 +38,9 @@ public class IndexController {
     public ModelAndView showPage(){
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("loggedUser", principalDetailsService.getLoggedUser());
-        modelAndView.addObject("roleUser", principalDetailsService.isAdmin());
+        if(principalDetailsService.getLoggedUser() != null){
+            modelAndView.addObject("roleUser", principalDetailsService.isAdmin(principalDetailsService.getLoggedUser().getId()));
+        }
         modelAndView.addObject("allNews", adminPanelService.getAll());
         modelAndView.setViewName("index");
         return modelAndView;
@@ -47,28 +50,23 @@ public class IndexController {
     public ModelAndView showIndex(){
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("loggedUser", principalDetailsService.getLoggedUser());
-        modelAndView.addObject("roleUser", principalDetailsService.isAdmin());
+        if(principalDetailsService.getLoggedUser() != null){
+            modelAndView.addObject("roleUser", principalDetailsService.isAdmin(principalDetailsService.getLoggedUser().getId()));
+        }
         modelAndView.setViewName("index");
         return modelAndView;
     }
 
-//    @RequestMapping(value = "/{title}")
-//    public ResponseEntity<byte[]> getImage(@PathVariable("title") String title) throws IOException{
-//        byte[] imgContent = adminPanelService.findByTitle(title).getIcon();
-//        final HttpHeaders headers = new HttpHeaders();
-//        headers.setContentType(MediaType.IMAGE_JPEG);
-//        return new ResponseEntity<byte[]>(imgContent,headers, HttpStatus.OK);
-//    }
-
-//    @RequestMapping(value = "/index/{title}")
-//    public void showArt(@PathVariable String title, HttpServletResponse response) throws IOException{
-//        response.setContentType("image/jpeg");
-//        Article art = adminPanelService.findByTitle(title);
-//
-//        InputStream is = new ByteArrayInputStream(art.getIcon());
-//        IOUtils.copy(is,response.getOutputStream());
-//
-//    }
+    @RequestMapping(value = "/user", method = RequestMethod.GET)
+    public ModelAndView showProfile(){
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.addObject("loggedUser", principalDetailsService.getLoggedUser());
+        if(principalDetailsService.getLoggedUser() != null){
+            modelAndView.addObject("roleUser", principalDetailsService.isAdmin(principalDetailsService.getLoggedUser().getId()));
+        }
+        modelAndView.setViewName("user");
+        return modelAndView;
+    }
 
     @Transactional
     @RequestMapping(
@@ -84,7 +82,9 @@ public class IndexController {
     public ModelAndView loginError(Model model){
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("loggedUser",principalDetailsService.getLoggedUser());
-        modelAndView.addObject("roleUser",principalDetailsService.isAdmin());
+        if(principalDetailsService.getLoggedUser() != null){
+            modelAndView.addObject("roleUser", principalDetailsService.isAdmin(principalDetailsService.getLoggedUser().getId()));
+        }
         model.addAttribute("loginError", true);
         modelAndView.setViewName("login");
         return modelAndView;

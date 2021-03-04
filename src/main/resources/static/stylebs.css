@@ -185,8 +185,13 @@ background: linear-gradient(0deg, rgba(58,12,163,0.40) 0%, rgba(76,201,240,0.40)
     border: 1px solid black;
 }
 
+.table tbody tr{
+    border: 1px solid black;
+}
+
 .table tbody tr:hover{
-    background-color: #f151a1;
+/*    background-color: #f151a1;*/
+    background-color: green;
     box-shadow: 2px 1px 10px rgba(0,0,0,.5);
     transition: .3s;
     

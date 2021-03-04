@@ -12,8 +12,6 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class LoginController {
 
-//    @Autowired
-//    private AppUserDetailsServiceImpl appUserService;
 
     @Autowired
     private UserPrincipalDetailsService principalDetailsService;
@@ -22,7 +20,9 @@ public class LoginController {
     public ModelAndView showLogin(){
         ModelAndView mav = new ModelAndView();
         mav.addObject("loggedUser",principalDetailsService.getLoggedUser());
-        mav.addObject("roleUser",principalDetailsService.isAdmin());
+        if(principalDetailsService.getLoggedUser() != null){
+            mav.addObject("roleUser", principalDetailsService.isAdmin(principalDetailsService.getLoggedUser().getId()));
+        }
         mav.setViewName("login");
         return mav;
     }

@@ -1,6 +1,7 @@
 package com.infomax.web.controllers;
 
 
+
 import com.infomax.web.dto.AppUserDTO;
 import com.infomax.web.models.AppUser;
 import com.infomax.web.services.AppUserServiceImpl;
@@ -25,7 +26,9 @@ public class RegisterController {
     public String showRegisterPage(Model model){
         model.addAttribute("appUser", new AppUser());
         model.addAttribute("loggedUser", principalDetailsService.getLoggedUserEmail());
-        model.addAttribute("roleUser", principalDetailsService.isAdmin());
+        if(principalDetailsService.getLoggedUser() != null){
+            model.addAttribute("roleUser", principalDetailsService.isAdmin(principalDetailsService.getLoggedUser().getId()));
+        }
         return "register";
     }
 

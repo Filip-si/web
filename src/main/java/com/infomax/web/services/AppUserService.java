@@ -6,6 +6,4 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 
 public interface AppUserService {
     AppUser save(AppUserDTO appUser);
-
-    AppUser findByEmail(String email);
 }

@@ -4,6 +4,7 @@ import com.infomax.web.services.AdminPanelServiceImpl;
 import com.infomax.web.services.UserPrincipalDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -46,23 +47,10 @@ public class AdminController {
         return "redirect:/admin-panel";
     }
 
-//    @RequestMapping(value = "/add-news",method = RequestMethod.POST)
-//    public ModelAndView addNews(@RequestParam(value = "title") String title,@RequestParam(value = "description") String description,@RequestParam(value = "file") MultipartFile file, @RequestParam(value = "icon") MultipartFile icon) throws IOException {
-//        ModelAndView mav = new ModelAndView();
-////            mav.addObject("file", file);
-////            mav.addObject("icon", icon);
-////            mav.addObject("title",title);
-////            mav.addObject("description",description);
-////            String url = "data:image/jpeg;charset=utf-8;base64," + Base64.getEncoder().encodeToString(icon.getBytes());
-//            mav.setViewName("admin-panel");
-//
-//            adminPanelService.storeFile(title,description,file,icon);
-//
-//        return mav;
-//    }
 
-    @RequestMapping(value = "/delete-news",method = RequestMethod.POST)
+    @RequestMapping(value = "/delete-news",method = RequestMethod.GET)
     public String deleteNews(String title){
+        adminPanelService.findByTitle(title);
         adminPanelService.deleteArticle(title);
         return "redirect:/admin-panel";
     }

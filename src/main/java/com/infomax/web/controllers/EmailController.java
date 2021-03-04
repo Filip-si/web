@@ -33,15 +33,15 @@ public class EmailController {
 
     @RequestMapping(value = "/send", method = RequestMethod.POST)
     public ModelAndView sendEmailing(@RequestParam(value = "email", required = false) String email,@RequestParam("subject") String subject, @RequestParam("message") String message){
-//        Context context = new Context();
-//        context.setVariable("header ");
         ModelAndView mav = new ModelAndView();
         if(principalDetailsService.getLoggedUser() != null && email == null){
             mav.addObject("subject",subject);
             mav.addObject("message",message);
             mav.addObject("email",principalDetailsService.getLoggedUserEmail());
             mav.addObject("loggedUser",principalDetailsService.getLoggedUser());
-            mav.addObject("roleUser",principalDetailsService.isAdmin());
+            if(principalDetailsService.getLoggedUser() != null){
+                mav.addObject("roleUser", principalDetailsService.isAdmin(principalDetailsService.getLoggedUser().getId()));
+            }
             emailSender.sendEmail(subject,message);
         }else{
             mav.addObject("email",email);

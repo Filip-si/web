@@ -1,13 +1,7 @@
 package com.infomax.web.models;
 
-//import org.springframework.web.multipart.byte[];
-
-import org.hibernate.annotations.Type;
-
-import javax.imageio.ImageIO;
 import javax.persistence.*;
-import java.awt.*;
-import java.util.List;
+
 
 @Entity
 @Table(name = "article")
@@ -30,7 +24,7 @@ public class Article {
     private String icon;
 
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "author_id")
     private AppUser articleAuthor;
 

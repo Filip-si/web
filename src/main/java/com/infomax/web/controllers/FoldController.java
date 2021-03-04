@@ -17,7 +17,9 @@ public class FoldController {
     public ModelAndView showFold(){
         ModelAndView mav = new ModelAndView();
         mav.addObject("loggedUser",principalDetailsService.getLoggedUser());
-        mav.addObject("roleUser",principalDetailsService.isAdmin());
+        if(principalDetailsService.getLoggedUser() != null){
+            mav.addObject("roleUser", principalDetailsService.isAdmin(principalDetailsService.getLoggedUser().getId()));
+        }
         mav.setViewName("dzielne");
         return mav;
     }

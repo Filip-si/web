@@ -9,6 +9,4 @@ import java.math.BigInteger;
 @Repository("appRoleRepository")
 public interface AppRoleRepository extends JpaRepository<AppRole, BigInteger> {
     AppRole findById(Long id);
-    AppRole findByAppRoleName(String appRoleName);
-
 }

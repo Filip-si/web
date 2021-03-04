@@ -1,6 +1,8 @@
 package com.infomax.web;
 
+import com.infomax.web.models.AppRole;
 import com.infomax.web.models.AppUser;
+import com.infomax.web.models.AppUserRole;
 import com.infomax.web.repositories.AppUserRepository;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Assertions;
@@ -23,11 +25,21 @@ public class AppUserRepositoryTests {
     private TestEntityManager entityManager;
 
     @Test
-    public void testCreateAppUser(){
-        AppUser appUser = new AppUser();
-        appUser.setFirstName("aaa");
-        appUser.setAppUserEmail("test@test.pl");
-        appUser.setAppUserEncryptedPassword("test123");
+    public void isAdminTest(){
+        AppUser appUser = new AppUser(
+                1,
+                "John",
+                "New",
+                "John@New",
+                "qwerty",
+                "qwerty",
+                "VERIFIED"
+                );
+        AppRole role = new AppRole(1L,"user", "user desc");
+        AppUserRole roleAppUser = new AppUserRole(appUser,role);
+        
+
+
 
 
     }

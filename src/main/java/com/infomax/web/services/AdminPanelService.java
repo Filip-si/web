@@ -10,9 +10,7 @@ import java.util.List;
 
 public interface AdminPanelService {
     Article findByTitle(String title);
-    void saveArticle(MultipartFile newspaper);
     public List<Article> getAll();
-    void save(MultipartFile file);
     void deleteArticle(String title);
     void storeFile(String title, String description, MultipartFile file, MultipartFile iconImage) throws IOException;
 }

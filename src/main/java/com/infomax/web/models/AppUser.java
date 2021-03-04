@@ -1,11 +1,7 @@
 package com.infomax.web.models;
 
-import net.bytebuddy.implementation.bind.annotation.Default;
 
-import javax.management.relation.Role;
 import javax.persistence.*;
-import java.math.BigInteger;
-import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -32,11 +28,21 @@ public class AppUser {
     @OneToMany(mappedBy = "id")
     private Set<AppRole> appRoles;
 
-    @OneToMany(mappedBy = "id")
+    @OneToMany(mappedBy = "id", cascade = CascadeType.ALL)
     private Set<Article> article;
 
 
     public AppUser() {
+    }
+
+    public AppUser(long id, String firstName, String lastName, String appUserEmail, String appUserEncryptedPassword, String appUserEncryptedPasswordConfirm, String status) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.appUserEmail = appUserEmail;
+        this.appUserEncryptedPassword = appUserEncryptedPassword;
+        this.appUserEncryptedPasswordConfirm = appUserEncryptedPasswordConfirm;
+        this.status = status;
     }
 
     public AppUser(String firstName, String lastName, String appUserEmail, String appUserEncryptedPassword, String appUserEncryptedPasswordConfirm, String status) {

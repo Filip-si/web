@@ -22,9 +22,7 @@ public class EmailSenderImpl implements EmailSender{
         MimeMessage mail = javaMailSender.createMimeMessage();
         try{
             MimeMessageHelper helper = new MimeMessageHelper(mail, true);
-            helper.setTo("filip.infomax@gmail.com");//principalDetailsService.getLoggedUserEmail()); TU SIE WYSYLAJA WIADOMOSCI
-//            helper.setFrom("filip.infomax@gmail.com");
-
+            helper.setTo("filip.infomax@gmail.com");// send on mail
             helper.setSubject(subject +  " E-mail: "+ principalDetailsService.getLoggedUser().getAppUserEmail());
             helper.setText(content,true);
         } catch (MessagingException e) {
@@ -39,7 +37,6 @@ public class EmailSenderImpl implements EmailSender{
         try{
             MimeMessageHelper helper = new MimeMessageHelper(mail, true);
             helper.setTo("filip.infomax@gmail.com");
-//            helper.setFrom(email);
             helper.setSubject(subject +" - "+ email);
             helper.setText(content,true);
         } catch (MessagingException e) {

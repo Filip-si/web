@@ -10,15 +10,17 @@ public class AppUserRole {
     private long id;
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id")
-    private AppUser appUserId;
+    private AppUser appUserFk;
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "role_id")
-    private AppRole appRoleId;
+    private AppRole appRoleFk;
 
+    public AppUserRole() {
+    }
 
-    public AppUserRole(AppUser appUserId, AppRole appRoleId) {
-        this.appUserId = appUserId;
-        this.appRoleId = appRoleId;
+    public AppUserRole(AppUser appUserFk, AppRole appRoleFk) {
+        this.appUserFk = appUserFk;
+        this.appRoleFk = appRoleFk;
     }
 
     public long getId() {
@@ -29,19 +31,19 @@ public class AppUserRole {
         this.id = id;
     }
 
-    public AppUser getAppUserId() {
-        return appUserId;
+    public AppUser getappUserFk() {
+        return appUserFk;
     }
 
-    public void setAppUserId(AppUser appUserId) {
-        this.appUserId = appUserId;
+    public void setappUserFk(AppUser appUserFk) {
+        this.appUserFk = appUserFk;
     }
 
-    public AppRole getAppRoleId() {
-        return appRoleId;
+    public AppRole getappRoleFk() {
+        return appRoleFk;
     }
 
-    public void setAppRoleId(AppRole appRoleId) {
-        this.appRoleId = appRoleId;
+    public void setappRoleFk(AppRole appRoleFk) {
+        this.appRoleFk = appRoleFk;
     }
 }
