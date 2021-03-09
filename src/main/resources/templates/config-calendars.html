@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/html">
+<head>
+    <div th:replace="fragments/headFragment :: head"></div>
+    <link rel="stylesheet" type="text/css" href="/styleConfigCal.css" >
+</head>
+<body>
+    <div class="container-fluid">
+        <header>
+            <div th:replace="fragments/headerFragment :: header"></div>
+        </header>
+        <nav>
+            <div th:replace="fragments/navFragment :: nav"></div>
+        </nav>
+        <div>
+            <div class="row configurator col-xs-12 col-sm-12 col-md-12 col-lg-4">
+                <div class="title col-xs-12 col-sm-12 col-md-12 col-lg-12">Konfigurator</div>
+                <form th:action="@{/save}" method="post">
+                    <div class="headTitle col-xs-12 col-sm-12 col-md-12 col-lg-12">Rodzaj</div>
+                    <div class="type row options col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <input id="type_1" class="type" type="radio" value="1dz" name="cal_type">
+                        <label class="option col-xs-12 col-sm-12 col-md-12 col-lg-3" for="type_1">
+                            1-dzielny
+                        </label>
+                        <input id="type_2" class="type" type="radio" value="2dz" name="cal_type">
+                        <label class="option col-xs-12 col-sm-12 col-md-12 col-lg-3" for="type_2">
+                            2-dzielny
+                        </label>
+                        <input id="type_3" class="type" type="radio" value="3dz" name="cal_type" checked>
+                        <label class="option col-xs-12 col-sm-12 col-md-12 col-lg-3" for="type_3">
+                            3-dzielny
+                        </label>
+                    </div>
+                    <div class=" headTitle col-xs-12 col-sm-12 col-md-12 col-lg-12">Linia</div>
+                    <div class="line row options col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <input id="line_1" class="type" type="radio" value="1dz" name="cal_line">
+                        <label class="col-xs-12 col-sm-12 col-md-12 col-lg-3" for="line_1">
+                            Eko
+                        </label>
+                        <input id="line_2" class="type" type="radio" value="2dz" name="cal_line">
+                        <label class="col-xs-12 col-sm-12 col-md-12 col-lg-3" for="line_2">
+                            Mid
+                        </label>
+                        <input id="line_3" class="type" type="radio" value="3dz" name="cal_line" checked>
+                        <label class="col-xs-12 col-sm-12 col-md-12 col-lg-3" for="line_3">
+                            Premium
+                        </label>
+                    </div>
+                    <div class=" headTitle col-xs-12 col-sm-12 col-md-12 col-lg-12">Szerokość</div>
+                    <div class="row options col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <input id="width_std" class="type" type="radio" value="2dz" name="cal_width">
+                        <label class="col-xs-12 col-sm-12 col-md-12 col-lg-5" for="width_std">
+                            Standard
+                        </label>
+                        <input id="width_wid" class="type" type="radio" value="3dz" name="cal_width" checked>
+                        <label class="col-xs-12 col-sm-12 col-md-12 col-lg-5" for="width_wid">
+                            Szeroki
+                        </label>
+                    </div>
+                    <div class=" headTitle col-xs-12 col-sm-12 col-md-12 col-lg-12">Łączenie</div>
+                    <div class="row options col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <input id="conn_big" class="type" type="radio" value="2dz" name="cal_connect">
+                        <label class="col-xs-12 col-sm-12 col-md-12 col-lg-5" for="conn_big">
+                            Bigowanie
+                        </label>
+                        <input id="conn_spi" class="type" type="radio" value="3dz" name="cal_connect" checked>
+                        <label class="col-xs-12 col-sm-12 col-md-12 col-lg-5" for="conn_spi">
+                            Spiralowanie
+                        </label>
+                    </div>
+                    <div class=" headTitle col-xs-12 col-sm-12 col-md-12 col-lg-12">Mechanizm zegarowy</div>
+                    <div class="row options col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <input id="noclock" class="type" type="radio" value="2dz" name="cal_clock">
+                        <label class="col-xs-12 col-sm-12 col-md-12 col-lg-5" for="noclock">
+                            Nie
+                        </label>
+                        <input id="clock" class="type" type="radio" value="3dz" name="cal_clock" checked>
+                        <label class="col-xs-12 col-sm-12 col-md-12 col-lg-5" for="clock">
+                            Tak
+                        </label>
+                    </div>
+                    <div class=" headTitle col-xs-12 col-sm-12 col-md-12 col-lg-12">Wdruk reklamowy</div>
+                    <div class="row options col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <input id="noadv" class="type" type="radio" value="3dz" name="cal_advert" >
+                        <label class="col-xs-12 col-sm-12 col-md-12 col-lg-3" for="noadv">
+                            Brak
+                        </label>
+                        <input id="adv_1" class="type" type="radio" value="3dz" name="cal_advert" >
+                        <label class="col-xs-12 col-sm-12 col-md-12 col-lg-3" for="adv_1">
+                            1 reklama
+                        </label>
+                        <input id="adv_3" class="type" type="radio" value="3dz" name="cal_advert" checked>
+                        <label class="col-xs-12 col-sm-12 col-md-12 col-lg-3" for="adv_3">
+                            3 reklamy
+                        </label>
+                    </div>
+                    <div class=" headTitle col-xs-12 col-sm-12 col-md-12 col-lg-12">Wariant kalendarium</div>
+                    <div class="row options col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <input id="w1" class="type" type="radio" value="2dz" name="cal_var" checked>
+                        <label class="col-xs-12 col-sm-12 col-md-12 col-lg-3" for="w1">
+                            Wariant 1
+                        </label>
+                        <input id="w2" class="type" type="radio" value="3dz" name="cal_var" >
+                        <label class="col-xs-12 col-sm-12 col-md-12 col-lg-3" for="w2">
+                            Wariant 2
+                        </label>
+                        <input id="w3" class="type" type="radio" value="2dz" name="cal_var">
+                        <label class="col-xs-12 col-sm-12 col-md-12 col-lg-3" for="w3">
+                            Wariant 3
+                        </label>
+                        <input id="w4" class="type" type="radio" value="3dz" name="cal_var" >
+                        <label class="col-xs-12 col-sm-12 col-md-12 col-lg-3" for="w4">
+                            Wariant 4
+                        </label>
+                    </div>
+                    <div class=" headTitle col-xs-12 col-sm-12 col-md-12 col-lg-12">Opakowanie jednostkowe</div>
+                    <div class="row options col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <input id="nopack" class="type" type="radio" value="2dz" name="cal_pack">
+                        <label class="col-xs-12 col-sm-12 col-md-12 col-lg-3" for="nopack">
+                            Brak
+                        </label>
+                        <input id="pack_kp" class="type" type="radio" value="3dz" name="cal_pack" checked>
+                        <label class="col-xs-12 col-sm-12 col-md-12 col-lg-3" for="pack_kp">
+                            Koperta papierowa
+                        </label>
+                        <input id="pack_kf" class="type" type="radio" value="2dz" name="cal_pack">
+                        <label class="col-xs-12 col-sm-12 col-md-12 col-lg-3" for="pack_kf">
+                            Koperta foliowa
+                        </label>
+                        <input id="pack_e" class="type" type="radio" value="3dz" name="cal_pack" >
+                        <label class="col-xs-12 col-sm-12 col-md-12 col-lg-3" for="pack_e">
+                            Etui
+                        </label>
+                        <input id="pack_p" class="type" type="radio" value="3dz" name="cal_pack" >
+                        <label class="col-xs-12 col-sm-12 col-md-12 col-lg-3" for="pack_p">
+                            Pudełko
+                        </label>
+                    </div>
+                    <div class=" headTitle col-xs-12 col-sm-12 col-md-12 col-lg-12">Opracowanie graficzne</div>
+                    <div class="row options col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <input id="gd_pdf" class="type" type="radio" value="2dz" name="cal_gd">
+                        <label class="col-xs-12 col-sm-12 col-md-12 col-lg-12" for="gd_pdf">
+                            projekt klienta plik zamknięty - PDF produkcyjny
+                        </label>
+                        <input id="gd_w1" class="type" type="radio" value="3dz" name="cal_gd" checked >
+                        <label class="col-xs-12 col-sm-12 col-md-12 col-lg-12" for="gd_w1">
+                            przygotowanie przez INFOMAX - wariant 1
+                        </label>
+                        <input id="gd_w2" class="type" type="radio" value="2dz" name="cal_gd">
+                        <label class="col-xs-12 col-sm-12 col-md-12 col-lg-12" for="gd_w2">
+                            przygotowanie przez INFOMAX - wariant 2
+                        </label>
+                        <input id="gd_w3" class="type" type="radio" value="3dz" name="cal_gd" >
+                        <label class="col-xs-12 col-sm-12 col-md-12 col-lg-12" for="gd_w3">
+                            przygotowanie przez INFOMAX - wariant 3
+                        </label>
+                        <input id="gd_w4" class="type" type="radio" value="3dz" name="cal_gd" >
+                        <label class="col-xs-12 col-sm-12 col-md-12 col-lg-12" for="gd_w4">
+                            przygotowanie przez INFOMAX - wariant 4
+                        </label>
+                    </div>
+                    <div class=" headTitle col-xs-12 col-sm-12 col-md-12 col-lg-12">Odbitka produkcyjna</div>
+                    <div class="row options col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <input id="nocopy" class="type" type="radio" value="3dz" name="cal_copy" >
+                        <label class="col-xs-12 col-sm-12 col-md-12 col-lg-5" for="nocopy">
+                            Brak
+                        </label>
+                        <input id="copy" class="type" type="radio" value="3dz" name="cal_copy" checked>
+                        <label class="col-xs-12 col-sm-12 col-md-12 col-lg-5" for="copy">
+                            Tak
+                        </label>
+                    </div>
+                    <div class=" headTitle col-xs-12 col-sm-12 col-md-12 col-lg-12">Transport</div>
+                    <div class="row options col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <input id="trans_i" class="type" type="radio" value="2dz" name="cal_trans">
+                        <label class="col-xs-12 col-sm-12 col-md-12 col-lg-3" for="trans_i">
+                            Odbiór osobisty w siedzibie INFOMAX w Kielcach
+                        </label>
+                        <input id="trans_kk" class="type" type="radio" value="3dz" name="cal_trans" >
+                        <label class="col-xs-12 col-sm-12 col-md-12 col-lg-3" for="trans_kk">
+                            Wysyłka kurierem klienta
+                        </label>
+                        <input id="trans_ki" class="type" type="radio" value="3dz" name="cal_trans" checked>
+                        <label class="col-xs-12 col-sm-12 col-md-12 col-lg-3" for="trans_ki">
+                            Wysyłka kurierem INFOMAX do klienta
+                        </label>
+                    </div>
+                    <div class=" headTitle col-xs-12 col-sm-12 col-md-12 col-lg-12">Płatność</div>
+                    <div class="row options col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <input id="pay_7" class="type" type="radio" value="2dz" name="cal_pay">
+                        <label class="col-xs-12 col-sm-12 col-md-12 col-lg-3" for="pay_7">
+                            Przelew 7 dni
+                        </label>
+                        <input id="pay_14" class="type" type="radio" value="3dz" name="cal_pay" >
+                        <label class="col-xs-12 col-sm-12 col-md-12 col-lg-3" for="pay_14">
+                            Przelew 14 dni
+                        </label>
+                        <input id="pay_100p" class="type" type="radio" value="3dz" name="cal_pay" checked>
+                        <label class="col-xs-12 col-sm-12 col-md-12 col-lg-3" for="pay_100p">
+                            Przedpłata 100%
+                        </label>
+                    </div>
+                    <button type="submit" class="but1 btn btn-info col-xs-12 col-sm-12 col-md-12 col-lg-12">Zapisz konfigurację</button>
+                </form>
+            </div>
+            <div class="row visualisation col-xs-12 col-sm-12 col-md-12 col-lg-4">
+                <div class="title col-xs-12 col-sm-12 col-md-12 col-lg-12">Podgląd</div>
+            </div>
+            <div class="row price col-xs-12 col-sm-12 col-md-12 col-lg-4">
+                <div class="title col-xs-12 col-sm-12 col-md-12 col-lg-12">Wycena</div>
+                <label class="option col-xs-12 col-sm-12 col-md-12 col-lg-6">
+                    <input id="issue_50" class="type" type="radio" value="issue_50" name="cal_issue">
+                    50
+                </label>
+                <label class="option col-xs-12 col-sm-12 col-md-12 col-lg-6">
+                    <input id="issue_100" class="type" type="radio" value="issue_100" name="cal_issue">
+                    100
+                </label>
+                <label class="option col-xs-12 col-sm-12 col-md-12 col-lg-6">
+                    <input id="issue_150" class="type" type="radio" value="issue_150" name="cal_issue">
+                    150
+                </label>
+                <label class="option col-xs-12 col-sm-12 col-md-12 col-lg-6">
+                    <input id="issue_200" class="type" type="radio" value="issue_200" name="cal_issue">
+                    200
+                </label>
+                <label class="option col-xs-12 col-sm-12 col-md-12 col-lg-6">
+                    <input id="issue_300" class="type" type="radio" value="issue_300" name="cal_issue">
+                    300
+                </label>
+                <label class="option col-xs-12 col-sm-12 col-md-12 col-lg-6">
+                    <input id="issue_400" class="type" type="radio" value="issue_400" name="cal_issue">
+                    400
+                </label>
+                <label class="option col-xs-12 col-sm-12 col-md-12 col-lg-6">
+                    <input id="issue_500" class="type" type="radio" value="issue_500" name="cal_issue">
+                    500
+                </label>
+                <label class="option col-xs-12 col-sm-12 col-md-12 col-lg-6">
+                    <input id="issue_600" class="type" type="radio" value="issue_600" name="cal_issue">
+                    600
+                </label>
+                <label class="option col-xs-12 col-sm-12 col-md-12 col-lg-6">
+                    <input id="issue_700" class="type" type="radio" value="issue_700" name="cal_issue">
+                    700
+                </label>
+                <label class="option col-xs-12 col-sm-12 col-md-12 col-lg-6">
+                    <input id="issue_800" class="type" type="radio" value="issue_800" name="cal_issue">
+                    800
+                </label>
+                <label class="option col-xs-12 col-sm-12 col-md-12 col-lg-6">
+                    <input id="issue_900" class="type" type="radio" value="issue_900" name="cal_issue">
+                    900
+                </label>
+                <label class="option col-xs-12 col-sm-12 col-md-12 col-lg-6">
+                    <input id="issue_1000" class="type" type="radio" value="issue_1000" name="cal_issue">
+                    1000
+                </label>
+                <label class="option col-xs-12 col-sm-12 col-md-12 col-lg-6">
+                    <input id="issue_1500" class="type" type="radio" value="issue_1500" name="cal_issue">
+                    1500
+                </label>
+                <label class="option col-xs-12 col-sm-12 col-md-12 col-lg-6">
+                    <input id="issue_2000" class="type" type="radio" value="issue_2000" name="cal_issue">
+                    2000
+                </label>
+                <label class="option col-xs-12 col-sm-12 col-md-12 col-lg-6">
+                    <input id="issue_3000" class="type" type="radio" value="issue_3000" name="cal_issue">
+                    3000
+                </label>
+                <label class="option col-xs-12 col-sm-12 col-md-12 col-lg-6">
+                    <input id="issue_5000" class="type" type="radio" value="issue_5000" name="cal_issue">
+                    5000
+                </label>
+
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
