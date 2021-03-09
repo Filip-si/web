@@ -12,8 +12,8 @@
         <div th:replace="fragments/navFragment :: nav"></div>
     </nav>
     <main>
-        <div class="manageNews" >
-            <form th:action="@{/add-news}" method="post" th:object="${file}" enctype="multipart/form-data">
+        <div class="manageNews col-xs-12 col-sm-12 col-md-12 col-lg-12" >
+            <form class="col-xs-12 col-sm-12 col-md-12 col-lg-6" th:action="@{/add-news}" method="post" th:object="${file}" enctype="multipart/form-data">
                 <h6>Dodaj artykuł</h6>
                 <br>
                 <input class="field col-xs-12 col-sm-12 col-md-12 col-lg-12" name="title" type="text" placeholder="Tytuł gazetki..." >
@@ -22,18 +22,20 @@
                 <input class="field col-xs-12 col-sm-12 col-md-12 col-lg-12" name="description" type="text" placeholder="Krótki opis... (do 100 słów)" >
                 <br>
                 <br>
-                <input class="field col-xs-12 col-sm-12 col-md-12 col-lg-12" name="content" type="file" placeholder="Załącz obrazek" >
+                <label>Załącz gazetę</label>
+                <input class="field col-xs-12 col-sm-12 col-md-12 col-lg-12" name="content" type="file" placeholder="Załącz gazetę" >
                 <br>
                 <br>
-                <input class="field col-xs-12 col-sm-12 col-md-12 col-lg-12" name="icon" type="file" placeholder="Załącz obrazek" >
+                <label>Załącz ikonę</label>
+                <input class="field col-xs-12 col-sm-12 col-md-12 col-lg-12" name="icon" type="file" placeholder="Załącz ikonę" >
                 <br>
                 <br>
                 <button  type="submit" class="but1 btn-info col-xs-12 col-sm-12 col-md-12 col-lg-12" >Dodaj nowy artykuł</button>
                 <br><br>
 
             </form>
-            <form th:action="@{/delete-news}" method="get" >
-                <h6>Usuń artykuł ze strony</h6>
+            <form class="col-xs-12 col-sm-12 col-md-12 col-lg-6" th:action="@{/delete-news}" method="post" >
+                <h6>Usuń artykuł ze strony głównej</h6>
                 <br>
                 <input class="field col-xs-12 col-sm-12 col-md-12 col-lg-12" name="title" type="text" placeholder="Tytuł gazetki..." >
                 <br>
@@ -42,6 +44,7 @@
                 <br><br>
             </form>
         </div>
+
     </main>
     <footer>
     </footer>

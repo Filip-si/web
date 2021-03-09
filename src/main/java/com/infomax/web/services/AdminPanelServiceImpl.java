@@ -4,17 +4,12 @@ package com.infomax.web.services;
 import com.infomax.web.models.Article;
 import com.infomax.web.repositories.ArticleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.Resource;
-import org.springframework.core.io.UrlResource;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.persistence.Lob;
 import java.io.IOException;
-import java.math.BigInteger;
-import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Base64;
 import java.util.List;
@@ -23,9 +18,10 @@ import java.util.List;
 public class AdminPanelServiceImpl implements AdminPanelService{
     @Autowired
     private ArticleRepository articleRepository;
-
     @Autowired
     private UserPrincipalDetailsService principalDetailsService;
+
+
 
 
     @Override
@@ -40,9 +36,8 @@ public class AdminPanelServiceImpl implements AdminPanelService{
         return articleRepository.findAll();
     }
 
-
+    /*Manage articles*/
     @Override
-    @Transactional
     public void deleteArticle(String title) {
         if(articleRepository.findByTitle(title) != null){
             articleRepository.delete(articleRepository.findByTitle(title));

@@ -1,16 +1,20 @@
 package com.infomax.web.controllers;
 
+import com.infomax.web.models.Article;
+import com.infomax.web.repositories.ArticleRepository;
 import com.infomax.web.services.AdminPanelServiceImpl;
 import com.infomax.web.services.UserPrincipalDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.annotation.MultipartConfig;
 import java.io.IOException;
 
 
@@ -23,9 +27,16 @@ public class AdminController {
     @Autowired
     private UserPrincipalDetailsService principalDetailsService;
 
+    @Autowired
+    private ArticleRepository articleRepository;
+
     @RequestMapping(value = "/admin-panel",method = RequestMethod.GET)
     public ModelAndView showAdminPanel(){
         ModelAndView mav = new ModelAndView();
+        mav.addObject("loggedUser", principalDetailsService.getLoggedUser());
+        if(principalDetailsService.getLoggedUser() != null){
+            mav.addObject("roleUser", principalDetailsService.isAdmin(principalDetailsService.getLoggedUser().getId()));
+        }
         mav.setViewName("admin-panel");
 
         return mav;
@@ -48,11 +59,18 @@ public class AdminController {
     }
 
 
-    @RequestMapping(value = "/delete-news",method = RequestMethod.GET)
+    @RequestMapping(value = "/delete-news",method = RequestMethod.POST)
+    @Transactional
     public String deleteNews(String title){
-        adminPanelService.findByTitle(title);
-        adminPanelService.deleteArticle(title);
+        if(articleRepository.findByTitle(title) != null){
+            Article toDelete = articleRepository.findByTitle(title);
+            articleRepository.delete(toDelete);
+        }else{
+            System.out.println("ARTICLE NOT FOUND");
+        }
         return "redirect:/admin-panel";
     }
+
+
 
 }

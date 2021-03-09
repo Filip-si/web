@@ -209,6 +209,11 @@ background: linear-gradient(0deg, rgba(58,12,163,0.40) 0%, rgba(76,201,240,0.40)
     padding-right: 0%;
 }
 
+/*admin panel css*/
+.manageNews form{
+    float: left;
+}
+
 
 
 

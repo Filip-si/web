@@ -53,6 +53,7 @@ public class IndexController {
         if(principalDetailsService.getLoggedUser() != null){
             modelAndView.addObject("roleUser", principalDetailsService.isAdmin(principalDetailsService.getLoggedUser().getId()));
         }
+        modelAndView.addObject("allNews", adminPanelService.getAll());
         modelAndView.setViewName("index");
         return modelAndView;
     }

@@ -11,7 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.util.HashSet;
 
 @Service
 public class AppUserServiceImpl implements AppUserService{
@@ -28,18 +27,19 @@ public class AppUserServiceImpl implements AppUserService{
     @Override
     public AppUser save(AppUserDTO registrationDTO) {
         registrationDTO.setAppUserEncryptedPassword(bCryptPasswordEncoder.encode(registrationDTO.getAppUserEncryptedPassword()));
-        AppUser appUser = new AppUser(registrationDTO.getFirstName(),registrationDTO.getLastName(),registrationDTO.getAppUserEmail(),
-                bCryptPasswordEncoder.encode(registrationDTO.getAppUserEncryptedPassword()), bCryptPasswordEncoder.encode(registrationDTO.getAppUserEncryptedPasswordConfirm()), registrationDTO.getStatus());
+        AppUser appUser = new AppUser(registrationDTO.getFirstName(),
+                registrationDTO.getLastName(),
+                registrationDTO.getAppUserEmail(),
+                bCryptPasswordEncoder.encode(registrationDTO.getAppUserEncryptedPassword()),
+                bCryptPasswordEncoder.encode(registrationDTO.getAppUserEncryptedPasswordConfirm()),
+                registrationDTO.getStatus());
         AppRole role = appRoleRepository.findById((long) 1);
         AppUserRole roleUser = new AppUserRole(appUser,role);// może trzeba przekazać id getID
         appUserRoleRepository.save(roleUser);
         return appUserRepository.save(appUser);
     }
 
-    @Override
-    public AppUser findByEmail(String email) {
-        return appUserRepository.findByAppUserEmail(email);
-    }
+
 
 
 }

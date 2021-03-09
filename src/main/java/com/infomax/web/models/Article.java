@@ -1,5 +1,7 @@
 package com.infomax.web.models;
 
+import org.hibernate.annotations.Type;
+
 import javax.persistence.*;
 
 
