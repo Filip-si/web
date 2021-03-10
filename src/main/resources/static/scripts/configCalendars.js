@@ -1,14 +1,19 @@
-var iss = 'id50';
+var iss = 'issue_50';
 function _round(_num, _dec) { return parseFloat(Math.round(_num * Math.pow(10, _dec)) / Math.pow(10, _dec)); }
 
 
 
 jQuery('[name^=cal_]').bind('change', function() {
-//    jQuery('label[for^='+jQuery(this).attr('name')+']').removeClass('checked'); jQuery('label[for='+jQuery(this).attr('id')+']').addClass('checked');
+    jQuery('label[for^='+jQuery(this).attr('name')+']').removeClass('checked');
+     jQuery('label[for='+jQuery(this).attr('id')+']').addClass('checked');
 	config(); img(); spec(); pay(); });
 
-jQuery('.offer_pay tr[class^=id]').bind('click', function() {
-    jQuery('.offer_pay tr[class^=id]').removeClass('checked'); jQuery('.offer_pay tr[class='+jQuery(this).attr('class')+']').addClass('checked'); iss = jQuery(this).attr('class'); pay(); });
+jQuery('.price tr[class^=id]').bind('click', function() {
+    jQuery('.price input[class^=id]').removeClass('checked');
+    jQuery('.price input[class='+jQuery(this).attr('class')+']').addClass('checked');
+    iss = jQuery(this).attr('class');
+    pay();
+});
 
 
 config();
@@ -16,61 +21,90 @@ function config()
 {
 	jQuery('label[for*=type_], label[for*=line_], label[for*=width_], label[for*=conn_], label[for*=clk_], label[for*=adv_], label[for*=back_], label[for*=pack_], label[for*=calm_]').show();
 
-	if(jQuery('[name=cal_clock]:checked').val() == 'tak') { jQuery('#pack_p').prop('checked', true); jQuery('label[for=pack_0], label[for=pack_kp], label[for=pack_kf], label[for=pack_e]').hide(); }
-	else { jQuery('label[for=pack_p]').hide(); if(jQuery('[name=cal_pack]:checked').val() == 'p') jQuery('#pack_0').prop('checked', true); }
+	if(jQuery('[name=cal_clock]:checked').val() == 'tak') {
+	    jQuery('#pack_p').prop('checked', true);
+	    jQuery('label[for=pack_0], label[for=pack_kp], label[for=pack_kf], label[for=pack_e]').hide();
+	}
+	else {
+	    jQuery('label[for=pack_p]').hide();
+	    if(jQuery('[name=cal_pack]:checked').val() == 'p')
+	        jQuery('#pack_0').prop('checked', true);
+	}
 
 	if(jQuery('[name=cal_line]:checked').val() == 'eko' || jQuery('[name=cal_line]:checked').val() == 'mid')
 	{
-		jQuery('#clk_none').prop('checked', true); jQuery('label[for=clk_clock]').hide();
-		jQuery('#conn_b').prop('checked', true); jQuery('label[for=conn_h]').hide();
-		jQuery('#width_s').prop('checked', true); jQuery('label[for=width_w]').hide();
+	    jQuery('label[for=pack_0], label[for=pack_kf], label[for=pack_kp], label[for=pack_e]').show();
+        jQuery('#pack_0').prop('checked', true);
+		jQuery('#clk_none').prop('checked', true);
+		jQuery('label[for=clk_clock]').hide();
+		jQuery('#conn_b').prop('checked', true);
+		jQuery('#width_s').prop('checked', true); //added
+		jQuery('label[for=conn_h]').hide();
+		jQuery('label[for=width_w]').hide();
+	}else if(jQuery('[name=cal_line]:checked').val() == 'pre'){
+	    jQuery('label[for=width_s]', 'label[for=width_s]').show();
+	    jQuery('label[for=conn_b]', 'label[for=conn_h]').show();
+        jQuery('label[for=clk_none]', 'label[for=clk_clock]').show();
 	}
 	else if(jQuery('[name=cal_line]:checked').val() == 'gra' || jQuery('[name=cal_line]:checked').val() == 'h4' || jQuery('[name=cal_line]:checked').val() == 'h12')
 	{
-		jQuery('#width_s').prop('checked', true); jQuery('label[for=width_w]').hide();
+		jQuery('#width_s').prop('checked', true);
+		jQuery('label[for=width_w]').hide();
 	}
 
 	if(jQuery('[name=cal_line]:checked').val() == 'h4' || jQuery('[name=cal_line]:checked').val() == 'h12')
 	{
-		jQuery('#clk_none').prop('checked', true); jQuery('label[for=clk_clock]').hide();
+		jQuery('#clk_none').prop('checked', true);
+		jQuery('label[for=clk_clock]').hide();
 	}
 
 	if(jQuery('[name=cal_advert]:checked').val() == '0')
 	{
-		if(jQuery('[name=cal_back]:checked').val() == 'wp') jQuery('#back_0').prop('checked', true);
+		if(jQuery('[name=cal_back]:checked').val() == 'wp')
+		    jQuery('#back_0').prop('checked', true);
 		jQuery('label[for=back_wp]').hide();
 	}
 	else
 	{
-		if(jQuery('[name=cal_back]:checked').val() == '0') jQuery('#back_wp').prop('checked', true);
+		if(jQuery('[name=cal_back]:checked').val() == '0')
+		    jQuery('#back_wp').prop('checked', true);
 		jQuery('label[for=back_0]').hide();
 	}
 
 	if(jQuery('[name=cal_type]:checked').val() == '1dz')
 	{
-		jQuery('#calm_1').prop('checked', true); jQuery('label[for=calm_2], label[for=calm_3], label[for=calm_4], label[for=calm_5]').hide();
+		jQuery('#calm_1').prop('checked', true);
+		jQuery('label[for=calm_2], label[for=calm_3], label[for=calm_4], label[for=calm_5]').hide();
 
 		jQuery('label[for=adv_1], label[for=adv_4], label[for=adv_3]').hide();
 		if(jQuery('[name=cal_line]:checked').val() == 'mid')
 		{
-			jQuery('#back_4k').prop('checked', true); jQuery('label[for=back_0], label[for=back_wp], label[for=back_1p], label[for=back_1k], label[for=back_2k]').hide();
-			jQuery('#adv_1d').prop('checked', true); jQuery('label[for=adv_1m], label[for=adv_0]').hide();
+			jQuery('#back_4k').prop('checked', true);
+			jQuery('label[for=back_0], label[for=back_wp], label[for=back_1p], label[for=back_1k], label[for=back_2k]').hide();
+			jQuery('#adv_1d').prop('checked', true);
+			jQuery('label[for=adv_1m]').hide();
+			jQuery('label[for=adv_0]').hide();
+			jQuery('label[for=pack_p]').hide();
 		}
 		else
 		{
-			if(jQuery('[name=cal_advert]:checked').val() != '0' && jQuery('[name=cal_advert]:checked').val() != '1m') jQuery('#adv_1m').prop('checked', true);
+			if(jQuery('[name=cal_advert]:checked').val() != '0' && jQuery('[name=cal_advert]:checked').val() != '1m')
+			    jQuery('#adv_1m').prop('checked', true);
 			jQuery('label[for=adv_1d]').hide();
 		}
 	}
 	else if(jQuery('[name=cal_type]:checked').val() == '2dz')
 	{
-		if(jQuery('[name=cal_line]:checked').val() == 'mid') jQuery('#line_pre').prop('checked', true);
+		if(jQuery('[name=cal_line]:checked').val() == 'mid')
+		    jQuery('#line_pre').prop('checked', true);
 		jQuery('label[for=line_mid]').hide();
 
-		jQuery('#calm_1').prop('checked', true); jQuery('label[for=calm_2], label[for=calm_3], label[for=calm_4], label[for=calm_5]').hide();
+		jQuery('#calm_1').prop('checked', true);
+		jQuery('label[for=calm_2], label[for=calm_3], label[for=calm_4], label[for=calm_5]').hide();
 
 		jQuery('label[for=adv_1m], label[for=adv_1d], label[for=adv_4], label[for=adv_3]').hide();
-		if(jQuery('[name=cal_advert]:checked').val() != '0' && jQuery('[name=cal_advert]:checked').val() != '1') jQuery('#adv_1').prop('checked', true);
+		if(jQuery('[name=cal_advert]:checked').val() != '0' && jQuery('[name=cal_advert]:checked').val() != '1')
+		    jQuery('#adv_1').prop('checked', true);
 	}
 	else if(jQuery('[name=cal_type]:checked').val() == '3dz')
 	{
@@ -88,7 +122,8 @@ function config()
             jQuery('label[for=calm_2], label[for=calm_3], label[for=calm_5]').show();
         }
 		jQuery('label[for=adv_1m], label[for=adv_1d], label[for=adv_4]').hide();
-		if(jQuery('[name=cal_advert]:checked').val() != '0' && jQuery('[name=cal_advert]:checked').val() != '1' && jQuery('[name=cal_advert]:checked').val() != '3') jQuery('#adv_3').prop('checked', true);
+		if(jQuery('[name=cal_advert]:checked').val() != '0' && jQuery('[name=cal_advert]:checked').val() != '1' && jQuery('[name=cal_advert]:checked').val() != '3')
+		    jQuery('#adv_3').prop('checked', true);
 	}
 	else if(jQuery('[name=cal_type]:checked').val() == '4dz')
 	{
@@ -101,8 +136,13 @@ function config()
 		if(jQuery('[name=cal_advert]:checked').val() != '0' && jQuery('[name=cal_advert]:checked').val() != '1' && jQuery('[name=cal_advert]:checked').val() != '4') jQuery('#adv_4').prop('checked', true);
 	}
 
-    if(jQuery('[name=cal_pay]:checked').val() == 50 || jQuery('[name=cal_pay]:checked').val() == 100) { jQuery('#pay_discount_row').show(); jQuery('#pay_issue').css('text-decoration', 'line-through'); }
-    else { jQuery('#pay_discount_row').hide(); jQuery('#pay_issue').css('text-decoration', 'none'); }
+    if(jQuery('[name=cal_pay]:checked').val() == 50 || jQuery('[name=cal_pay]:checked').val() == 100) {
+        jQuery('#pay_discount_row').show();
+        jQuery('#pay_issue').css('text-decoration', 'line-through');
+        }
+    else {
+        jQuery('#pay_discount_row').hide(); jQuery('#pay_issue').css('text-decoration', 'none');
+    }
 
 }
 
