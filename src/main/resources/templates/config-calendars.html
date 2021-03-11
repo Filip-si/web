@@ -48,22 +48,22 @@
                     </div>
                     <div class=" headTitle col-xs-12 col-sm-12 col-md-12 col-lg-12">Szerokość</div>
                     <div class="row options col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                        <input id="width_s" class="type" type="radio" value="std" name="cal_width">
+                        <input id="width_s" class="type" type="radio" value="std" name="cal_width" checked>
                         <label class="col-xs-12 col-sm-12 col-md-12 col-lg-6" for="width_s">
                             Standard
                         </label>
-                        <input id="width_w" class="type" type="radio" value="sze" name="cal_width" checked>
+                        <input id="width_w" class="type" type="radio" value="sze" name="cal_width">
                         <label class="col-xs-12 col-sm-12 col-md-12 col-lg-6" for="width_w">
                             Szeroki
                         </label>
                     </div>
                     <div class=" headTitle col-xs-12 col-sm-12 col-md-12 col-lg-12">Łączenie</div>
                     <div class="row options col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                        <input id="conn_b" class="type" type="radio" value="big" name="cal_connect">
+                        <input id="conn_b" class="type" type="radio" value="big" name="cal_conn" checked>
                         <label class="col-xs-12 col-sm-12 col-md-12 col-lg-6" for="conn_b">
                             Bigowanie
                         </label>
-                        <input id="conn_h" class="type" type="radio" value="spi" name="cal_connect" checked>
+                        <input id="conn_h" class="type" type="radio" value="spi" name="cal_conn" >
                         <label class="col-xs-12 col-sm-12 col-md-12 col-lg-6" for="conn_h">
                             Spiralowanie
                         </label>
@@ -244,7 +244,33 @@
             </div>
             <div class="row visualisation col-xs-12 col-sm-12 col-md-12 col-lg-4">
                 <div class="title col-xs-12 col-sm-12 col-md-12 col-lg-12">Podgląd</div>
+                <div id="cal_img_body">
+                    <div id="cal_img_head" class="head"><div id="cal_img_head_shadow" class="head"></div></div>
+                    <div id="cal_img_back" class="back">
+                        <div id="cal_img_calm" class="back">
+                            <div id="cal_img_helix0" class="helix"></div>
+                            <div id="cal_img_helix1" class="helix"></div>
+                            <div id="cal_img_helix2" class="helix"></div>
+                            <div id="cal_img_helix3" class="helix"></div>
+                            <div id="cal_img_helix4" class="helix"></div>
+                            <div id="cal_img_helix5" class="helix"></div>
+                            <div id="cal_img_adv1" class="advert">
+                                <p>NAPIS REKLAMOWY 270mm x 35mm</p>
+                            </div>
+                            <div id="cal_img_adv2"  class="advert">
+                                <p>NAPIS REKLAMOWY 270mm x 35mm</p>
+                            </div>
+                            <div id="cal_img_adv3"  class="advert">
+                                <p>NAPIS REKLAMOWY 270mm x 35mm</p>
+                            </div>
+<!--                            <div id="cal_img_adv4">-->
 
+<!--                            </div>-->
+                        </div>
+                    </div>
+
+
+                </div>
             </div>
             <div class="row price col-xs-12 col-sm-12 col-md-12 col-lg-4">
                 <div class="title col-xs-12 col-sm-12 col-md-12 col-lg-12">Wycena</div>

@@ -153,6 +153,7 @@ function img()
 	jQuery('[id*=cal_img_adv]').hide();
 	jQuery('#cal_img_head_shadow').css('background','none');
 	jQuery('#cal_img_calm').css('background','none');
+	jQuery('.helix').css('background', 'url(/images/dzielne/helix.png)');
 
 	if(jQuery('[name=cal_line]:checked').val() == 'gra') jQuery('[id*=cal_img_helix]').css('width', '290px');
 	else if(jQuery('[name=cal_width]:checked').val() == 'std' && jQuery('[name=cal_line]:checked').val() != 'gra') jQuery('[id*=cal_img_helix]').css('width', '297px');
@@ -160,7 +161,9 @@ function img()
 
 	if(jQuery('[name=cal_line]:checked').val() == 'h12' || jQuery('[name=cal_line]:checked').val() == 'h4')
 	{
-		jQuery('#cal_img_helix0').show(); jQuery('#cal_img_helix0').css('top', '-6px');
+		jQuery('#cal_img_helix0').show();
+		jQuery('#cal_img_helix0').css('top', '-6px');
+		jQuery('#cal_img_helix0').css('background', 'url(/images/dzielne/helix.png)');
 	}
 
 	if(jQuery('[name=cal_width]:checked').val() == 'std' && jQuery('[name=cal_line]:checked').val() == 'gra')
@@ -168,28 +171,28 @@ function img()
 		jQuery('#cal_img_width, #cal_img_body, #cal_img_head_shadow').css('width', '290px');
 		jQuery('#cal_img_head, #cal_img_head_shadow').css('height', '380px');
 		jQuery('#cal_img_height').css('min-height', '380px');
-		jQuery('#cal_img_width').css('background', 'url(/images/oferta/kalendarze/dzielne/w290.jpg)');
-		jQuery('#cal_img_head_shadow').css('background','url(/images/oferta/kalendarze/dzielne/shadow_gra.png) no-repeat center');
+		jQuery('#cal_img_width').css('background', 'url(/images/dzielne/w290.jpg)');
+		jQuery('#cal_img_head_shadow').css('background','url(/images/dzielne/shadow_gra.png) no-repeat center');
 	}
 	else if(jQuery('[name=cal_width]:checked').val() == 'std' && jQuery('[name=cal_line]:checked').val() != 'gra')
 	{
 		jQuery('#cal_img_width, #cal_img_body, #cal_img_head_shadow').css('width', '297px');
 		jQuery('#cal_img_head, #cal_img_head_shadow').css('height', '210px');
 		jQuery('#cal_img_height').css('min-height', '210px');
-		jQuery('#cal_img_width').css('background', 'url(/images/oferta/kalendarze/dzielne/w297.jpg)');
+		jQuery('#cal_img_width').css('background', 'url(/images/dzielne/w297.jpg)');
 	}
 	else if(jQuery('[name=cal_width]:checked').val() == 'sze')
 	{
 		jQuery('#cal_img_width, #cal_img_body, #cal_img_head_shadow').css('width', '320px');
 		jQuery('#cal_img_head, #cal_img_head_shadow').css('height', '210px');
 		jQuery('#cal_img_height').css('min-height', '210px');
-		jQuery('#cal_img_width').css('background', 'url(/images/oferta/kalendarze/dzielne/w320.jpg)');
+		jQuery('#cal_img_width').css('background', 'url(/images/dzielne/w320.jpg)');
 	}
 
 	if(jQuery('[name=cal_width]:checked').val() == 'std' && jQuery('[name=cal_line]:checked').val() == 'pre')
-		jQuery('#cal_img_head_shadow').css('background','url(/images/oferta/kalendarze/dzielne/shadow_std.png) no-repeat center');
+		jQuery('#cal_img_head_shadow').css('background','url(/images/dzielne/shadow_std.png) no-repeat center');
 	else if(jQuery('[name=cal_width]:checked').val() == 'sze' && jQuery('[name=cal_line]:checked').val() == 'pre')
-		jQuery('#cal_img_head_shadow').css('background','url(/images/oferta/kalendarze/dzielne/shadow_sze.png) no-repeat center');
+		jQuery('#cal_img_head_shadow').css('background','url(/images/dzielne/shadow_sze.png) no-repeat center');
 
 
 	if(jQuery('[name=cal_type]:checked').val() == '1dz')
@@ -198,44 +201,57 @@ function img()
 		{
 			jQuery('#cal_img_height').css('height', '425px');
 			jQuery('#cal_img_back').css('height', '215px');
-			jQuery('#cal_img_height').css('background', 'url(/images/oferta/kalendarze/dzielne/h210.jpg) no-repeat, url(/images/oferta/kalendarze/dzielne/h215.jpg) no-repeat bottom');
+			jQuery('#cal_img_calm').css('height', '215px');
+			jQuery('#cal_img_height').css('background', 'url(/images/dzielne/h210.jpg) no-repeat, url(/images/dzielne/h215.jpg) no-repeat bottom');
 		}
 		else if(jQuery('[name=cal_advert]:checked').val() == '0' && jQuery('[name=cal_line]:checked').val() == 'gra')
 		{
 			jQuery('#cal_img_height').css('height', '595px');
 			jQuery('#cal_img_back').css('height', '215px');
-			jQuery('#cal_img_height').css('background', 'url(/images/oferta/kalendarze/dzielne/h380.jpg) no-repeat, url(/images/oferta/kalendarze/dzielne/h215.jpg) no-repeat bottom');
+			jQuery('#cal_img_calm').css('height', '215px');
+			jQuery('#cal_img_height').css('background', 'url(/images/dzielne/h380.jpg) no-repeat, url(/images/dzielne/h215.jpg) no-repeat bottom');
 		}
 		else if(jQuery('[name=cal_advert]:checked').val() == '1m' && jQuery('[name=cal_line]:checked').val() != 'gra')
 		{
 			jQuery('#cal_img_height').css('height', '505px');
 			jQuery('#cal_img_back').css('height', '295px');
-			jQuery('#cal_img_height').css('background', 'url(/images/oferta/kalendarze/dzielne/h210.jpg) no-repeat, url(/images/oferta/kalendarze/dzielne/h215.jpg) no-repeat 0px 210px, url(/images/oferta/kalendarze/dzielne/h80.jpg) no-repeat bottom');
+			jQuery('#cal_img_calm').css('height', '295px');
+			jQuery('#cal_img_height').css('background', 'url(/images/dzielne/h210.jpg) no-repeat, url(/images/dzielne/h215.jpg) no-repeat 0px 210px, url(/images/dzielne/h80.jpg) no-repeat bottom');
 		}
 		else if(jQuery('[name=cal_advert]:checked').val() == '1m' && jQuery('[name=cal_line]:checked').val() == 'gra')
 		{
 			jQuery('#cal_img_height').css('height', '675px');
 			jQuery('#cal_img_back').css('height', '295px');
-			jQuery('#cal_img_height').css('background', 'url(/images/oferta/kalendarze/dzielne/h380.jpg) no-repeat, url(/images/oferta/kalendarze/dzielne/h215.jpg) no-repeat 0px 380px, url(/images/oferta/kalendarze/dzielne/h80.jpg) no-repeat bottom');
+			jQuery('#cal_img_calm').css('height', '295px');
+			jQuery('#cal_img_height').css('background', 'url(/images/dzielne/h380.jpg) no-repeat, url(/images/dzielne/h215.jpg) no-repeat 0px 380px, url(/images/dzielne/h80.jpg) no-repeat bottom');
 		}
 		else if(jQuery('[name=cal_advert]:checked').val() == '1d')
 		{
 			jQuery('#cal_img_height').css('height', '595px');
 			jQuery('#cal_img_back').css('height', '385px');
-			jQuery('#cal_img_height').css('background', 'url(/images/oferta/kalendarze/dzielne/h210.jpg) no-repeat, url(/images/oferta/kalendarze/dzielne/h215.jpg) no-repeat 0px 210px, url(/images/oferta/kalendarze/dzielne/h170.jpg) no-repeat bottom');
+			jQuery('#cal_img_calm').css('height', '385px');
+			jQuery('#cal_img_height').css('background', 'url(/images/dzielne/h210.jpg) no-repeat, url(/images/dzielne/h215.jpg) no-repeat 0px 210px, url(/images/dzielne/h170.jpg) no-repeat bottom');
 		}
 
-		if(jQuery('[name=cal_conn]:checked').val() == 'spi') jQuery('#cal_img_helix1').show().css('margin-top', '-8px');
-		jQuery('#cal_img_calm').css('background', 'url(/images/oferta/kalendarze/dzielne/1dz_'+jQuery('[name=cal_conn]:checked').val()+'.png) no-repeat top center');
+		if(jQuery('[name=cal_conn]:checked').val() == 'spi'){
+		    jQuery('#cal_img_helix1').css('margin-top', '-8px');
+		    jQuery('#cal_img_helix1').css('display', 'block');
+		    jQuery('#cal_img_helix1').css('position', 'absolute');
+		    jQuery('#cal_img_helix1').css('background', 'url("/images/dzielne/helix.png")');
+		}
+		jQuery('#cal_img_calm').css('background', 'url(/images/dzielne/1dz_'+jQuery('[name=cal_conn]:checked').val()+'.png) no-repeat top center');
+
 
 		if(jQuery('[name=cal_advert]:checked').val() == '1m')
 		{
+		    jQuery('#cal_img_adv1').css({'position': "relative"});
 			jQuery('#cal_img_adv1').show().height('60px').css({'top': '225px', 'color': '#ffffff', 'border-color': "#ffffff", 'vertical-align': 'middle'}).html('<br style="line-height: 14px;"/>NAPIS REKLAMOWY 270mm x 60mm');
 			if(jQuery('[name=cal_back]:checked').val() == 'wp' || jQuery('[name=cal_back]:checked').val() == '0')
 				jQuery('#cal_img_adv1').css({'color': '#222222', 'border-color': "#222222"});
 		}
 		else if(jQuery('[name=cal_advert]:checked').val() == '1d')
 		{
+		jQuery('#cal_img_adv1').css({'position': "relative"});
 			jQuery('#cal_img_adv1').show().height('150px').css({'top': '225px', 'color': '#ffffff', 'border-color': "#ffffff", 'vertical-align': 'middle'}).html('<br style="line-height: 65px;"/>NAPIS REKLAMOWY 270mm x 150mm');
 			if(jQuery('[name=cal_back]:checked').val() == 'wp' || jQuery('[name=cal_back]:checked').val() == '0')
 				jQuery('#cal_img_adv1').css({'color': '#222222', 'border-color': "#222222"});
@@ -247,36 +263,47 @@ function img()
 		{
 			jQuery('#cal_img_height').css('height', '510px');
 			jQuery('#cal_img_back').css('height', '300px');
-			jQuery('#cal_img_height').css('background', 'url(/images/oferta/kalendarze/dzielne/h210.jpg) no-repeat, url(/images/oferta/kalendarze/dzielne/h210.jpg) no-repeat 0px 210px, url(/images/oferta/kalendarze/dzielne/h90.jpg) no-repeat bottom');
+			jQuery('#cal_img_calm').css('height', '300px');
+			jQuery('#cal_img_height').css('background', 'url(/images/dzielne/h210.jpg) no-repeat, url(/images/dzielne/h210.jpg) no-repeat 0px 210px, url(/images/dzielne/h90.jpg) no-repeat bottom');
 		}
 		else if(jQuery('[name=cal_advert]:checked').val() == '0' && jQuery('[name=cal_line]:checked').val() == 'gra')
 		{
 			jQuery('#cal_img_height').css('height', '680px');
 			jQuery('#cal_img_back').css('height', '300px');
-			jQuery('#cal_img_height').css('background', 'url(/images/oferta/kalendarze/dzielne/h380.jpg) no-repeat, url(/images/oferta/kalendarze/dzielne/h210.jpg) no-repeat 0px 380px, url(/images/oferta/kalendarze/dzielne/h90.jpg) no-repeat bottom');
+			jQuery('#cal_img_calm').css('height', '300px');
+			jQuery('#cal_img_height').css('background', 'url(/images/dzielne/h380.jpg) no-repeat, url(/images/dzielne/h210.jpg) no-repeat 0px 380px, url(/images/dzielne/h90.jpg) no-repeat bottom');
 		}
 		else if(jQuery('[name=cal_advert]:checked').val() == '1' && jQuery('[name=cal_line]:checked').val() != 'gra')
 		{
 			jQuery('#cal_img_height').css('height', '630px');
 			jQuery('#cal_img_back').css('height', '420px');
-			jQuery('#cal_img_height').css('background', 'url(/images/oferta/kalendarze/dzielne/h210.jpg) no-repeat, url(/images/oferta/kalendarze/dzielne/h210.jpg) no-repeat 0px 210px, url(/images/oferta/kalendarze/dzielne/h210.jpg) no-repeat bottom');
+			jQuery('#cal_img_calm').css('height', '420px');
+			jQuery('#cal_img_height').css('background', 'url(/images/dzielne/h210.jpg) no-repeat, url(/images/dzielne/h210.jpg) no-repeat 0px 210px, url(/images/dzielne/h210.jpg) no-repeat bottom');
 		}
 		else if(jQuery('[name=cal_advert]:checked').val() == '1' && jQuery('[name=cal_line]:checked').val() == 'gra')
 		{
 			jQuery('#cal_img_height').css('height', '800px');
 			jQuery('#cal_img_back').css('height', '420px');
-			jQuery('#cal_img_height').css('background', 'url(/images/oferta/kalendarze/dzielne/h380.jpg) no-repeat, url(/images/oferta/kalendarze/dzielne/h210.jpg) no-repeat 0px 380px, url(/images/oferta/kalendarze/dzielne/h210.jpg) no-repeat bottom');
+			jQuery('#cal_img_calm').css('height', '420px');
+			jQuery('#cal_img_height').css('background', 'url(/images/dzielne/h380.jpg) no-repeat, url(/images/dzielne/h210.jpg) no-repeat 0px 380px, url(/images/dzielne/h210.jpg) no-repeat bottom');
 		}
 
 		if(jQuery('[name=cal_conn]:checked').val() == 'spi')
 		{
-			jQuery('#cal_img_helix1').show().css('margin-top', '-8px');
-			jQuery('#cal_img_helix2').show().css('margin-top', '202px');
+			jQuery('#cal_img_helix1').css('margin-top', '-8px');
+			jQuery('#cal_img_helix1').css('display', 'block');
+            jQuery('#cal_img_helix1').css('position', 'absolute');
+            jQuery('#cal_img_helix1').css('background', 'url("/images/dzielne/helix.png")');
+			jQuery('#cal_img_helix2').css('margin-top', '202px');
+			jQuery('#cal_img_helix2').css('display', 'block');
+            jQuery('#cal_img_helix2').css('position', 'absolute');
+            jQuery('#cal_img_helix2').css('background', 'url("/images/dzielne/helix.png")');
 		}
-		jQuery('#cal_img_calm').css('background', 'url(/images/oferta/kalendarze/dzielne/2dz_'+jQuery('[name=cal_conn]:checked').val()+'.png) no-repeat top center');
+		jQuery('#cal_img_calm').css('background', 'url(/images/dzielne/2dz_'+jQuery('[name=cal_conn]:checked').val()+'.png) no-repeat top center');
 
 		if(jQuery('[name=cal_advert]:checked').val() == '1')
 		{
+		    jQuery('#cal_img_adv1').css({'position': "relative"});
 			jQuery('#cal_img_adv1').show().height('35px').css({'top': '375px', 'color': '#ffffff', 'border-color': "#ffffff", 'vertical-align': 'middle'}).html('NAPIS REKLAMOWY 270mm x 35mm');
 			if(jQuery('[name=cal_back]:checked').val() == 'wp' || jQuery('[name=cal_back]:checked').val() == '0')
 				jQuery('#cal_img_adv1').css({'color': '#222222', 'border-color': "#222222"});
@@ -288,37 +315,43 @@ function img()
 		{
 			jQuery('#cal_img_height').css('height', '720px');
 			jQuery('#cal_img_back').css('height', '510px');
-			jQuery('#cal_img_height').css('background', 'url(/images/oferta/kalendarze/dzielne/h210.jpg) no-repeat, url(/images/oferta/kalendarze/dzielne/h170.jpg) no-repeat 0px 210px, url(/images/oferta/kalendarze/dzielne/h170.jpg) no-repeat 0px 380px, url(/images/oferta/kalendarze/dzielne/h170.jpg) no-repeat bottom');
+			jQuery('#cal_img_calm').css('height', '510px');
+			jQuery('#cal_img_height').css('background', 'url(/images/dzielne/h210.jpg) no-repeat, url(/images/dzielne/h170.jpg) no-repeat 0px 210px, url(/images/dzielne/h170.jpg) no-repeat 0px 380px, url(/images/dzielne/h170.jpg) no-repeat bottom');
 		}
 		else if(jQuery('[name=cal_advert]:checked').val() == '0' && jQuery('[name=cal_line]:checked').val() == 'gra')
 		{
 			jQuery('#cal_img_height').css('height', '890px');
 			jQuery('#cal_img_back').css('height', '510px');
-			jQuery('#cal_img_height').css('background', 'url(/images/oferta/kalendarze/dzielne/h380.jpg) no-repeat, url(/images/oferta/kalendarze/dzielne/h170.jpg) no-repeat 0px 380px, url(/images/oferta/kalendarze/dzielne/h170.jpg) no-repeat 0px 550px, url(/images/oferta/kalendarze/dzielne/h170.jpg) no-repeat bottom');
+			jQuery('#cal_img_calm').css('height', '510px');
+			jQuery('#cal_img_height').css('background', 'url(/images/dzielne/h380.jpg) no-repeat, url(/images/dzielne/h170.jpg) no-repeat 0px 380px, url(/images/dzielne/h170.jpg) no-repeat 0px 550px, url(/images/dzielne/h170.jpg) no-repeat bottom');
 		}
 		else if(jQuery('[name=cal_advert]:checked').val() == '1' && jQuery('[name=cal_line]:checked').val() != 'gra')
 		{
 			jQuery('#cal_img_height').css('height', '840px');
 			jQuery('#cal_img_back').css('height', '630px');
-			jQuery('#cal_img_height').css('background', 'url(/images/oferta/kalendarze/dzielne/h210.jpg) no-repeat, url(/images/oferta/kalendarze/dzielne/h170.jpg) no-repeat 0px 210px, url(/images/oferta/kalendarze/dzielne/h170.jpg) no-repeat 0px 380px, url(/images/oferta/kalendarze/dzielne/h170.jpg) no-repeat 0px 550px, url(/images/oferta/kalendarze/dzielne/h120.jpg) no-repeat bottom');
+			jQuery('#cal_img_calm').css('height', '630px');
+			jQuery('#cal_img_height').css('background', 'url(/images/dzielne/h210.jpg) no-repeat, url(/images/dzielne/h170.jpg) no-repeat 0px 210px, url(/images/dzielne/h170.jpg) no-repeat 0px 380px, url(/images/dzielne/h170.jpg) no-repeat 0px 550px, url(/images/dzielne/h120.jpg) no-repeat bottom');
 		}
 		else if(jQuery('[name=cal_advert]:checked').val() == '1' && jQuery('[name=cal_line]:checked').val() == 'gra')
 		{
 			jQuery('#cal_img_height').css('height', '1010px');
 			jQuery('#cal_img_back').css('height', '630px');
-			jQuery('#cal_img_height').css('background', 'url(/images/oferta/kalendarze/dzielne/h380.jpg) no-repeat, url(/images/oferta/kalendarze/dzielne/h170.jpg) no-repeat 0px 380px, url(/images/oferta/kalendarze/dzielne/h170.jpg) no-repeat 0px 550px, url(/images/oferta/kalendarze/dzielne/h170.jpg) no-repeat 0px 720px, url(/images/oferta/kalendarze/dzielne/h120.jpg) no-repeat bottom');
+			jQuery('#cal_img_calm').css('height', '630px');
+			jQuery('#cal_img_height').css('background', 'url(/images/dzielne/h380.jpg) no-repeat, url(/images/dzielne/h170.jpg) no-repeat 0px 380px, url(/images/dzielne/h170.jpg) no-repeat 0px 550px, url(/images/dzielne/h170.jpg) no-repeat 0px 720px, url(/images/dzielne/h120.jpg) no-repeat bottom');
 		}
 		else if(jQuery('[name=cal_advert]:checked').val() == '3' && jQuery('[name=cal_line]:checked').val() != 'gra')
 		{
 			jQuery('#cal_img_height').css('height', '840px');
 			jQuery('#cal_img_back').css('height', '630px');
-			jQuery('#cal_img_height').css('background', 'url(/images/oferta/kalendarze/dzielne/h210.jpg) no-repeat, url(/images/oferta/kalendarze/dzielne/h210.jpg) no-repeat 0px 210px, url(/images/oferta/kalendarze/dzielne/h210.jpg) no-repeat 0px 420px, url(/images/oferta/kalendarze/dzielne/h210.jpg) no-repeat bottom');
+			jQuery('#cal_img_calm').css('height', '630px');
+			jQuery('#cal_img_height').css('background', 'url(/images/dzielne/h210.jpg) no-repeat, url(/images/dzielne/h210.jpg) no-repeat 0px 210px, url(/images/dzielne/h210.jpg) no-repeat 0px 420px, url(/images/dzielne/h210.jpg) no-repeat bottom');
 		}
 		else if(jQuery('[name=cal_advert]:checked').val() == '3' && jQuery('[name=cal_line]:checked').val() == 'gra')
 		{
 			jQuery('#cal_img_height').css('height', '1010px');
 			jQuery('#cal_img_back').css('height', '630px');
-			jQuery('#cal_img_height').css('background', 'url(/images/oferta/kalendarze/dzielne/h380.jpg) no-repeat, url(/images/oferta/kalendarze/dzielne/h210.jpg) no-repeat 0px 380px, url(/images/oferta/kalendarze/dzielne/h210.jpg) no-repeat 0px 590px, url(/images/oferta/kalendarze/dzielne/h210.jpg) no-repeat bottom');
+			jQuery('#cal_img_calm').css('height', '630px');
+			jQuery('#cal_img_height').css('background', 'url(/images/dzielne/h380.jpg) no-repeat, url(/images/dzielne/h210.jpg) no-repeat 0px 380px, url(/images/dzielne/h210.jpg) no-repeat 0px 590px, url(/images/dzielne/h210.jpg) no-repeat bottom');
 		}
 
 		if(jQuery('[name=cal_conn]:checked').val() == 'spi')
@@ -327,29 +360,51 @@ function img()
 
 			if(jQuery('[name=cal_advert]:checked').val() == '0')
 			{
-				jQuery('#cal_img_helix2').show().css('margin-top', '162px');
-				jQuery('#cal_img_helix3').show().css('margin-top', '332px');
+				jQuery('#cal_img_helix2').css('margin-top', '162px');
+				jQuery('#cal_img_helix2').css('display', 'block');
+                jQuery('#cal_img_helix2').css('position', 'absolute');
+                jQuery('#cal_img_helix2').css('background', 'url("/images/dzielne/helix.png")');
+				jQuery('#cal_img_helix3').css('margin-top', '332px');
+				jQuery('#cal_img_helix3').css('display', 'block');
+                jQuery('#cal_img_helix3').css('position', 'absolute');
+                jQuery('#cal_img_helix3').css('background', 'url("/images/dzielne/helix.png")');
 			}
 			else if(jQuery('[name=cal_advert]:checked').val() == '1')
 			{
-				jQuery('#cal_img_helix2').show().css('margin-top', '162px');
-				jQuery('#cal_img_helix3').show().css('margin-top', '332px');
-				jQuery('#cal_img_helix4').show().css('margin-top', '502px');
+				jQuery('#cal_img_helix2').css('margin-top', '162px');
+				jQuery('#cal_img_helix2').css('display', 'block');
+                jQuery('#cal_img_helix2').css('position', 'absolute');
+                jQuery('#cal_img_helix2').css('background', 'url("/images/dzielne/helix.png")');
+				jQuery('#cal_img_helix3').css('margin-top', '332px');
+				jQuery('#cal_img_helix3').css('display', 'block');
+                jQuery('#cal_img_helix3').css('position', 'absolute');
+                jQuery('#cal_img_helix3').css('background', 'url("/images/dzielne/helix.png")');
+				jQuery('#cal_img_helix4').css('margin-top', '502px');
+				jQuery('#cal_img_helix4').css('display', 'block');
+                jQuery('#cal_img_helix4').css('position', 'absolute');
+                jQuery('#cal_img_helix4').css('background', 'url("/images/dzielne/helix.png")');
 			}
 			else if(jQuery('[name=cal_advert]:checked').val() == '3')
 			{
-				jQuery('#cal_img_helix2').show().css('margin-top', '202px');
-				jQuery('#cal_img_helix3').show().css('margin-top', '412px');
+				jQuery('#cal_img_helix2').css('margin-top', '202px');
+				jQuery('#cal_img_helix2').css('display', 'block');
+                jQuery('#cal_img_helix2').css('position', 'absolute');
+                jQuery('#cal_img_helix2').css('background', 'url("/images/dzielne/helix.png")');
+				jQuery('#cal_img_helix3').css('margin-top', '412px');
+				jQuery('#cal_img_helix3').css('display', 'block');
+                jQuery('#cal_img_helix3').css('position', 'absolute');
+                jQuery('#cal_img_helix3').css('background', 'url("/images/dzielne/helix.png")');
 			}
 		}
 
 		if(jQuery('[name=cal_advert]:checked').val() != '3')
-			jQuery('#cal_img_calm').css('background', 'url(/images/oferta/kalendarze/dzielne/3dz_'+jQuery('[name=cal_conn]:checked').val()+'_'+jQuery('[name=cal_calm]:checked').val()+'.png) no-repeat top center');
+			jQuery('#cal_img_calm').css('background', 'url(/images/dzielne/3dz_'+jQuery('[name=cal_conn]:checked').val()+'_'+jQuery('[name=cal_calm]:checked').val()+'.png) no-repeat top center');
 		else
-			jQuery('#cal_img_calm').css('background', 'url(/images/oferta/kalendarze/dzielne/3dz_'+jQuery('[name=cal_conn]:checked').val()+'_'+jQuery('[name=cal_calm]:checked').val()+'3.png) no-repeat top center');
+			jQuery('#cal_img_calm').css('background', 'url(/images/dzielne/3dz_'+jQuery('[name=cal_conn]:checked').val()+'_'+jQuery('[name=cal_calm]:checked').val()+'3.png) no-repeat top center');
 
 		if(jQuery('[name=cal_advert]:checked').val() == '1')
 		{
+		    jQuery('#cal_img_adv1').css({'position': "relative"});
 			jQuery('#cal_img_adv1').show().height('100px').css({'top': '520px', 'color': '#ffffff', 'border-color': "#ffffff", 'vertical-align': 'middle'}).html('<br style="line-height: 40px;"/>NAPIS REKLAMOWY 270mm x 100mm');
 
 			if(jQuery('[name=cal_back]:checked').val() == 'wp' || jQuery('[name=cal_back]:checked').val() == '0')
@@ -357,6 +412,9 @@ function img()
 		}
 		else if(jQuery('[name=cal_advert]:checked').val() == '3')
 		{
+		    jQuery('#cal_img_adv1').css({'position': "relative"});
+		    jQuery('#cal_img_adv2').css({'position': "relative"});
+		    jQuery('#cal_img_adv3').css({'position': "relative"});
 			jQuery('#cal_img_adv1').show().height('35px').css({'top': '165px', 'color': '#ffffff', 'border-color': "#ffffff", 'vertical-align': 'middle'}).html('<br/><p style="margin-top: -14px;">NAPIS REKLAMOWY 270mm x 35mm</p>');
 			jQuery('#cal_img_adv2').show().height('35px').css({'top': '340px', 'color': '#ffffff', 'border-color': "#ffffff", 'vertical-align': 'middle'}).html('<br/><p style="margin-top: -14px;">NAPIS REKLAMOWY 270mm x 35mm</p>');
 			jQuery('#cal_img_adv3').show().height('35px').css({'top': '510px', 'color': '#ffffff', 'border-color': "#ffffff", 'vertical-align': 'middle'}).html('<br/><p style="margin-top: -14px;">NAPIS REKLAMOWY 270mm x 35mm</p>');
@@ -370,19 +428,22 @@ function img()
 		{
 			jQuery('#cal_img_height').css('height', '890px');
 			jQuery('#cal_img_back').css('height', '680px');
-			jQuery('#cal_img_height').css('background', 'url(/images/oferta/kalendarze/dzielne/h210.jpg) no-repeat, url(/images/oferta/kalendarze/dzielne/h170.jpg) no-repeat 0px 210px, url(/images/oferta/kalendarze/dzielne/h170.jpg) no-repeat 0px 380px, url(/images/oferta/kalendarze/dzielne/h170.jpg) no-repeat 0px 550px, url(/images/oferta/kalendarze/dzielne/h170.jpg) no-repeat bottom');
+			jQuery('#cal_img_calm').css('height', '680px');
+			jQuery('#cal_img_height').css('background', 'url(/images/dzielne/h210.jpg) no-repeat, url(/images/dzielne/h170.jpg) no-repeat 0px 210px, url(/images/dzielne/h170.jpg) no-repeat 0px 380px, url(/images/dzielne/h170.jpg) no-repeat 0px 550px, url(/images/dzielne/h170.jpg) no-repeat bottom');
 		}
 		else if(jQuery('[name=cal_advert]:checked').val() == '1')
 		{
 			jQuery('#cal_img_height').css('height', '1050px');
 			jQuery('#cal_img_back').css('height', '840px');
-			jQuery('#cal_img_height').css('background', 'url(/images/oferta/kalendarze/dzielne/h210.jpg) no-repeat, url(/images/oferta/kalendarze/dzielne/h170.jpg) no-repeat 0px 210px, url(/images/oferta/kalendarze/dzielne/h170.jpg) no-repeat 0px 380px, url(/images/oferta/kalendarze/dzielne/h170.jpg) no-repeat 0px 550px, url(/images/oferta/kalendarze/dzielne/h170.jpg) no-repeat 0px 720px, url(/images/oferta/kalendarze/dzielne/h160.jpg) no-repeat bottom');
+			jQuery('#cal_img_calm').css('height', '840px');
+			jQuery('#cal_img_height').css('background', 'url(/images/dzielne/h210.jpg) no-repeat, url(/images/dzielne/h170.jpg) no-repeat 0px 210px, url(/images/dzielne/h170.jpg) no-repeat 0px 380px, url(/images/dzielne/h170.jpg) no-repeat 0px 550px, url(/images/dzielne/h170.jpg) no-repeat 0px 720px, url(/images/dzielne/h160.jpg) no-repeat bottom');
 		}
 		else if(jQuery('[name=cal_advert]:checked').val() == '4')
 		{
 			jQuery('#cal_img_height').css('height', '1050px');
 			jQuery('#cal_img_back').css('height', '840px');
-			jQuery('#cal_img_height').css('background', 'url(/images/oferta/kalendarze/dzielne/h210.jpg) no-repeat, url(/images/oferta/kalendarze/dzielne/h210.jpg) no-repeat 0px 210px, url(/images/oferta/kalendarze/dzielne/h210.jpg) no-repeat 0px 420px, url(/images/oferta/kalendarze/dzielne/h210.jpg) no-repeat 0px 630px, url(/images/oferta/kalendarze/dzielne/h210.jpg) no-repeat bottom');
+			jQuery('#cal_img_calm').css('height', '840px');
+			jQuery('#cal_img_height').css('background', 'url(/images/dzielne/h210.jpg) no-repeat, url(/images/dzielne/h210.jpg) no-repeat 0px 210px, url(/images/dzielne/h210.jpg) no-repeat 0px 420px, url(/images/dzielne/h210.jpg) no-repeat 0px 630px, url(/images/dzielne/h210.jpg) no-repeat bottom');
 		}
 
 		if(jQuery('[name=cal_conn]:checked').val() == 'spi')
@@ -392,31 +453,62 @@ function img()
 			if(jQuery('[name=cal_advert]:checked').val() == '0')
 			{
 				jQuery('#cal_img_helix2').show().css('margin-top', '162px');
+				jQuery('#cal_img_helix2').css('display', 'block');
+                jQuery('#cal_img_helix2').css('position', 'absolute');
+                jQuery('#cal_img_helix2').css('background', 'url("/images/dzielne/helix.png")');
 				jQuery('#cal_img_helix3').show().css('margin-top', '332px');
+				jQuery('#cal_img_helix3').css('display', 'block');
+                jQuery('#cal_img_helix3').css('position', 'absolute');
+                jQuery('#cal_img_helix3').css('background', 'url("/images/dzielne/helix.png")');
 				jQuery('#cal_img_helix4').show().css('margin-top', '502px');
+				jQuery('#cal_img_helix4').css('display', 'block');
+                jQuery('#cal_img_helix4').css('position', 'absolute');
+                jQuery('#cal_img_helix4').css('background', 'url("/images/dzielne/helix.png")');
 			}
 			else if(jQuery('[name=cal_advert]:checked').val() == '1')
 			{
 				jQuery('#cal_img_helix2').show().css('margin-top', '162px');
+				jQuery('#cal_img_helix2').css('display', 'block');
+                jQuery('#cal_img_helix2').css('position', 'absolute');
+                jQuery('#cal_img_helix2').css('background', 'url("/images/dzielne/helix.png")');
 				jQuery('#cal_img_helix3').show().css('margin-top', '332px');
+				jQuery('#cal_img_helix3').css('display', 'block');
+                jQuery('#cal_img_helix3').css('position', 'absolute');
+                jQuery('#cal_img_helix3').css('background', 'url("/images/dzielne/helix.png")');
 				jQuery('#cal_img_helix4').show().css('margin-top', '502px');
+				jQuery('#cal_img_helix4').css('display', 'block');
+                jQuery('#cal_img_helix4').css('position', 'absolute');
+                jQuery('#cal_img_helix4').css('background', 'url("/images/dzielne/helix.png")');
 				jQuery('#cal_img_helix5').show().css('margin-top', '672px');
+				jQuery('#cal_img_helix5').css('display', 'block');
+                jQuery('#cal_img_helix5').css('position', 'absolute');
+                jQuery('#cal_img_helix5').css('background', 'url("/images/dzielne/helix.png")');
 			}
 			else if(jQuery('[name=cal_advert]:checked').val() == '4')
 			{
 				jQuery('#cal_img_helix2').show().css('margin-top', '202px');
+				jQuery('#cal_img_helix2').css('display', 'block');
+                jQuery('#cal_img_helix2').css('position', 'absolute');
+                jQuery('#cal_img_helix2').css('background', 'url("/images/dzielne/helix.png")');
 				jQuery('#cal_img_helix3').show().css('margin-top', '412px');
+				jQuery('#cal_img_helix3').css('display', 'block');
+                jQuery('#cal_img_helix3').css('position', 'absolute');
+                jQuery('#cal_img_helix3').css('background', 'url("/images/dzielne/helix.png")');
 				jQuery('#cal_img_helix4').show().css('margin-top', '622px');
+				jQuery('#cal_img_helix4').css('display', 'block');
+                jQuery('#cal_img_helix4').css('position', 'absolute');
+                jQuery('#cal_img_helix4').css('background', 'url("/images/dzielne/helix.png")');
 			}
 		}
 
 		if(jQuery('[name=cal_advert]:checked').val() != '4')
-			jQuery('#cal_img_calm').css('background', 'url(/images/oferta/kalendarze/dzielne/4dz_'+jQuery('[name=cal_conn]:checked').val()+'.png) no-repeat top center');
+			jQuery('#cal_img_calm').css('background', 'url(/images/dzielne/4dz_'+jQuery('[name=cal_conn]:checked').val()+'.png) no-repeat top center');
 		else
-			jQuery('#cal_img_calm').css('background', 'url(/images/oferta/kalendarze/dzielne/4dz_'+jQuery('[name=cal_conn]:checked').val()+'_4.png) no-repeat top center');
+			jQuery('#cal_img_calm').css('background', 'url(/images/dzielne/4dz_'+jQuery('[name=cal_conn]:checked').val()+'_4.png) no-repeat top center');
 
 		if(jQuery('[name=cal_advert]:checked').val() == '1')
 		{
+		    jQuery('#cal_img_adv1').css({'position': "relative"});
 			jQuery('#cal_img_adv1').show().height('140px').css({'top': '690px', 'color': '#ffffff', 'border-color': "#ffffff", 'vertical-align': 'middle'}).html('<br style="line-height: 65px;"/>NAPIS REKLAMOWY 270mm x 140mm');
 
 			if(jQuery('[name=cal_back]:checked').val() == 'wp' || jQuery('[name=cal_back]:checked').val() == '0')
@@ -424,6 +516,10 @@ function img()
 		}
 		else if(jQuery('[name=cal_advert]:checked').val() == '4')
 		{
+		    jQuery('#cal_img_adv1').css({'position': "relative"});
+		    jQuery('#cal_img_adv2').css({'position': "relative"});
+		    jQuery('#cal_img_adv3').css({'position': "relative"});
+		    jQuery('#cal_img_adv4').css({'position': "relative"});
 			jQuery('#cal_img_adv1').show().height('35px').css({'top': '165px', 'color': '#ffffff', 'border-color': "#ffffff", 'vertical-align': 'middle'}).html('<br/><p style="margin-top: -14px;">NAPIS REKLAMOWY 270mm x 35mm</p>');
 			jQuery('#cal_img_adv2').show().height('35px').css({'top': '340px', 'color': '#ffffff', 'border-color': "#ffffff", 'vertical-align': 'middle'}).html('<br/><p style="margin-top: -14px;">NAPIS REKLAMOWY 270mm x 35mm</p>');
 			jQuery('#cal_img_adv3').show().height('35px').css({'top': '510px', 'color': '#ffffff', 'border-color': "#ffffff", 'vertical-align': 'middle'}).html('<br/><p style="margin-top: -14px;">NAPIS REKLAMOWY 270mm x 35mm</p>');
@@ -434,13 +530,13 @@ function img()
 	}
 
 	if(jQuery('[name=cal_line]:checked').val() == 'gra')
-		jQuery('#cal_img_head').css('background','url(/images/oferta/kalendarze/dzielne/'+jQuery('[name=cal_type]:checked').val()+'_g_'+jQuery('[name=cal_clock]:checked').val()+'.jpg) no-repeat center');
+		jQuery('#cal_img_head').css('background','url(/images/dzielne/'+jQuery('[name=cal_type]:checked').val()+'_g_'+jQuery('[name=cal_clock]:checked').val()+'.jpg) no-repeat center');
 	else if(jQuery('[name=cal_line]:checked').val() == 'h4')
-		jQuery('#cal_img_head').css('background','url(/images/oferta/kalendarze/dzielne/'+jQuery('[name=cal_type]:checked').val()+'_h4_'+jQuery('[name=cal_clock]:checked').val()+'.jpg) no-repeat center');
+		jQuery('#cal_img_head').css('background','url(/images/dzielne/'+jQuery('[name=cal_type]:checked').val()+'_h4_'+jQuery('[name=cal_clock]:checked').val()+'.jpg) no-repeat center');
 	else if(jQuery('[name=cal_line]:checked').val() == 'h12')
-		jQuery('#cal_img_head').css('background','url(/images/oferta/kalendarze/dzielne/'+jQuery('[name=cal_type]:checked').val()+'_h12_'+jQuery('[name=cal_clock]:checked').val()+'.jpg) no-repeat center');
+		jQuery('#cal_img_head').css('background','url(/images/dzielne/'+jQuery('[name=cal_type]:checked').val()+'_h12_'+jQuery('[name=cal_clock]:checked').val()+'.jpg) no-repeat center');
 	else
-		jQuery('#cal_img_head').css('background','url(/images/oferta/kalendarze/dzielne/'+jQuery('[name=cal_type]:checked').val()+'_'+jQuery('[name=cal_clock]:checked').val()+'.jpg) no-repeat center');
+		jQuery('#cal_img_head').css('background','url(/images/dzielne/'+jQuery('[name=cal_type]:checked').val()+'_'+jQuery('[name=cal_clock]:checked').val()+'.jpg) no-repeat center');
 
 
 	if(jQuery('[name=cal_back]:checked').val() == '0' || jQuery('[name=cal_back]:checked').val() == 'wp') jQuery('#cal_img_back').css('background', '#ffffff');
@@ -571,15 +667,15 @@ function img()
 	}
 	else if(jQuery('[name=cal_back]:checked').val() == '4k')
 	{
-		jQuery('#cal_img_back').css('background', 'url(/images/oferta/kalendarze/dzielne/back_all.png) center center');
+		jQuery('#cal_img_back').css('background', 'url(/images/dzielne/back_all.png) center center');
 		/*if(jQuery('[name=cal_line]:checked').val() == 'gra')
-			jQuery('#cal_img_back').css('background', 'url(/images/oferta/kalendarze/dzielne/back_'+jQuery('[name=cal_type]:checked').val()+'_'+jQuery('[name=cal_clock]:checked').val()+'_g.jpg) bottom center');
+			jQuery('#cal_img_back').css('background', 'url(/images/dzielne/back_'+jQuery('[name=cal_type]:checked').val()+'_'+jQuery('[name=cal_clock]:checked').val()+'_g.jpg) bottom center');
 		else if(jQuery('[name=cal_line]:checked').val() == 'h4')
-			jQuery('#cal_img_back').css('background', 'url(/images/oferta/kalendarze/dzielne/back_'+jQuery('[name=cal_type]:checked').val()+'_h4.jpg) bottom center');
+			jQuery('#cal_img_back').css('background', 'url(/images/dzielne/back_'+jQuery('[name=cal_type]:checked').val()+'_h4.jpg) bottom center');
 		else if(jQuery('[name=cal_line]:checked').val() == 'h12')
-			jQuery('#cal_img_back').css('background', 'url(/images/oferta/kalendarze/dzielne/back_'+jQuery('[name=cal_type]:checked').val()+'_h12.jpg) bottom center');
+			jQuery('#cal_img_back').css('background', 'url(/images/dzielne/back_'+jQuery('[name=cal_type]:checked').val()+'_h12.jpg) bottom center');
 		else
-			jQuery('#cal_img_back').css('background', 'url(/images/oferta/kalendarze/dzielne/back_'+jQuery('[name=cal_type]:checked').val()+'_'+jQuery('[name=cal_clock]:checked').val()+'.jpg) bottom center');*/
+			jQuery('#cal_img_back').css('background', 'url(/images/dzielne/back_'+jQuery('[name=cal_type]:checked').val()+'_'+jQuery('[name=cal_clock]:checked').val()+'.jpg) bottom center');*/
 	}
 }
 

@@ -41,3 +41,28 @@ input:checked + label{
 label{
     cursor: pointer;
 }
+
+#cal_img_body{
+    width: 297px;
+    box-shadow: 3px 3px 10px rgba(0,0,0,0.5);
+}
+
+#cal_img_head{
+    height: 210px;
+}
+
+.helix{
+    position: absolute;
+    display: block;
+    background: url("/images/dzielne/helix.png");
+    height: 16px;
+    overflow: hidden;
+
+}
+
+.advert{
+    text-align: center;
+    border: 1px solid black;
+    margin-left: 5%;
+    margin-right: 5%;
+}
