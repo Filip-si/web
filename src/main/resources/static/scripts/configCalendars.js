@@ -1,4 +1,4 @@
-var iss = 'issue_50';
+var iss = 'id50';
 function _round(_num, _dec) { return parseFloat(Math.round(_num * Math.pow(10, _dec)) / Math.pow(10, _dec)); }
 
 
@@ -8,9 +8,9 @@ jQuery('[name^=cal_]').bind('change', function() {
      jQuery('label[for='+jQuery(this).attr('id')+']').addClass('checked');
 	config(); img(); spec(); pay(); });
 
-jQuery('.price tr[class^=id]').bind('click', function() {
-    jQuery('.price input[class^=id]').removeClass('checked');
-    jQuery('.price input[class='+jQuery(this).attr('class')+']').addClass('checked');
+jQuery('.offer_pay tr[class^=id]').bind('click', function() {
+    jQuery('.offer_pay tr[class^=id]').removeClass('checked');
+    jQuery('.offer_pay tr[class='+jQuery(this).attr('class')+']').addClass('checked');
     iss = jQuery(this).attr('class');
     pay();
 });
