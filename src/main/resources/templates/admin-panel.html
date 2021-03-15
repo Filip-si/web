@@ -13,7 +13,7 @@
     </nav>
     <main>
         <div class="manageNews col-xs-12 col-sm-12 col-md-12 col-lg-12" >
-            <form class="col-xs-12 col-sm-12 col-md-12 col-lg-6" th:action="@{/admin-panel/add-news}" method="post" th:object="${file}" enctype="multipart/form-data">
+            <form class="col-xs-12 col-sm-12 col-md-12 col-lg-6" th:action="@{/admin-panel/add-article}" method="post" th:object="${file}" enctype="multipart/form-data">
                 <h6>Dodaj artykuł</h6>
                 <br>
                 <input class="field col-xs-12 col-sm-12 col-md-12 col-lg-12" name="title" type="text" placeholder="Tytuł gazetki..." >
@@ -34,13 +34,43 @@
                 <br><br>
 
             </form>
-            <form class="col-xs-12 col-sm-12 col-md-12 col-lg-6" th:action="@{/admin-panel/delete-news}" method="post" >
+            <form class="col-xs-12 col-sm-12 col-md-12 col-lg-6" th:action="@{/admin-panel/delete-article}" method="post" >
                 <h6>Usuń artykuł ze strony głównej</h6>
                 <br>
+
                 <input class="field col-xs-12 col-sm-12 col-md-12 col-lg-12" name="title" type="text" placeholder="Tytuł gazetki..." >
                 <br>
                 <br>
                 <button  type="submit" class="but1 btn-info col-xs-12 col-sm-12 col-md-12 col-lg-12" >Usuń artykuł</button>
+                <br><br>
+            </form>
+        </div>
+        <div class="manageAdverts col-xs-12 col-sm-12 col-md-12 col-lg-12" >
+            <form class="col-xs-12 col-sm-12 col-md-12 col-lg-6" th:action="@{/admin-panel/add-advert}" method="post" th:object="${file}" enctype="multipart/form-data">
+                <h6>Dodaj reklame</h6>
+                <br>
+                <input class="field col-xs-12 col-sm-12 col-md-12 col-lg-12" name="name" type="text" placeholder="Nazwa firmy..." >
+                <br>
+                <br>
+                <label>Wklej link</label>
+                <input class="field col-xs-12 col-sm-12 col-md-12 col-lg-12" name="link" type="text" placeholder="Załącz ikonę" >
+                <br>
+                <br>
+                <label>Załącz reklame</label>
+                <input class="field col-xs-12 col-sm-12 col-md-12 col-lg-12" name="advert" type="file" placeholder="Załącz reklame" >
+                <br>
+                <br>
+                <button  type="submit" class="but1 btn-info col-xs-12 col-sm-12 col-md-12 col-lg-12" >Dodaj nową reklame</button>
+                <br><br>
+
+            </form>
+            <form class="col-xs-12 col-sm-12 col-md-12 col-lg-6" th:action="@{/admin-panel/delete-advert}" method="post" >
+                <h6>Usuń artykuł ze strony głównej</h6>
+                <br>
+                <input class="field col-xs-12 col-sm-12 col-md-12 col-lg-12" name="name" type="text" placeholder="Nazwa firmy..." >
+                <br>
+                <br>
+                <button  type="submit" class="but1 btn-info col-xs-12 col-sm-12 col-md-12 col-lg-12" >Usuń reklame</button>
                 <br><br>
             </form>
         </div>

@@ -31,6 +31,9 @@ public class AppUser {
     @OneToMany(mappedBy = "id", cascade = CascadeType.ALL)
     private Set<Article> article;
 
+    @OneToMany(mappedBy = "id", cascade = CascadeType.ALL)
+    private Set<Advert> adverts;
+
 
     public AppUser() {
     }

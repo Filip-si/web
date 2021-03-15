@@ -16,34 +16,34 @@ import org.springframework.web.servlet.ModelAndView;
 import java.io.IOException;
 
 @Controller
-public class NewsController {
+public class ArticleController {
     @Autowired
     private AdminPanelServiceImpl adminPanelService;
 
     @Autowired
     private ArticleRepository articleRepository;
 
-    @RequestMapping(value = "/admin-panel/add-news", method = RequestMethod.GET)
-    public ModelAndView showNews(){
+    @RequestMapping(value = "/admin-panel/add-article", method = RequestMethod.GET)
+    public ModelAndView showArticle(){
         ModelAndView mav = new ModelAndView();
         mav.setViewName("admin-panel");
         return mav;
     }
 
-    @RequestMapping(value = "/admin-panel/add-news",method = RequestMethod.POST)
+    @RequestMapping(value = "/admin-panel/add-article",method = RequestMethod.POST)
     @Transactional
-    public String saveProduct(@RequestParam(value = "content") MultipartFile content,
+    public String saveArticle(@RequestParam(value = "content") MultipartFile content,
                               @RequestParam(value = "icon") MultipartFile icon,
                               @RequestParam(value = "title") String title,
                               @RequestParam(value = "description") String description) throws IOException {
-        adminPanelService.storeFile(title,description,content,icon);
+        adminPanelService.storeArticle(title,description,content,icon);
         return "redirect:/admin-panel";
     }
 
 
-    @RequestMapping(value = "/admin-panel/delete-news",method = RequestMethod.POST)
+    @RequestMapping(value = "/admin-panel/delete-article",method = RequestMethod.POST)
     @Transactional
-    public String deleteNews(String title){
+    public String deleteArticle(String title){
         if(articleRepository.findByTitle(title) != null){
             Article toDelete = articleRepository.findByTitle(title);
             articleRepository.delete(toDelete);

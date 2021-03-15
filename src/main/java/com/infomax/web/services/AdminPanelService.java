@@ -10,7 +10,10 @@ public interface AdminPanelService {
     Article findByTitle(String title);
     List<Article> getAll();
     void deleteArticle(String title);
-    void storeFile(String title, String description, MultipartFile file, MultipartFile iconImage) throws IOException;
+    void storeArticle(String title, String description, MultipartFile file, MultipartFile iconImage) throws IOException;
+
+    void deleteAdvert(String name);
+    void storeAdvert(String name, MultipartFile file, String link) throws IOException;
 
 
 }

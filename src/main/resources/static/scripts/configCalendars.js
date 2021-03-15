@@ -749,14 +749,14 @@ function spec()
 	if(jQuery('[name=cal_clock]:checked').val() == '0') jQuery('#spec_clk').text('brak');
 	else if(jQuery('[name=cal_clock]:checked').val() == 'tak') jQuery('#spec_clk').text('zamontowany na główce kalendarza');
 
-	if(jQuery('[name=cal_graph]:checked').val() == 0) jQuery('#spec_graph').text('projekt klienta plik zamknięty - PDF produkcyjny');
-	else if(jQuery('[name=cal_graph]:checked').val() == 120)
+	if(jQuery('[name=cal_gd]:checked').val() == 0) jQuery('#spec_graph').text('projekt klienta plik zamknięty - PDF produkcyjny');
+	else if(jQuery('[name=cal_gd]:checked').val() == 120)
 		jQuery('#spec_graph').text('prosta praca zgodnie z sugestiami klienta (2 warianty, wykonane z tych samych elementów graficznych), napisy + zdjęcie (kadrowanie, bez skomplikowanej obróbki) + logo bez odrysowywania, nanoszenie zmian nie więcej niż dwukrotne');
-	else if(jQuery('[name=cal_graph]:checked').val() == 180)
+	else if(jQuery('[name=cal_gd]:checked').val() == 180)
 		jQuery('#spec_graph').text('nieskomplikowana praca zgodnie z sugestiami klienta  (2 warianty, wykonane z tych samych elementów  graficznych), napisy + zdjęcia (2-3, ewentualny montaż, bez skomplikowanej obróbki) + logo z ewentualnym odrysowywaniem, nanoszenie zmian nie więcej niż dwukrotne');
-	else if(jQuery('[name=cal_graph]:checked').val() == 250)
+	else if(jQuery('[name=cal_gd]:checked').val() == 250)
 		jQuery('#spec_graph').text('średnioskomplikowana praca (2 propozycje układu graficznego), obróbka zdjęć i elementów graficznych (logo z ewentualnym odrysowywaniem');
-	else if(jQuery('[name=cal_graph]:checked').val() == 450)
+	else if(jQuery('[name=cal_gd]:checked').val() == 450)
 		jQuery('#spec_graph').text('projekt graficzny (2-3 propozycje układu graficznego wykonane niezależnie przez 2 grafików), przekazanie plików i praw autorskich do wykonanego projektu - możliwość wydruku kalendarza w 2 wariantach (2 różne główki, plecki te same) - elektroniczna kartka');
 }
 
@@ -886,13 +886,13 @@ function pay()
 		jQuery('#5000').text(parseFloat(_round((cost * ((100 - edition[5000])/100)) , 2) + parseFloat(extra)).toFixed(2)+' PLN');
 	}
 
-    if(jQuery('[name=cal_graph]:checked').val() == 0) jQuery('#pay_graph').text('0.00 PLN');
-	else if(jQuery('[name=cal_graph]:checked').val() == 120) jQuery('#pay_graph').text('120.00 PLN');
-	else if(jQuery('[name=cal_graph]:checked').val() == 180) jQuery('#pay_graph').text('180.00 PLN');
-	else if(jQuery('[name=cal_graph]:checked').val() == 250) jQuery('#pay_graph').text('250.00 PLN');
-	else if(jQuery('[name=cal_graph]:checked').val() == 450) jQuery('#pay_graph').text('450.00 PLN');
-    if(jQuery('[name=cal_proof]:checked').val() == '0') jQuery('#pay_proof').text('0.00 PLN');
-	else if(jQuery('[name=cal_proof]:checked').val() == 'tak') jQuery('#pay_proof').text('40.00 PLN');
+    if(jQuery('[name=cal_gd]:checked').val() == 0) jQuery('#pay_graph').text('0.00 PLN');
+	else if(jQuery('[name=cal_gd]:checked').val() == 120) jQuery('#pay_graph').text('120.00 PLN');
+	else if(jQuery('[name=cal_gd]:checked').val() == 180) jQuery('#pay_graph').text('180.00 PLN');
+	else if(jQuery('[name=cal_gd]:checked').val() == 250) jQuery('#pay_graph').text('250.00 PLN');
+	else if(jQuery('[name=cal_gd]:checked').val() == 450) jQuery('#pay_graph').text('450.00 PLN');
+    if(jQuery('[name=cal_copy]:checked').val() == '0') jQuery('#pay_proof').text('0.00 PLN');
+	else if(jQuery('[name=cal_copy]:checked').val() == 'tak') jQuery('#pay_proof').text('40.00 PLN');
 
 
     var v1 = v2 = iss, w = 0.00;
