@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <div th:replace="fragments/headFragment :: head"></div>
+    <link rel="stylesheet" type="text/css" href="/styleConfigCal.css" >
+</head>
+<body>
+<div class="container-fluid">
+    <header>
+        <div th:replace="fragments/headerFragment :: header"></div>
+    </header>
+    <nav>
+        <div th:replace="fragments/navFragment :: nav"></div>
+    </nav>
+    <div class="calendar">
+        <div class="row configurator col-xs-12 col-sm-12 col-md-12 col-lg-4">
+            <div class="title col-xs-12 col-sm-12 col-md-12 col-lg-12">Konfigurator</div>
+            <form th:action="@{/save}" method="post">
+                <div class="headTitle col-xs-12 col-sm-12 col-md-12 col-lg-12">Typ</div>
+                <div class="type row options col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <input id="type_nam" class="type" type="radio" value="n" name="cal_type" checked>
+                    <label class="option col-xs-12 col-sm-12 col-md-12 col-lg-4" for="type_nam">
+                        Namiot
+                    </label>
+                    <input id="type_pla" class="type" type="radio" value="p" name="cal_type">
+                    <label class="option col-xs-12 col-sm-12 col-md-12 col-lg-4" for="type_pla">
+                        13planszowy
+                    </label>
+                    <input id="type_sat" class="type" type="radio" value="s" name="cal_type">
+                    <label class="option col-xs-12 col-sm-12 col-md-12 col-lg-4" for="type_sat">
+                        Sat
+                    </label>
+                </div>
+                <div class=" headTitle col-xs-12 col-sm-12 col-md-12 col-lg-12">Wysokość</div>
+                <div class="line row options col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <input id="height_sta" class="type" type="radio" value="s" name="cal_height" checked>
+                    <label class="col-xs-12 col-sm-12 col-md-12 col-lg-4" for="height_sta">
+                        Standard
+                    </label>
+                    <input id="height_wys" class="type" type="radio" value="w" name="cal_height">
+                    <label class="col-xs-12 col-sm-12 col-md-12 col-lg-4" for="height_wys">
+                        Wysoki
+                    </label>
+                </div>
+                <div class=" headTitle col-xs-12 col-sm-12 col-md-12 col-lg-12">Łączenie</div>
+                <div class="row options col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <input id="conn_b" class="type" type="radio" value="big" name="cal_conn" checked>
+                    <label class="col-xs-12 col-sm-12 col-md-12 col-lg-6" for="conn_b">
+                        Bigowanie
+                    </label>
+                    <input id="conn_h" class="type" type="radio" value="spi" name="cal_conn" >
+                    <label class="col-xs-12 col-sm-12 col-md-12 col-lg-6" for="conn_h">
+                        Spiralowanie
+                    </label>
+                </div>
+                <div class=" headTitle col-xs-12 col-sm-12 col-md-12 col-lg-12">Mechanizm zegarowy</div>
+                <div class="row options col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <input id="clk_none" class="type" type="radio" value="0" name="cal_clock" checked>
+                    <label class="col-xs-12 col-sm-12 col-md-12 col-lg-6" for="clk_none">
+                        Nie
+                    </label>
+                    <input id="clk_clock" class="type" type="radio" value="1" name="cal_clock" >
+                    <label class="col-xs-12 col-sm-12 col-md-12 col-lg-6" for="clk_clock">
+                        Tak
+                    </label>
+                </div>
+                <div class=" headTitle col-xs-12 col-sm-12 col-md-12 col-lg-12">Wariant kalendarium</div>
+                <div class="row options col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <input id="calm_w" class="type" type="radio" value="w" name="cal_calm" checked>
+                    <label class="col-xs-12 col-sm-12 col-md-12 col-lg-3" for="calm_w">
+                        Wdrukowane
+                    </label>
+                    <input id="calm_v" class="type" type="radio" value="v" name="cal_calm" >
+                    <label class="col-xs-12 col-sm-12 col-md-12 col-lg-3" for="calm_v">
+                        Zrywane pion
+                    </label>
+                    <input id="calm_h" class="type" type="radio" value="h" name="cal_calm">
+                    <label class="col-xs-12 col-sm-12 col-md-12 col-lg-3" for="calm_h">
+                        Zrywane poziom
+                    </label>
+                    <input id="calm_p" class="type" type="radio" value="p" name="cal_calm" >
+                    <label class="col-xs-12 col-sm-12 col-md-12 col-lg-3" for="calm_p">
+                        13 plansz
+                    </label>
+                </div>
+                <div class=" headTitle col-xs-12 col-sm-12 col-md-12 col-lg-12">Opakowanie</div>
+                <div class="row options col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <input id="pack_0" class="type" type="radio" value="0" name="cal_pack" checked>
+                    <label class="col-xs-12 col-sm-12 col-md-12 col-lg-3" for="pack_0">
+                        Brak
+                    </label>
+                    <input id="pack_k" class="type" type="radio" value="k" name="cal_pack">
+                    <label class="col-xs-12 col-sm-12 col-md-12 col-lg-3" for="pack_k">
+                        Koperta papierowa
+                    </label>
+                    <input id="pack_p" class="type" type="radio" value="p" name="cal_pack" >
+                    <label class="col-xs-12 col-sm-12 col-md-12 col-lg-3" for="pack_p">
+                        Pudełko
+                    </label>
+                </div>
+                <div class=" headTitle col-xs-12 col-sm-12 col-md-12 col-lg-12">Opracowanie graficzne</div>
+                <div class="row options col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <input id="graph_0" class="type" type="radio" value="0" name="cal_graph">
+                    <label class="col-xs-12 col-sm-12 col-md-12 col-lg-12" for="graph_0">
+                        projekt klienta plik zamknięty - PDF produkcyjny
+                    </label>
+                    <input id="graph_120" class="type" type="radio" value="120" name="cal_graph" checked >
+                    <label class="col-xs-12 col-sm-12 col-md-12 col-lg-12" for="graph_120">
+                        przygotowanie przez INFOMAX - wariant 1
+                    </label>
+                    <input id="graph_180" class="type" type="radio" value="180" name="cal_graph">
+                    <label class="col-xs-12 col-sm-12 col-md-12 col-lg-12" for="graph_180">
+                        przygotowanie przez INFOMAX - wariant 2
+                    </label>
+                </div>
+                <div class=" headTitle col-xs-12 col-sm-12 col-md-12 col-lg-12">Odbitka produkcyjna</div>
+                <div class="row options col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <input id="proof_nie" class="type" type="radio" value="nie" name="cal_proof" >
+                    <label class="col-xs-12 col-sm-12 col-md-12 col-lg-6" for="proof_nie">
+                        Brak
+                    </label>
+                    <input id="proof_tak" class="type" type="radio" value="tak" name="cal_proof" checked>
+                    <label class="col-xs-12 col-sm-12 col-md-12 col-lg-6" for="proof_tak">
+                        Tak
+                    </label>
+                </div>
+                <div class=" headTitle col-xs-12 col-sm-12 col-md-12 col-lg-12">Transport</div>
+                <div class="row options col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <input id="trans_o" class="type" type="radio" value="o" name="cal_trans">
+                    <label class="col-xs-12 col-sm-12 col-md-12 col-lg-12" for="trans_o">
+                        Odbiór osobisty w siedzibie INFOMAX w Kielcach
+                    </label>
+                    <input id="trans_k" class="type" type="radio" value="k" name="cal_trans" >
+                    <label class="col-xs-12 col-sm-12 col-md-12 col-lg-12" for="trans_k">
+                        Wysyłka kurierem klienta
+                    </label>
+                    <input id="trans_i" class="type" type="radio" value="i" name="cal_trans" checked>
+                    <label class="col-xs-12 col-sm-12 col-md-12 col-lg-12" for="trans_i">
+                        Wysyłka kurierem INFOMAX do klienta
+                    </label>
+                </div>
+                <div class=" headTitle col-xs-12 col-sm-12 col-md-12 col-lg-12">Płatność</div>
+                <div class="row options col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <input id="pay_7" class="type" type="radio" value="7" name="cal_pay">
+                    <label class="col-xs-12 col-sm-12 col-md-12 col-lg-4" for="pay_7">
+                        Przelew 7 dni
+                    </label>
+                    <input id="pay_14" class="type" type="radio" value="14" name="cal_pay" >
+                    <label class="col-xs-12 col-sm-12 col-md-12 col-lg-4" for="pay_14">
+                        Przelew 14 dni
+                    </label>
+                    <input id="pay_100" class="type" type="radio" value="100" name="cal_pay" checked>
+                    <label class="col-xs-12 col-sm-12 col-md-12 col-lg-4" for="pay_100">
+                        Przedpłata 100%
+                    </label>
+                </div>
+                <button type="submit" class="but1 btn btn-info col-xs-12 col-sm-12 col-md-12 col-lg-12">Zapisz konfigurację</button>
+            </form>
+        </div>
+        <div class="row visualisation col-xs-12 col-sm-12 col-md-12 col-lg-5">
+            <div class="title col-xs-12 col-sm-12 col-md-12 col-lg-12">Podgląd</div>
+            <br><br>
+            <div id="cal_img_body" style="">
+                <div id="cal_img_calm" style=" margin-right: 5px; background: right 5px no-repeat;"> </div>
+                <div id="cal_img_helix" style="position: relative; top: -97%; height:13px width:100px;"> </div>
+            </div>
+            <div id="cal_img_add" style="position: relative; left: -490px;width: 36px; top: -2 px;">
+            </div>
+        </div>
+        <div class="row price col-xs-12 col-sm-12 col-md-12 col-lg-3">
+            <div class="title col-xs-12 col-sm-12 col-md-12 col-lg-12">Wycena</div>
+            <table class="offer_price offer_pay col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <tbody >
+                <tr>
+                    <th >Nakład w szt.</th>
+                    <th >Cena netto za szt.</th>
+                </tr>
+                <tr class="id50 checked">
+                    <td class="val">50</td>
+                    <td id="50" class="val"></td>
+                </tr>
+                <tr class="id100 ">
+                    <td class="val">100</td>
+                    <td id="100" class="val"></td>
+                </tr>
+                <tr class="id150 ">
+                    <td>150</td>
+                    <td id="150" class="val col-xs-12 col-sm-12 col-md-12 col-lg-6"></td>
+                </tr>
+                <tr class="id200 ">
+                    <td>200</td>
+                    <td id="200" class="val col-xs-12 col-sm-12 col-md-12 col-lg-6"></td>
+                </tr>
+                <tr class="id300 ">
+                    <td>300</td>
+                    <td id="300" class="val col-xs-12 col-sm-12 col-md-12 col-lg-6"></td>
+                </tr>
+                <tr class="id400 ">
+                    <td>400</td>
+                    <td id="400" class="val col-xs-12 col-sm-12 col-md-12 col-lg-6"></td>
+                </tr>
+                <tr class="id500 ">
+                    <td>500</td>
+                    <td id="500" class="val col-xs-12 col-sm-12 col-md-12 col-lg-6"></td>
+                </tr>
+                <tr class="id600 ">
+                    <td>600</td>
+                    <td id="600" class="val col-xs-12 col-sm-12 col-md-12 col-lg-6"></td>
+                </tr>
+                <tr class="id700 ">
+                    <td>700</td>
+                    <td id="700" class="val col-xs-12 col-sm-12 col-md-12 col-lg-6"></td>
+                </tr>
+                <tr class="id800 ">
+                    <td>800</td>
+                    <td id="800" class="val col-xs-12 col-sm-12 col-md-12 col-lg-6"></td>
+                </tr>
+                <tr class="id900 ">
+                    <td>900</td>
+                    <td id="900" class="val col-xs-12 col-sm-12 col-md-12 col-lg-6"></td>
+                </tr>
+                <tr class="id1000 ">
+                    <td>1000</td>
+                    <td id="1000" class="val col-xs-12 col-sm-12 col-md-12 col-lg-6"></td>
+                </tr>
+                <tr class="id1500 ">
+                    <td>1500</td>
+                    <td id="1500" class="val col-xs-12 col-sm-12 col-md-12 col-lg-6"></td>
+                </tr>
+                <tr class="id2000 ">
+                    <td>2000</td>
+                    <td id="2000" class="val col-xs-12 col-sm-12 col-md-12 col-lg-6"></td>
+                </tr>
+                <tr class="id3000 ">
+                    <td>3000</td>
+                    <td id="3000" class="val col-xs-12 col-sm-12 col-md-12 col-lg-6"></td>
+                </tr>
+                <tr class="id5000 ">
+                    <td>5000</td>
+                    <td id="5000" class="val col-xs-12 col-sm-12 col-md-12 col-lg-6"></td>
+                </tr>
+                </tbody>
+            </table>
+            <table>
+                <caption>Podsumowanie</caption>
+                <tbody>
+                <tr>
+                    <th>Cena netto nakładu</th>
+                    <td id="pay_issue"></td>
+                </tr>
+                <tr id="pay_discount_row">
+                    <th>Po rabacie</th>
+                    <td id="pay_discount"></td>
+                </tr>
+                <tr>
+                    <th>Opracowanie graficzne</th>
+                    <td id="pay_graph"></td>
+                </tr>
+                <tr>
+                    <th>Odbitka produkcyjna</th>
+                    <td id="pay_proof"></td>
+                </tr>
+                <tr>
+                    <th>Waga zamówienia</th>
+                    <td id="pay_weight"></td>
+                </tr>
+                <tr>
+                    <th>Ilość paczek</th>
+                    <td id="pay_pack"></td>
+                </tr>
+                <tr>
+                    <th>Cena netto transportu</th>
+                    <td id="pay_trans"></td>
+                </tr>
+                <tr>
+                    <th>Cena netto zamówienia</th>
+                    <td id="pay_netto"></td>
+                </tr>
+                <tr>
+                    <th>Podatek VAT</th>
+                    <td id="pay_tax"></td>
+                </tr>
+                <tr>
+                    <th>Cena brutto zamówienia</th>
+                    <td id="pay_brutto"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <script src="scripts/biurkowe.js"></script>
+    </div>
+</div>
+
+</body>
+</html>

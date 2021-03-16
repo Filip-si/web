@@ -114,12 +114,12 @@ function config()
 		    jQuery('label[for=line_mid]').hide();
 
         if(jQuery('[name=cal_width]:checked').val() == 'std'){
-            jQuery('label[for=calm_5],label[for=calm_1],label[for=calm_4]').hide();
-		    jQuery('label[for=calm_2], label[for=calm_3]').show()
+            jQuery('label[for=calm_5]').hide();
+		    jQuery('label[for=calm_2], label[for=calm_3],label[for=calm_1],label[for=calm_4]').show()
         }
 		if(jQuery('[name=cal_width]:checked').val() == 'sze'){
-            jQuery('label[for=calm_1],label[for=calm_4]').hide();
-            jQuery('label[for=calm_2], label[for=calm_3], label[for=calm_5]').show();
+/*            jQuery('label[for=calm_1],label[for=calm_4]').hide();*/
+            jQuery('label[for=calm_2], label[for=calm_3],label[for=calm_1],label[for=calm_4], label[for=calm_5]').show();
         }
 		jQuery('label[for=adv_1m], label[for=adv_1d], label[for=adv_4]').hide();
 		if(jQuery('[name=cal_advert]:checked').val() != '0' && jQuery('[name=cal_advert]:checked').val() != '1' && jQuery('[name=cal_advert]:checked').val() != '3')

@@ -132,3 +132,12 @@ label{
     border-width: 0.5px;
     text-align: center;
 }
+
+#cal_img_helix{
+    position:relative;
+    display: block;
+    background: url("/images/biurkowe/conn.png");
+    height: 13px;
+    top: -3px;
+    overflow: hidden;
+}
