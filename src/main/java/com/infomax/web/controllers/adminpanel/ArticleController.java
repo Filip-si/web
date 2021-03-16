@@ -16,6 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 import java.io.IOException;
 
 @Controller
+@RequestMapping(value = "/admin-panel")
 public class ArticleController {
     @Autowired
     private AdminPanelServiceImpl adminPanelService;
@@ -23,14 +24,14 @@ public class ArticleController {
     @Autowired
     private ArticleRepository articleRepository;
 
-    @RequestMapping(value = "/admin-panel/add-article", method = RequestMethod.GET)
+    @RequestMapping(value = "/add-article", method = RequestMethod.GET)
     public ModelAndView showArticle(){
         ModelAndView mav = new ModelAndView();
         mav.setViewName("admin-panel");
         return mav;
     }
 
-    @RequestMapping(value = "/admin-panel/add-article",method = RequestMethod.POST)
+    @RequestMapping(value = "/add-article", method = RequestMethod.POST)
     @Transactional
     public String saveArticle(@RequestParam(value = "content") MultipartFile content,
                               @RequestParam(value = "icon") MultipartFile icon,
@@ -41,7 +42,7 @@ public class ArticleController {
     }
 
 
-    @RequestMapping(value = "/admin-panel/delete-article",method = RequestMethod.POST)
+    @RequestMapping(value = "/delete-article", method = RequestMethod.POST)
     @Transactional
     public String deleteArticle(String title){
         if(articleRepository.findByTitle(title) != null){

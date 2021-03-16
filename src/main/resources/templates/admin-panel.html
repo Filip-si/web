@@ -37,7 +37,6 @@
             <form class="col-xs-12 col-sm-12 col-md-12 col-lg-6" th:action="@{/admin-panel/delete-article}" method="post" >
                 <h6>Usuń artykuł ze strony głównej</h6>
                 <br>
-
                 <input class="field col-xs-12 col-sm-12 col-md-12 col-lg-12" name="title" type="text" placeholder="Tytuł gazetki..." >
                 <br>
                 <br>
@@ -46,7 +45,7 @@
             </form>
         </div>
         <div class="manageAdverts col-xs-12 col-sm-12 col-md-12 col-lg-12" >
-            <form class="col-xs-12 col-sm-12 col-md-12 col-lg-6" th:action="@{/admin-panel/add-advert}" method="post" th:object="${file}" enctype="multipart/form-data">
+            <form class="col-xs-12 col-sm-12 col-md-12 col-lg-6" th:action="@{/admin-panel/add-advert}" method="post" th:object="${file2}" enctype="multipart/form-data">
                 <h6>Dodaj reklame</h6>
                 <br>
                 <input class="field col-xs-12 col-sm-12 col-md-12 col-lg-12" name="name" type="text" placeholder="Nazwa firmy..." >
@@ -65,7 +64,7 @@
 
             </form>
             <form class="col-xs-12 col-sm-12 col-md-12 col-lg-6" th:action="@{/admin-panel/delete-advert}" method="post" >
-                <h6>Usuń artykuł ze strony głównej</h6>
+                <h6>Usuń reklamę ze strony</h6>
                 <br>
                 <input class="field col-xs-12 col-sm-12 col-md-12 col-lg-12" name="name" type="text" placeholder="Nazwa firmy..." >
                 <br>
