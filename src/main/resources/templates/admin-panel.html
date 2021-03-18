@@ -73,6 +73,17 @@
                 <br><br>
             </form>
         </div>
+        <div class="manageUsers col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <form class="col-xs-12 col-sm-12 col-md-12 col-lg-6" th:action="@{/admin-panel/delete-app-user}" method="post" >
+                <h6>Usuń użytkownika</h6>
+                <br>
+                <input class="field col-xs-12 col-sm-12 col-md-12 col-lg-12" name="email" type="text" placeholder="Email użytkownika do usunięcia..." >
+                <br>
+                <br>
+                <button type="submit" class="but1 btn-info col-xs-12 col-sm-12 col-md-12 col-lg-12">Usuń</button>
+                <br><br>
+            </form>
+        </div>
 
     </main>
     <footer>

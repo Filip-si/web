@@ -2,8 +2,12 @@ package com.infomax.web.services;
 
 
 import com.infomax.web.models.Advert;
+import com.infomax.web.models.AppUser;
+import com.infomax.web.models.AppUserRole;
 import com.infomax.web.models.Article;
 import com.infomax.web.repositories.AdvertRepository;
+import com.infomax.web.repositories.AppUserRepository;
+import com.infomax.web.repositories.AppUserRoleRepository;
 import com.infomax.web.repositories.ArticleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,6 +28,10 @@ public class AdminPanelServiceImpl implements AdminPanelService{
     private AdvertRepository advertRepository;
     @Autowired
     private UserPrincipalDetailsService principalDetailsService;
+    @Autowired
+    private AppUserRepository appUserRepository;
+    @Autowired
+    private AppUserRoleRepository appUserRoleRepository;
 
 
 
@@ -99,8 +107,22 @@ public class AdminPanelServiceImpl implements AdminPanelService{
         }
     }
 
-
-
+    /*Manage users*/
+    @Override
+    public void deleteAppUser(String email) throws Exception {
+        AppUser userToDelete = appUserRepository.findByAppUserEmail(email);
+        AppUserRole roleToDelete = appUserRoleRepository.findByAppUserFk(userToDelete);
+        if(roleToDelete != null){
+            appUserRoleRepository.delete(roleToDelete);
+        }else{
+            throw new Exception("Role "+email+" user not found");
+        }
+        if(userToDelete != null){
+            appUserRepository.delete(userToDelete);
+        }else{
+            throw new Exception("User "+email+" not found");
+        }
+    }
 
 
 
