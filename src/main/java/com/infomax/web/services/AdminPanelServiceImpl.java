@@ -15,6 +15,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Base64;
@@ -41,6 +42,9 @@ public class AdminPanelServiceImpl implements AdminPanelService{
         return articleRepository.findByTitle(title);
     }
 
+
+
+    /*Manage articles*/
     @Override
     public List<Article> getAll() {
         List<Article> art = new ArrayList<>();
@@ -48,7 +52,51 @@ public class AdminPanelServiceImpl implements AdminPanelService{
         return articleRepository.findAll();
     }
 
-    /*Manage articles*/
+    public List<Article> findAll(){
+        return articleRepository.findAll();
+    }
+
+    @Override
+    public void storeArticle(String title, String description, MultipartFile contentPdf, MultipartFile iconImg) throws IOException {
+        Article toSave = new Article();
+        String contentPdfName = StringUtils.cleanPath(contentPdf.getOriginalFilename());
+        String iconImgName = StringUtils.cleanPath(iconImg.getOriginalFilename());
+        if(contentPdfName.contains("..") || iconImgName.contains("..")){
+            System.out.println("not a valid file");
+        }
+        try{
+            toSave.setContent(Base64.getEncoder().encodeToString(contentPdf.getBytes()));
+            toSave.setIcon(Base64.getEncoder().encodeToString(iconImg.getBytes()));
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+        toSave.setTitle(title);
+        toSave.setDescription(description);
+        toSave.setArticleAuthor(principalDetailsService.getLoggedUser());
+        articleRepository.save(toSave);
+
+    }
+
+    @Override
+    public void updateArticle(String title, String description, MultipartFile contentPdf, MultipartFile iconImg) throws IOException{
+        Article toUpdate = new Article();
+        String contentPdfName = StringUtils.cleanPath(contentPdf.getOriginalFilename());
+        String iconImgName = StringUtils.cleanPath(iconImg.getOriginalFilename());
+        if(contentPdfName.contains("..") || iconImgName.contains("..")){
+            System.out.println("not a valid file");
+        }
+        try{
+            toUpdate.setContent(Base64.getEncoder().encodeToString(contentPdf.getBytes()));
+            toUpdate.setIcon(Base64.getEncoder().encodeToString(iconImg.getBytes()));
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+        toUpdate.setTitle(title);
+        toUpdate.setDescription(description);
+        toUpdate.setArticleAuthor(principalDetailsService.getLoggedUser());
+        articleRepository.save(toUpdate);
+    }
+
     @Override
     public void deleteArticle(String title) {
         if(articleRepository.findByTitle(title) != null){
@@ -56,26 +104,6 @@ public class AdminPanelServiceImpl implements AdminPanelService{
         }else{
             System.out.println("ARTICLE NOT FOUND!");
         }
-    }
-
-    @Override
-    public void storeArticle(String title, String description, MultipartFile contentPdf, MultipartFile iconImg) throws IOException {
-        Article a = new Article();
-        String contentPdfName = StringUtils.cleanPath(contentPdf.getOriginalFilename());
-        String iconImgName = StringUtils.cleanPath(iconImg.getOriginalFilename());
-        if(contentPdfName.contains("..") || iconImgName.contains("..")){
-            System.out.println("not a valid file");
-        }
-        try{
-            a.setContent(Base64.getEncoder().encodeToString(contentPdf.getBytes()));
-            a.setIcon(Base64.getEncoder().encodeToString(iconImg.getBytes()));
-        }catch (IOException e){
-            e.printStackTrace();
-        }
-        a.setTitle(title);
-        a.setDescription(description);
-        a.setArticleAuthor(principalDetailsService.getLoggedUser());
-        articleRepository.save(a);
     }
 
     /*Manage advert*/

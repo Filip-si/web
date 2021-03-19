@@ -4,7 +4,10 @@ import com.infomax.web.models.Article;
 import com.infomax.web.repositories.ArticleRepository;
 import com.infomax.web.services.AdminPanelServiceImpl;
 import com.infomax.web.services.UserPrincipalDetailsService;
+import com.sun.istack.NotNull;
+import com.sun.istack.Nullable;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.lang.NonNullFields;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -34,8 +37,8 @@ public class ArticleController {
     @RequestMapping(value = "/add-article", method = RequestMethod.POST)
     @Transactional
     public String saveArticle(@RequestParam(value = "content") MultipartFile content,
-                              @RequestParam(value = "icon") MultipartFile icon,
-                              @RequestParam(value = "title") String title,
+                              @RequestParam(value = "icon")  MultipartFile icon,
+                              @RequestParam(value = "title")  String title,
                               @RequestParam(value = "description") String description) throws IOException {
         adminPanelService.storeArticle(title,description,content,icon);
         return "redirect:/admin-panel";

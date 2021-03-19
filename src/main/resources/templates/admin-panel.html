@@ -12,28 +12,130 @@
         <div th:replace="fragments/navFragment :: nav"></div>
     </nav>
     <main>
-        <div class="manageNews col-xs-12 col-sm-12 col-md-12 col-lg-12" >
-            <form class="col-xs-12 col-sm-12 col-md-12 col-lg-6" th:action="@{/admin-panel/add-article}" method="post" th:object="${file}" enctype="multipart/form-data">
-                <h6>Dodaj artykuł</h6>
-                <br>
-                <input class="field col-xs-12 col-sm-12 col-md-12 col-lg-12" name="title" type="text" placeholder="Tytuł gazetki..." >
-                <br>
-                <br>
-                <input class="field col-xs-12 col-sm-12 col-md-12 col-lg-12" name="description" type="text" placeholder="Krótki opis... (do 100 słów)" >
-                <br>
-                <br>
-                <label>Załącz gazetę</label>
-                <input class="field col-xs-12 col-sm-12 col-md-12 col-lg-12" name="content" type="file" placeholder="Załącz gazetę" >
-                <br>
-                <br>
-                <label>Załącz ikonę</label>
-                <input class="field col-xs-12 col-sm-12 col-md-12 col-lg-12" name="icon" type="file" placeholder="Załącz ikonę" >
-                <br>
-                <br>
-                <button  type="submit" class="but1 btn-info col-xs-12 col-sm-12 col-md-12 col-lg-12" >Dodaj nowy artykuł</button>
-                <br><br>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#addArticle">
+            <i class="fas fa-plus"></i> Dodaj artykuł
+        </button>
+        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delArticle">
+            <i class="fas fa-minus"></i> Usuń artykuł
+        </button>
+        <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#modArticle">
+            <i class="fas fa-pen"></i> Modyfikuj artykuł
+        </button>
+        <!-- Modal Add Article-->
+        <div class="modal fade" id="addArticle" tabindex="-1" role="dialog" aria-labelledby="addArticleLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="addArticleLabel">Dodaj artykuł</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <form class="col-xs-12 col-sm-12 col-md-12 col-lg-12"
+                          th:action="@{/admin-panel/add-article}"
+                          method="post"
+                          th:object="${file}"
+                          enctype="multipart/form-data">
+                        <div class="modal-body">
+                                <br>
+                                <input class="field col-xs-12 col-sm-12 col-md-12 col-lg-12" name="title" type="text" placeholder="Tytuł gazetki..." >
+                                <br>
+                                <br>
+                                <input class="field col-xs-12 col-sm-12 col-md-12 col-lg-12" name="description" type="text" placeholder="Krótki opis... (do 100 słów)" >
+                                <br>
+                                <br>
+                                <label>Załącz gazetę</label>
+                                <input class="field col-xs-12 col-sm-12 col-md-12 col-lg-12" name="content" type="file" placeholder="Załącz gazetę" >
+                                <br>
+                                <br>
+                                <label>Załącz ikonę</label>
+                                <input class="field col-xs-12 col-sm-12 col-md-12 col-lg-12" name="icon" type="file" placeholder="Załącz ikonę" >
+                                <br>
+                                <br>
 
-            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Wróć</button>
+                            <button  type="submit" class="but1 btn btn-info" >Dodaj nowy artykuł</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- Modal Delete Article-->
+        <div class="modal fade" id="delArticle" tabindex="-1" role="dialog" aria-labelledby="delArticleLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="delArticleLabel">Usuń artykuł</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <form class="col-xs-12 col-sm-12 col-md-12 col-lg-12"
+                          th:action="@{/admin-panel/delete-article}"
+                          method="post"
+                          th:object="${file}"
+                          enctype="multipart/form-data">
+                        <div class="modal-body">
+                            <select th:object="${article}"  th:field="*{title}" name="title">
+                                <option disabled selected value="Wybierz tytuł gazetki"></option>
+                                <option th:if="${article.title} == null" value="null">nul</option>
+                                <option th:each="article : ${articleList}" th:value="${article.title}" th:text="${article.title}"  value=""> </option>
+                            </select>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Wróć</button>
+                            <button  type="submit" class="but1 btn btn-info" >Usuń artykuł</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- Modal Add Article-->
+        <div class="modal fade" id="modArticle" tabindex="-1" role="dialog" aria-labelledby="modArticleLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modArticleLabel">Modyfikuj artykuł</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <form class="col-xs-12 col-sm-12 col-md-12 col-lg-12"
+                          th:action="@{/admin-panel/add-article}"
+                          method="post"
+                          th:object="${file}"
+                          enctype="multipart/form-data">
+                        <div class="modal-body">
+                            <br>
+                            <input class="field col-xs-12 col-sm-12 col-md-12 col-lg-12" name="title" type="text" placeholder="Tytuł gazetki..." >
+                            <br>
+                            <br>
+                            <input class="field col-xs-12 col-sm-12 col-md-12 col-lg-12" name="description" type="text" placeholder="Krótki opis... (do 100 słów)" >
+                            <br>
+                            <br>
+                            <label>Załącz gazetę</label>
+                            <input class="field col-xs-12 col-sm-12 col-md-12 col-lg-12" name="content" type="file" placeholder="Załącz gazetę" >
+                            <br>
+                            <br>
+                            <label>Załącz ikonę</label>
+                            <input class="field col-xs-12 col-sm-12 col-md-12 col-lg-12" name="icon" type="file" placeholder="Załącz ikonę" >
+                            <br>
+                            <br>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Wróć</button>
+                            <button  type="submit" class="but1 btn btn-info" >Zmień</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="manageNews col-xs-12 col-sm-12 col-md-12 col-lg-12" >
             <form class="col-xs-12 col-sm-12 col-md-12 col-lg-6" th:action="@{/admin-panel/delete-article}" method="post" >
                 <h6>Usuń artykuł ze strony głównej</h6>
                 <br>
