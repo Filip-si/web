@@ -9,4 +9,5 @@ import java.math.BigInteger;
 @Repository
 public interface ArticleRepository extends JpaRepository<Article, BigInteger> {
     Article findByTitle(String title);
+    Article findById(Long id);
 }

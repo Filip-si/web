@@ -12,7 +12,7 @@ public interface AdminPanelService {
     List<Article> getAll();
     List<Article> findAll();
     void storeArticle(String title, String description, MultipartFile file, MultipartFile iconImage) throws IOException;
-    void updateArticle(String title, String description, MultipartFile file, MultipartFile iconImage) throws IOException;
+    void updateArticle(Long id, String title, String description, MultipartFile contentPdf, MultipartFile iconImg) throws IOException;
     void deleteArticle(String title);
 
     void deleteAdvert(String name);

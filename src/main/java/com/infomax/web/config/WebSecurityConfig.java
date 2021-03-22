@@ -63,12 +63,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .loginProcessingUrl("/login")
                 .defaultSuccessUrl("/user")
                 .failureUrl("/login-error")
-                //.failureHandler(authe)
                 .and()
                 .logout()
                 .logoutUrl("/logout")
                 .deleteCookies("JSESSIONID");
-//                        .logoutSuccessHandler(logoutSuccessHandler());
     }
 
     @Override

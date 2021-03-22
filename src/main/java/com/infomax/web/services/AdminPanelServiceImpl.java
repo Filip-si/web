@@ -78,23 +78,23 @@ public class AdminPanelServiceImpl implements AdminPanelService{
     }
 
     @Override
-    public void updateArticle(String title, String description, MultipartFile contentPdf, MultipartFile iconImg) throws IOException{
-        Article toUpdate = new Article();
+    public void updateArticle(Long id, String title, String description, MultipartFile contentPdf, MultipartFile iconImg) throws IOException{
+        Article toSave = new Article();
         String contentPdfName = StringUtils.cleanPath(contentPdf.getOriginalFilename());
         String iconImgName = StringUtils.cleanPath(iconImg.getOriginalFilename());
         if(contentPdfName.contains("..") || iconImgName.contains("..")){
             System.out.println("not a valid file");
         }
         try{
-            toUpdate.setContent(Base64.getEncoder().encodeToString(contentPdf.getBytes()));
-            toUpdate.setIcon(Base64.getEncoder().encodeToString(iconImg.getBytes()));
+            toSave.setContent(Base64.getEncoder().encodeToString(contentPdf.getBytes()));
+            toSave.setIcon(Base64.getEncoder().encodeToString(iconImg.getBytes()));
         }catch (IOException e){
             e.printStackTrace();
         }
-        toUpdate.setTitle(title);
-        toUpdate.setDescription(description);
-        toUpdate.setArticleAuthor(principalDetailsService.getLoggedUser());
-        articleRepository.save(toUpdate);
+        toSave.setTitle(title);
+        toSave.setDescription(description);
+        toSave.setArticleAuthor(principalDetailsService.getLoggedUser());
+        articleRepository.save(toSave);
     }
 
     @Override
