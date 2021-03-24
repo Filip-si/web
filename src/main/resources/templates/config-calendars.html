@@ -239,8 +239,9 @@
                             Przedpłata 100%
                         </label>
                     </div>
-                    <button type="submit" class="but1 btn btn-info col-xs-12 col-sm-12 col-md-12 col-lg-12">Zapisz konfigurację</button>
+                    <button th:if="${loggedUser} != null" type="submit" class="but1 btn btn-info col-xs-12 col-sm-12 col-md-12 col-lg-12">Zapisz konfigurację</button>
                 </form>
+                <a href="/register"><button th:if="${loggedUser} == null" type="submit" class="but1 btn btn-info col-xs-12 col-sm-12 col-md-12 col-lg-12">Utwórz konto aby móc zapisać i wysłać twoją konfigurację</button></a>
             </div>
             <div class="row visualisation col-xs-12 col-sm-12 col-md-12 col-lg-5">
                 <div class="title col-xs-12 col-sm-12 col-md-12 col-lg-12">Podgląd</div>

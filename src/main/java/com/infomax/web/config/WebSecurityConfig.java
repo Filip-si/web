@@ -54,7 +54,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .csrf().disable()
                 .authorizeRequests()
                 .antMatchers("/admin/**" , "/news", "/user","/admin-panel","/admin-panel/**").hasAuthority("2")
-                .antMatchers("/","/index/**","/login*","/register","/login-error").permitAll()
+                .antMatchers("/","/index/**","/login*","/register","/login-error","/config-calendars").permitAll()
                 .antMatchers("/dzielne", "/user").hasAuthority("1")
                 .and()
                 .formLogin()
@@ -67,7 +67,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .logout()
                 .logoutUrl("/logout")
-                .deleteCookies("JSESSIONID");
+                .deleteCookies("JSESSIONID")
+                .logoutSuccessUrl("/");
+
     }
 
     @Override

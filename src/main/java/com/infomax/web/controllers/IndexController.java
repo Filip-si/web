@@ -1,6 +1,7 @@
 package com.infomax.web.controllers;
 
 
+import com.infomax.web.models.AppUser;
 import com.infomax.web.services.AdminPanelServiceImpl;
 import com.infomax.web.services.UserPrincipalDetailsService;
 
@@ -37,6 +38,7 @@ public class IndexController {
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public ModelAndView showPage(){
         ModelAndView modelAndView = new ModelAndView();
+        modelAndView.addObject("appUser", new AppUser());
         modelAndView.addObject("loggedUser", principalDetailsService.getLoggedUser());
         if(principalDetailsService.getLoggedUser() != null){
             modelAndView.addObject("roleUser", principalDetailsService.isAdmin(principalDetailsService.getLoggedUser().getId()));
@@ -49,23 +51,13 @@ public class IndexController {
     @RequestMapping(value = "/index", method = RequestMethod.GET)
     public ModelAndView showIndex(){
         ModelAndView modelAndView = new ModelAndView();
+        modelAndView.addObject("appUser", new AppUser());
         modelAndView.addObject("loggedUser", principalDetailsService.getLoggedUser());
         if(principalDetailsService.getLoggedUser() != null){
             modelAndView.addObject("roleUser", principalDetailsService.isAdmin(principalDetailsService.getLoggedUser().getId()));
         }
         modelAndView.addObject("allNews", adminPanelService.getAll());
         modelAndView.setViewName("index");
-        return modelAndView;
-    }
-
-    @RequestMapping(value = "/user", method = RequestMethod.GET)
-    public ModelAndView showProfile(){
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.addObject("loggedUser", principalDetailsService.getLoggedUser());
-        if(principalDetailsService.getLoggedUser() != null){
-            modelAndView.addObject("roleUser", principalDetailsService.isAdmin(principalDetailsService.getLoggedUser().getId()));
-        }
-        modelAndView.setViewName("user");
         return modelAndView;
     }
 

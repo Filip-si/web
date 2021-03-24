@@ -25,7 +25,7 @@ public class AppUserServiceImpl implements AppUserService{
 
 
     @Override
-    public AppUser save(AppUserDTO registrationDTO) {
+    public void save(AppUserDTO registrationDTO) {
         registrationDTO.setAppUserEncryptedPassword(bCryptPasswordEncoder.encode(registrationDTO.getAppUserEncryptedPassword()));
         AppUser appUser = new AppUser(registrationDTO.getFirstName(),
                 registrationDTO.getLastName(),
@@ -34,12 +34,8 @@ public class AppUserServiceImpl implements AppUserService{
                 bCryptPasswordEncoder.encode(registrationDTO.getAppUserEncryptedPasswordConfirm()),
                 registrationDTO.getStatus());
         AppRole role = appRoleRepository.findById((long) 1);
-        AppUserRole roleUser = new AppUserRole(appUser,role);// może trzeba przekazać id getID
+        appUserRepository.save(appUser);
+        AppUserRole roleUser = new AppUserRole(appUser,role);
         appUserRoleRepository.save(roleUser);
-        return appUserRepository.save(appUser);
     }
-
-
-
-
 }

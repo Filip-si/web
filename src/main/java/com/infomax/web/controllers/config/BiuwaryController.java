@@ -1,14 +1,19 @@
 package com.infomax.web.controllers.config;
 
+import com.infomax.web.models.AppUser;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@RequestMapping(value = "/biuwary")
 public class BiuwaryController {
-    @RequestMapping(method = RequestMethod.GET)
-    public String showBiuwary(){
-        return "biuwary";
+    @RequestMapping(value = "/biuwary", method = RequestMethod.GET)
+    public ModelAndView showBiuwary(){
+        ModelAndView mav = new ModelAndView();
+        AppUser appUser = new AppUser();
+        mav.addObject("appUser", appUser);
+        mav.setViewName("biuwary");
+        return mav;
     }
 }

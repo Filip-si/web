@@ -4,5 +4,5 @@ import com.infomax.web.dto.AppUserDTO;
 import com.infomax.web.models.AppUser;
 
 public interface AppUserService {
-    AppUser save(AppUserDTO appUser);
+    void save(AppUserDTO appUser);
 }
