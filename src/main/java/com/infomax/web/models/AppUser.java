@@ -1,6 +1,8 @@
 package com.infomax.web.models;
 
 
+import com.infomax.web.models.configs.CalendarFold;
+
 import javax.persistence.*;
 import java.util.Set;
 
@@ -34,6 +36,8 @@ public class AppUser {
     @OneToMany(mappedBy = "id", cascade = CascadeType.ALL)
     private Set<Advert> adverts;
 
+    @OneToMany(mappedBy = "id", cascade = CascadeType.ALL)
+    private Set<CalendarFold> calendarFolds;
 
     public AppUser() {
     }

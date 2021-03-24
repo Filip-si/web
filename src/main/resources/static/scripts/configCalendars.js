@@ -38,7 +38,7 @@ function config()
 		jQuery('#clk_none').prop('checked', true);
 		jQuery('label[for=clk_clock]').hide();
 		jQuery('#conn_b').prop('checked', true);
-		jQuery('#width_s').prop('checked', true); //added
+		jQuery('#width_s').prop('checked', true);
 		jQuery('label[for=conn_h]').hide();
 		jQuery('label[for=width_w]').hide();
 	}else if(jQuery('[name=cal_line]:checked').val() == 'pre'){
