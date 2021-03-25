@@ -17,7 +17,7 @@
                 <div class="title col-xs-12 col-sm-12 col-md-12 col-lg-12">Konfigurator</div>
                 <form th:action="@{/config-calendars/save-fold}" method="post">
                     <div class="headTitle col-xs-12 col-sm-12 col-md-12 col-lg-12">Rodzaj</div>
-                    <div class="type row options col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="row options col-xs-12 col-sm-12 col-md-12 col-lg-12">
                         <input id="type_1" class="type" type="radio" value="1dz" name="cal_type" >
                         <label class="option col-xs-12 col-sm-12 col-md-12 col-lg-4"  for="type_1" >
                             1-dzielny
@@ -32,7 +32,7 @@
                         </label>
                     </div>
                     <div class=" headTitle col-xs-12 col-sm-12 col-md-12 col-lg-12">Linia</div>
-                    <div class="line row options col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="row options col-xs-12 col-sm-12 col-md-12 col-lg-12">
                         <input id="line_eko" class="type" type="radio" value="eko" name="cal_line">
                         <label class="col-xs-12 col-sm-12 col-md-12 col-lg-4" for="line_eko">
                             Eko
@@ -241,7 +241,8 @@
                     </div>
                     <button th:if="${loggedUser} != null" type="submit" class="but1 btn btn-info col-xs-12 col-sm-12 col-md-12 col-lg-12">Zapisz konfigurację</button>
                 </form>
-                <a href="/register"><button th:if="${loggedUser} == null" type="submit" class="but1 btn btn-info col-xs-12 col-sm-12 col-md-12 col-lg-12">Utwórz konto aby móc zapisać i wysłać twoją konfigurację</button></a>
+                <a href="/register"><button th:if="${loggedUser} == null" type="submit" class="but1 btn btn-info col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    Utwórz konto aby móc zapisać i wysłać twoją konfigurację</button></a>
             </div>
             <div class="row visualisation col-xs-12 col-sm-12 col-md-12 col-lg-5">
                 <div class="title col-xs-12 col-sm-12 col-md-12 col-lg-12">Podgląd</div>

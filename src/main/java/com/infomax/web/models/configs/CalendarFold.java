@@ -179,4 +179,94 @@ public class CalendarFold {
     public void setAuthor(AppUser author) {
         this.author = author;
     }
+
+    @Override
+    public String toString() {
+        return "CalendarFold{" +
+                "type='" + type + '\'' +
+                ", line='" + line + '\'' +
+                ", width='" + width + '\'' +
+                ", connect='" + connect + '\'' +
+                ", clock='" + clock + '\'' +
+                ", advert='" + advert + '\'' +
+                ", back='" + back + '\'' +
+                ", calm='" + calm + '\'' +
+                ", pack='" + pack + '\'' +
+                ", gd='" + gd + '\'' +
+                ", copy='" + copy + '\'' +
+                ", trans='" + trans + '\'' +
+                ", pay='" + pay + '\'' +
+                '}';
+    }
+
+    public String getTypeData(){
+        String typeO = null;
+        if(type.equals("1dz")){
+             typeO = "jednodzielny";
+        }else if(type.equals("2dz")){
+            typeO = "dwudzielny";
+        }else if(type.equals("3dz")){
+            typeO = "trójdzielny";
+        }
+        return typeO;
+    }
+
+    public String getLineData(){
+        String lineO = null;
+        if(line.equals("eko")){
+            lineO = "eko";
+        }else if(line.equals("mid")){
+            lineO = "middle";
+        }else if(line.equals("pre")){
+            lineO = "premium";
+        }
+        return lineO;
+    }
+
+    public String getWidthData(){
+        String widthO = null;
+        if(width.equals("std")){
+            widthO = "Standard";
+        }else if(width.equals("sze")){
+            widthO = "Szeroki";
+        }
+        return widthO;
+    }
+
+    public String getConnectData(){
+        String connectO = null;
+        if(connect.equals("big")){
+            connectO = "bigowane";
+        }else if(connect.equals("spi")){
+            connectO = "spiralowane";
+        }
+        return connectO;
+    }
+
+
+    public String data(){
+
+        String clockO = null;
+//        String advertO = null;
+//        String backO, calmO, packO, gdO, copyO, transO, payO;
+
+
+
+
+
+
+        if(clock.equals("noclock")){
+            clockO = "";
+        }else if(clock.equals("clock")){
+            clockO = ", mechanizm zegarowy";
+        }
+
+//        if(advert.equals("0")){
+//            advert0 = "";
+//        }else if(advert.equals("1")){
+//            clockO = ", ilość reklam 1 reklama";
+//        }
+
+        return  clockO ;
+    }
 }

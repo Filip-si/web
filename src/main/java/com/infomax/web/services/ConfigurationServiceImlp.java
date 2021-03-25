@@ -5,6 +5,8 @@ import com.infomax.web.repositories.CalendarFoldRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ConfigurationServiceImlp implements ConfigurationService{
     @Autowired
@@ -18,5 +20,13 @@ public class ConfigurationServiceImlp implements ConfigurationService{
         CalendarFold fold = new CalendarFold(type,line,width,connect,clock,advert,back,calm,pack,gd,copy,trans,pay);
         fold.setAuthor(userPrincipalDetailsService.getLoggedUser());
         calendarFoldRepository.save(fold);
+    }
+
+    @Override
+    public List<CalendarFold> getAllConfigurations() {
+        if(userPrincipalDetailsService.getLoggedUser() != null){
+            return calendarFoldRepository.findByAuthor_id(userPrincipalDetailsService.getLoggedUser().getId());
+        }
+        return null;
     }
 }

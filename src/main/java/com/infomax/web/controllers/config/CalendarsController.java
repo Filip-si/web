@@ -3,6 +3,7 @@ package com.infomax.web.controllers.config;
 import com.infomax.web.models.AppUser;
 import com.infomax.web.models.configs.CalendarFold;
 import com.infomax.web.services.ConfigurationServiceImlp;
+import com.infomax.web.services.UserPrincipalDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,6 +18,8 @@ import org.springframework.web.servlet.ModelAndView;
 public class CalendarsController {
     @Autowired
     private ConfigurationServiceImlp configurationServiceImlp;
+    @Autowired
+    private UserPrincipalDetailsService principalDetailsService;
 
     @RequestMapping(value = "/config-calendars", method = RequestMethod.GET)
     public ModelAndView showConfigCalendars(){
@@ -25,6 +28,7 @@ public class CalendarsController {
         mav.addObject("calendarFold", calendarFold);
         AppUser appUser = new AppUser();
         mav.addObject("appUser", appUser);
+        mav.addObject("loggedUser", principalDetailsService.getLoggedUser());
         mav.setViewName("config-calendars");
         return mav;
     }
