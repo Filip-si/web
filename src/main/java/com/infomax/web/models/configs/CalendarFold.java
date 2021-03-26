@@ -5,6 +5,7 @@ import com.infomax.web.models.AppUser;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "calendar_fold")
 public class CalendarFold {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

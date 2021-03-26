@@ -2,10 +2,12 @@ package com.infomax.web.services;
 
 import com.infomax.web.models.configs.CalendarFold;
 import com.infomax.web.repositories.CalendarFoldRepository;
+import javassist.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ConfigurationServiceImlp implements ConfigurationService{
@@ -28,5 +30,11 @@ public class ConfigurationServiceImlp implements ConfigurationService{
             return calendarFoldRepository.findByAuthor_id(userPrincipalDetailsService.getLoggedUser().getId());
         }
         return null;
+    }
+
+    @Override
+    public void deleteConfiguration(long id){
+        CalendarFold toDelete = calendarFoldRepository.findById(id);
+        calendarFoldRepository.delete(toDelete);
     }
 }

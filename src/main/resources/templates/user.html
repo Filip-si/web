@@ -5,13 +5,7 @@
     </head>
     <body>
     <div class="container-fluid">
-        <header>
-            <div th:replace="fragments/headerFragment :: header"></div>
-        </header>
-        <nav>
-            <div th:replace="fragments/navFragment :: nav"></div>
-        </nav>
-        <main class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <main>
             <div class="profile col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" style="float: left; border: 1px solid black;">
                     <h5>Nowości</h5>
@@ -34,31 +28,38 @@
                 <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" style="float: left; border: 1px solid black;">
                     <h5>Moje konfiguracje</h5>
                     <h6 th:if="${allConfigurations} == null"> BRAK KONFIGURACJI</h6>
+                    <h6>W tym miejscu masz możliwość zarządzać zapisanymi konfiguracjami. Jeśli chciałbyś zamówić kalendarz naciśnij przycisk wyślij a my  się z Tobą skontaktujemy.
+                        </h6>
+                    <hr>
                     <tr>
 
                         <tr  th:each="config : ${allConfigurations}">
-                            <td class="col-6">Kalendarz </td><td class="col-6"><label th:text="${config.getTypeData()}"></label></td>
-                            <td class="col-6">, linia kalendarza </td><td class="col-6"><label th:text="${config.getLineData()}"></label></td>
-                            <td class="col-6">, szerokość </td><td class="col-6"><label th:text="${config.getWidthData()}"></label></td>
-                            <td class="col-6">, łączenie </td><td class="col-6"><label th:text="${config.getConnectData()}"></label></td>
+                            <br>
+                            <td class="col-6">Kalendarz </td><td class="col-6"><b><label th:text="${config.getTypeData()}"></label></b></td><br>
+                            <td class="col-6">Linia kalendarza </td><td class="col-6"><b><label th:text="${config.getLineData()}"></label></b></td><br>
+                            <td class="col-6">Szerokość </td><td class="col-6"><b><label th:text="${config.getWidthData()}"></label></b></td><br>
+                            <td class="col-6">Łączenie </td><td class="col-6"><b><label th:text="${config.getConnectData()}"></label></b></td><br>
+                            <a th:href="|@{/user/delete-config/}${config.getId()}|"><button type="submit" class="but1 btn btn-info">Usuń</button></a>
                             <button class="btn btn-success">Wyślij konfiguracje na adres e-mail</button>
-                            <button class="btn btn-danger">Usuń z zapisanych</button>
+                            <hr>
                         </tr>
 
 
 
+
                     </tr>
-                    <h6>W tym miejscu masz możliwość zarządzać zapisanymi konfiguracjami. Jeśli chciałbyś zamówić kalendarz naciśnij przycisk wyślij a my  się z Tobą skontaktujemy</h6>
+
                 </div>
                 <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" style="float: left; border: 1px solid black;">
                     <h5>Polecane</h5>
                 </div>
             </div>
-
+            <div id="contact" class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="float: left;">
+                <div th:replace="fragments/contactFragment :: #contact" ></div>
+            </div>
         </main>
-        <div id="contact" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-            <div th:replace="fragments/contactFragment :: #contact"></div>
-        </div>
+
+
         <footer>
         </footer>
     </div>

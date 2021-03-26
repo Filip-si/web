@@ -9,4 +9,6 @@ public interface ConfigurationService {
                                 String pack, String gd, String copy, String trans, String pay);
 
     public List<CalendarFold> getAllConfigurations();
+
+    void deleteConfiguration(long id);
 }
