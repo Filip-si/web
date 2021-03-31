@@ -4,10 +4,15 @@ import com.infomax.web.models.AppRole;
 import com.sun.istack.NotNull;
 import org.springframework.stereotype.Component;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 
 @Component
 public class AppUserDTO {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     @NotNull
@@ -23,6 +28,25 @@ public class AppUserDTO {
 
 
     public AppUserDTO() {
+    }
+
+    public AppUserDTO(long id, String appUserEmail, String firstName, String lastName, String appUserEncryptedPassword, String appUserEncryptedPasswordConfirm, String status) {
+        this.id = id;
+        this.appUserEmail = appUserEmail;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.appUserEncryptedPassword = appUserEncryptedPassword;
+        this.appUserEncryptedPasswordConfirm = appUserEncryptedPasswordConfirm;
+        this.status = status;
+    }
+
+    public AppUserDTO(String appUserEmail, String firstName, String lastName, String appUserEncryptedPassword, String appUserEncryptedPasswordConfirm, String status) {
+        this.appUserEmail = appUserEmail;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.appUserEncryptedPassword = appUserEncryptedPassword;
+        this.appUserEncryptedPasswordConfirm = appUserEncryptedPasswordConfirm;
+        this.status = status;
     }
 
     public AppUserDTO(String appUserEmail, String firstName, String lastName, String appUserEncryptedPassword, String appUserEncryptedPasswordConfirm, String status, AppRole role) {

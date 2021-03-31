@@ -1,5 +1,6 @@
 package com.infomax.web.models;
 
+import com.infomax.web.dto.AppUserDTO;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
@@ -25,6 +26,7 @@ public class AppUserRole {
         this.appUserFk = appUserFk;
         this.appRoleFk = appRoleFk;
     }
+
 
     public long getId() {
         return id;

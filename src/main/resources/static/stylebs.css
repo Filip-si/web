@@ -1,27 +1,56 @@
+@font-face{
+    font-family: sourceSansPro;
+    src: url(/fonts/SourceSansPro-Regular.ttf);
+}
+
 html {
   scroll-behavior: smooth;
 }
 
 nav{
+    font-family: sourceSansPro;
+    font-size: 1.05em;
+    font-weight: 200;
     background-color: #232526;
     border-radius: 5px;
     margin-bottom: 0.5%;
     box-shadow: 0 10px 30px rgba(0,0,0,.8);
 }
 
+
 .nav-link{
     font-size: 1em;
     color: #dbdbdb !important;
+}
+
+.opt::after{
+    content: '';
+    display:block;
+    width: 0% ;
+    height: 2px;
+    background: #fff;
+    transition: width .3s;
 }
 
 .navbar-toggler{
     background: grey !important;
 }
 
-.nav-link:hover{
-    font-size: 1em;
+.opt:hover::after{
+/*    font-size: 1em;
     color: #fff !important;
-    transition: .2s;
+    transition: .2s;*/
+    width:100%;
+    transition: width .3s;
+
+}
+
+li:hover > .nav,
+a li:hover{
+
+  visibility: visible;
+  opacity: 1;
+  display: block;
 }
 
 #slider{ 
