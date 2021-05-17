@@ -12,6 +12,7 @@
         <div th:replace="fragments/navFragment :: nav"></div>
     </nav>
     <main>
+        <hr>
         <!-- Button trigger modal -->
         <button type="button" class="btn btn-success" data-toggle="modal" data-target="#addArticle">
             <i class="fas fa-plus"></i> Dodaj artykuł
@@ -226,6 +227,7 @@
                 </div>
             </tr>
         </div>
+        <hr>
         <div class="manageAdverts col-xs-12 col-sm-12 col-md-12 col-lg-12" >
             <form class="col-xs-12 col-sm-12 col-md-12 col-lg-6" th:action="@{/admin-panel/add-advert}" method="post" th:object="${file2}" enctype="multipart/form-data">
                 <h6>Dodaj reklame</h6>

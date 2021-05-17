@@ -69,6 +69,7 @@ public class AdminPanelServiceImpl implements AdminPanelService{
             toSave.setIcon(Base64.getEncoder().encodeToString(iconImg.getBytes()));
         }catch (IOException e){
             e.printStackTrace();
+
         }
         toSave.setTitle(title);
         toSave.setDescription(description);

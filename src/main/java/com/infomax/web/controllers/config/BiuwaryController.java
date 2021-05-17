@@ -8,12 +8,12 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class BiuwaryController {
-    @RequestMapping(value = "/biuwary", method = RequestMethod.GET)
+    @RequestMapping(value = "/kalendarze//biuwary", method = RequestMethod.GET)
     public ModelAndView showBiuwary(){
         ModelAndView mav = new ModelAndView();
         AppUser appUser = new AppUser();
         mav.addObject("appUser", appUser);
-        mav.setViewName("biuwary");
+        mav.setViewName("/kalendarze/biuwary");
         return mav;
     }
 }

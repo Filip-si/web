@@ -12,41 +12,34 @@
             <div th:replace="fragments/navFragment :: nav"></div>
         </nav>
         <main>
-            <div class="profile col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" style="float: left; border: 1px solid black;">
-                    <h5>Nowości</h5>
-                    <tr class="article col-xs-12 col-sm-12 col-md-12 col-lg-12" th:each="article : ${allNews}">
-                        <a  th:href="@{/article/} + ${article.title}">
-                            <div class="imgNews col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                                <article class="desc col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                                    <td><h2>INFOMAX</h2><h4><span th:text="${article.title}"> </span></h4></td>
-                                    <td><h5><span th:text="${article.description}"> </span></h5></td>
-                                </article>
-                                <td>
-
-                                    <img  class="col-xs-6 col-sm-6 col-md-6 col-lg-6" alt="" th:src="*{'data:image/jpeg;base64,'+{article.icon}}" >
-
-                                </td>
-                            </div>
-                        </a>
-                    </tr>
-                </div>
-                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" style="float: left; border: 1px solid black;">
-                    <h5>Moje konfiguracje</h5>
+            <div id="slider">
+                <div th:replace="fragments/sliderFragment :: #slider"></div>
+            </div>
+            <div class="profile">
+                <div class="boxU userConfigurations" style="border: 1px solid black;">
+<!--                    <h5 class="chapterTitle">Moje konfiguracje</h5>-->
+                    <div class="title col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <b><i class="fas fa-list "></i> Moje konfiguracje</b>
+                    </div>
                     <h6 th:if="${allConfigurations} == null"> BRAK KONFIGURACJI</h6>
                     <h6>W tym miejscu masz możliwość zarządzać zapisanymi konfiguracjami. Jeśli chciałbyś zamówić kalendarz naciśnij przycisk wyślij a my  się z Tobą skontaktujemy.
-                        </h6>
+                        Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
+                    </h6>
                     <hr>
                     <tr>
-
-                        <tr  th:each="config : ${allConfigurations}">
+                        <tr class="col-xs-12 col-sm-12 col-md-12 col-lg-12" th:each="config : ${allConfigurations}" >
+                            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" style="flex:1;">
+                                <img src="images/cal_icon.png" style="width: 100px; height:80px;">
+                            </div>
                             <br>
-                            <td class="col-6">Kalendarz </td><td class="col-6"><b><label th:text="${config.getTypeData()}"></label></b></td><br>
-                            <td class="col-6">Linia kalendarza </td><td class="col-6"><b><label th:text="${config.getLineData()}"></label></b></td><br>
-                            <td class="col-6">Szerokość </td><td class="col-6"><b><label th:text="${config.getWidthData()}"></label></b></td><br>
-                            <td class="col-6">Łączenie </td><td class="col-6"><b><label th:text="${config.getConnectData()}"></label></b></td><br>
-                            <a th:href="|@{/user/delete-config/}${config.getId()}|"><button type="submit" class="but1 btn btn-info">Usuń</button></a>
-                            <button class="btn btn-success">Wyślij konfiguracje na adres e-mail</button>
+                            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-8" style="flex:2;">
+                                <td class="col-6">Kalendarz </td><td class="col-6"><b><label th:text="${config.getTypeData()}" ></label></b></td><br>
+                                <td class="col-6">Linia kalendarza </td><td class="col-6"><b><label th:text="${config.getLineData()}"></label></b></td><br>
+                                <td class="col-6">Szerokość </td><td class="col-6"><b><label th:text="${config.getWidthData()}"></label></b></td><br>
+                                <td class="col-6">Łączenie </td><td class="col-6"><b><label th:text="${config.getConnectData()}"></label></b></td><br>
+                                <a th:href="|@{/user/delete-config/}${config.getId()}|"><button type="submit" class="but1 btn btn-info">Usuń</button></a>
+                                <button class="btn btn-success">Wyślij konfiguracje na adres e-mail</button>
+                            </div>
                             <hr>
                         </tr>
 
@@ -56,13 +49,26 @@
                     </tr>
 
                 </div>
-                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" style="float: left; border: 1px solid black;">
-                    <h5>Polecane</h5>
+                <div class="boxU userRecommended" style="border: 1px solid black;">
+<!--                    <h5 class="chapterTitle">Polecane</h5>-->
+                    <div class="title col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <b><i class="fas fa-list "></i> Polecane</b>
+                    </div>
+                    <ul id="recommendedUl" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <li class="recommendedLi">
+                            <img class="recommendedImg" src="images/banerpolecane.jpg" >
+                        </li>
+                        <li class="recommendedLi">
+                            <img class="recommendedImg" src="images/banerpolecane.jpg" >
+                        </li>
+                        <li class="recommendedLi">
+                            <img class="recommendedImg" src="images/banerpolecane.jpg" >
+                        </li>
+                    </ul>
                 </div>
             </div>
-            <div id="contact" class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="float: left;">
-                <div th:replace="fragments/contactFragment :: #contact" ></div>
-            </div>
+
+            <div th:replace="fragments/contactFragment :: #contact" ></div>
         </main>
 
 

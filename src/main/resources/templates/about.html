@@ -1,10 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <div th:replace="fragments/headFragment :: head"></div>
 </head>
 <body>
+<div class="container-fluid">
+    <header>
+        <div th:replace="fragments/headerFragment :: header"></div>
+    </header>
+<nav>
+    <div th:replace="fragments/navFragment :: nav"></div>
+</nav>
+    <script>
+        if(window.location.href.indexOf('#myModal') != -1) {
+            $('#myModal').modal('show');
+        }
+    </script>
 
 </body>
 </html>

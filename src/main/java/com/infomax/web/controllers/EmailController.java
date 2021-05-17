@@ -32,7 +32,7 @@ public class EmailController {
     }
 
     @RequestMapping(value = "/send", method = RequestMethod.POST)
-    public ModelAndView sendEmailing(@RequestParam(value = "email", required = false) String email,@RequestParam("subject") String subject, @RequestParam("message") String message){
+    public ModelAndView sendEmail(@RequestParam(value = "email", required = false) String email,@RequestParam("subject") String subject, @RequestParam("message") String message){
         ModelAndView mav = new ModelAndView();
         if(principalDetailsService.getLoggedUser() != null && email == null){
             mav.addObject("subject",subject);

@@ -21,7 +21,7 @@ public class CalendarsController {
     @Autowired
     private UserPrincipalDetailsService principalDetailsService;
 
-    @RequestMapping(value = "/config-calendars", method = RequestMethod.GET)
+    @RequestMapping(value = "/kalendarze//dzielne", method = RequestMethod.GET)
     public ModelAndView showConfigCalendars(){
         ModelAndView mav = new ModelAndView();
         CalendarFold calendarFold = new CalendarFold();
@@ -29,11 +29,23 @@ public class CalendarsController {
         AppUser appUser = new AppUser();
         mav.addObject("appUser", appUser);
         mav.addObject("loggedUser", principalDetailsService.getLoggedUser());
-        mav.setViewName("config-calendars");
+        mav.setViewName("/kalendarze/dzielne");
         return mav;
     }
 
-    @RequestMapping(value = "/config-calendars/save-fold", method = RequestMethod.POST)
+    @RequestMapping(value = "/dzielne", method = RequestMethod.GET)
+    public ModelAndView showDzielne(){
+        ModelAndView mav = new ModelAndView();
+        CalendarFold calendarFold = new CalendarFold();
+        mav.addObject("calendarFold", calendarFold);
+        AppUser appUser = new AppUser();
+        mav.addObject("appUser", appUser);
+        mav.addObject("loggedUser", principalDetailsService.getLoggedUser());
+        mav.setViewName("dzielne");
+        return mav;
+    }
+
+    @RequestMapping(value = "/kalendarze/dzielne/save-fold", method = RequestMethod.POST)
     public String saveFold(@RequestParam(value = "cal_type") String type, @RequestParam(value = "cal_line") String line, @RequestParam(value = "cal_width") String width,
                             @RequestParam(value = "cal_conn") String connect, @RequestParam(value = "cal_clock") String clock, @RequestParam(value = "cal_advert") String advert,
                             @RequestParam(value = "cal_back") String back, @RequestParam(value = "cal_calm") String calm, @RequestParam(value = "cal_pack") String pack,

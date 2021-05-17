@@ -2,10 +2,20 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
+    <script>
+                        $(document).ready(function(){
+
+                            if(window.location.href.indexOf('#myModal') != -1) {
+                                $('#myModal').modal('show');
+                              }
+
+                        })
+
+    </script>
 
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-link ">
+    <nav class="navbar navbar-expand-lg navbar-light bg-link">
         <div class="row">
             <button class="navbar-toggler col-12" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon col-12"></span>
@@ -13,23 +23,23 @@
             <div class="collapse navbar-collapse col-xs-12 col-sm-12 col-md-12 col-lg-12" id="navbar">
                 <ul class="navbar-nav">
                     <li class="nav-item col-xs-12 col-sm-12 col-md-12 col-lg-2">
-                        <a class="nav-link opt" href="index"><i class="fas fa-home"></i> Home</a>
+                        <a class="nav-link opt" href="../index"><i class="fas fa-home"></i> Home</a>
                     </li>
-                    <li class="nav-item col-xs-12 col-sm-12 col-md-12 col-lg-2">
-                        <a class="nav-link opt" href="index#news" style="font-size: 1.03em;"><i class="fas fa-list"></i> Aktualności</a>
+                    <li class="nav-item col-xs-12 col-sm-12 col-md-12 col-lg-3">
+                        <a class="nav-link opt" href="../index#news" style="font-size: 1.03em;"><i class="fas fa-list"></i> Aktualności</a>
                     </li>
                     <li class="nav-item dropdown col-xs-12 col-sm-12 col-md-12 col-lg-2">
                         <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="far fa-calendar-alt"></i> Kalendarze
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="config-calendars">Naścienne</a>
+                            <a class="nav-link opt" href="/kalendarze/dzielne">Naścienne</a>
 <!--                            <a class="dropdown-item" href="#">Książkowe Marko</a>-->
 <!--                            <a class="dropdown-item" href="#">Książkowe Natan</a>-->
 <!--                            <a class="dropdown-item" href="#">Książkowe Róża</a>-->
-                            <a class="dropdown-item" href="biurkowe">Biurkowe</a>
-                            <a class="dropdown-item" href="biuwary">Biuwary</a>
-<!--                            <a class="dropdown-item" href="#">Planery</a>-->
+                            <a class="nav-link opt" href="/kalendarze/biurkowe">Biurkowe</a>
+                            <a class="nav-link opt" href="/kalendarze/biuwary">Biuwary</a>
+                            <a class="nav-link opt" href="/kalendarze/planery">Planery</a>
 <!--                            <a class="dropdown-item" href="#">Jednoplanszowe do wdruku</a>-->
 <!--                            <a class="dropdown-item" href="#">Jednoplanszowe indywidualne</a>-->
 <!--                            <a class="dropdown-item" href="#">Wieloplanszowe do wdruku</a>-->
@@ -37,37 +47,43 @@
 <!--                            <a class="dropdown-item" href="#">Terminarze</a>-->
 <!--                            <a class="dropdown-item" href="#">Listkowe</a>-->
                         </div>
-                    </li>cegła
-<!--                    <li class="nav-item col-xs-12 col-sm-12 col-md-12 col-lg-2">-->
-<!--                        <a class="nav-link" href="#"><i class="fas fa-book-open"></i> Infoteka</a>-->
-<!--                    </li>-->
-                    <li class="nav-item col-xs-12 col-sm-12 col-md-12 col-lg-2">
-                        <a class="nav-link  opt" href="#contact"><i class="far fa-envelope"></i> Kontakt</a>
                     </li>
-<!--                    <li class="nav-item col-xs-12 col-sm-12 col-md-12 col-lg-2">-->
+<!--                <li class="nav-item col-xs-12 col-sm-12 col-md-12 col-lg-2">-->
+<!--                        <a class="nav-link" href="#"><i class="fas fa-book-open"></i> Infoteka</a>-->
+<!--                </li>-->
+                    <li class="nav-item col-xs-12 col-sm-12 col-md-12 col-lg-2">
+                        <a class="nav-link  opt" href="../#contact"><i class="far fa-envelope"></i> Kontakt</a>
+                    </li>
+<!--                <li class="nav-item col-xs-12 col-sm-12 col-md-12 col-lg-2">-->
 <!--                        <a class="nav-link" href="about"><i class="far fa-envelope"></i> O nas</a>-->
-<!--                    </li>-->
-                    <li class="nav-item col-xs-12 col-sm-12 col-md-12 col-lg-3">
+<!--                </li>-->
+                    <li class="nav-item dropdown col-xs-12 col-sm-12 col-md-12 col-lg-3">
                         <a   id="navbarDropdownTradeOnlineLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle" href="targi"><i class="fas fa-store"></i> Targi On-line</a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuUserLink">
-                            <a class="dropdown-item" href="ogrodniczo-rolnicze"><i class="fas fa-tractor"></i> Ogrodniczo - Rolnicze</a>
-                            <a class="dropdown-item" href="budowlane"><i class="fas fa-wrench"></i> Budowlane</a>
-                            <a class="dropdown-item" href="sakralne"><i class="fas fa-cross"></i> Sakralne</a>
+                            <a class="nav-link opt" href="ogrodniczo-rolnicze"><i class="fas fa-tractor"></i> Ogrodniczo - Rolnicze</a>
+                            <a class="nav-link opt" href="budowlane"><i class="fas fa-wrench"></i> Budowlane</a>
+                            <a class="nav-link opt" href="sakralne"><i class="fas fa-cross"></i> Sakralne</a>
                         </div>
                     </li>
-                    <li th:if="${loggedUser}!=null" class="nav-item col-xs-12 col-sm-12 col-md-12 col-lg-3" style="">
+                    <li th:if="${loggedUser} != null" class="nav-item dropdown col-xs-12 col-sm-12 col-md-12 col-lg-3">
                         <a   id="navbarDropdownMenuUserLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle" href="user"><i class="fas fa-user-alt"></i> [<label th:text="${loggedUser.firstName}"></label>]</a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuUserLink">
-                            <a th:if="${loggedUser} != null" class="dropdown-item" href="user"><i class="fas fa-user-alt"></i> Moje konto </a>
-                            <a th:if="${loggedUser} != null" class="dropdown-item" href="logout"><i class="fas fa-sign-out-alt"></i> Wyloguj</a>
+                            <a th:if="${loggedUser} != null" class="nav-link opt" href="user"><i class="fas fa-user-alt"></i> Moje konto </a>
+                            <a th:if="${loggedUser} != null" class="nav-link opt" href="logout"><i class="fas fa-sign-out-alt"></i> Wyloguj</a>
+                            <a th:if="${roleUser} == true" class="nav-link opt" href="admin-panel"><i class="fas fa-user-shield"></i> Admin</a>
                         </div>
                     </li>
-                    <li th:if="${roleUser} == true" class="nav-item col-xs-12 col-sm-12 col-md-12 col-lg-2">
+<!--                <li th:if="${roleUser} == true" class="nav-item col-xs-12 col-sm-12 col-md-12 col-lg-2">
                         <a class="nav-link opt" href="admin-panel"><i class="fas fa-user-shield"></i> Admin</a>
-                    </li>
+                    </li>-->
                     <li th:if="${loggedUser} == null" class="nav-item col-xs-12 col-sm-12 col-md-12 col-lg-4">
                         <!-- Modal -->
-                        <div class="row justify-content-center"> <button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-primary py-2 px-4"><i class="fas fa-sign-in-alt"></i> Zaloguj / <i class="fas fa-user-plus"></i> Zarejestruj</button> <!-- Modal-->
+                        <div  id="signInUpBtn" class="row justify-content-center">
+                            <a href="#myModal">
+                            <button id="signBtn" type="button" data-toggle="modal" data-target="#myModal"  class="btn btn-primary py-2 px-4">
+                                <i class="fas fa-sign-in-alt"></i> Zaloguj / <i class="fas fa-user-plus"></i> Zarejestruj
+                            </button></a>
+                            <!-- Modal-->
                             <div id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" class="modal fade text-left">
                                 <div role="document" class="modal-dialog">
                                     <div class="modal-content">
