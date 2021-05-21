@@ -40,7 +40,7 @@
                             <a class="nav-link opt" href="/kalendarze/biurkowe">Biurkowe</a>
                             <a class="nav-link opt" href="/kalendarze/biuwary">Biuwary</a>
                             <a class="nav-link opt" href="/kalendarze/planery">Planery</a>
-<!--                            <a class="dropdown-item" href="#">Jednoplanszowe do wdruku</a>-->
+                            <a class="nav-link opt" href="/kalendarze/1-planszowe-do-wdruku">Jednoplanszowe do wdruku</a>
 <!--                            <a class="dropdown-item" href="#">Jednoplanszowe indywidualne</a>-->
 <!--                            <a class="dropdown-item" href="#">Wieloplanszowe do wdruku</a>-->
 <!--                            <a class="dropdown-item" href="#">Wieloplanszowe indywidualne</a>-->
@@ -68,21 +68,19 @@
                     <li th:if="${loggedUser} != null" class="nav-item dropdown col-xs-12 col-sm-12 col-md-12 col-lg-3">
                         <a   id="navbarDropdownMenuUserLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle" href="user"><i class="fas fa-user-alt"></i> [<label th:text="${loggedUser.firstName}"></label>]</a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuUserLink">
-                            <a th:if="${loggedUser} != null" class="nav-link opt" href="user"><i class="fas fa-user-alt"></i> Moje konto </a>
-                            <a th:if="${loggedUser} != null" class="nav-link opt" href="logout"><i class="fas fa-sign-out-alt"></i> Wyloguj</a>
-                            <a th:if="${roleUser} == true" class="nav-link opt" href="admin-panel"><i class="fas fa-user-shield"></i> Admin</a>
+                            <a th:if="${loggedUser} != null" class="nav-link opt" href="../user"><i class="fas fa-user-alt"></i> Moje konto </a>
+                            <a th:if="${loggedUser} != null" class="nav-link opt" href="../logout"><i class="fas fa-sign-out-alt"></i> Wyloguj</a>
+                            <a th:if="${loggedUser} != null and ${roleUser} == true" class="nav-link opt" href="../admin-panel"><i class="fas fa-user-shield"></i> Admin</a>
                         </div>
                     </li>
-<!--                <li th:if="${roleUser} == true" class="nav-item col-xs-12 col-sm-12 col-md-12 col-lg-2">
-                        <a class="nav-link opt" href="admin-panel"><i class="fas fa-user-shield"></i> Admin</a>
-                    </li>-->
                     <li th:if="${loggedUser} == null" class="nav-item col-xs-12 col-sm-12 col-md-12 col-lg-4">
                         <!-- Modal -->
                         <div  id="signInUpBtn" class="row justify-content-center">
                             <a href="#myModal">
-                            <button id="signBtn" type="button" data-toggle="modal" data-target="#myModal"  class="btn btn-primary py-2 px-4">
-                                <i class="fas fa-sign-in-alt"></i> Zaloguj / <i class="fas fa-user-plus"></i> Zarejestruj
-                            </button></a>
+                                <button id="signBtn" type="button" data-toggle="modal" data-target="#myModal"  class="btn btn-primary py-2 px-4">
+                                    <i class="fas fa-sign-in-alt"></i> Zaloguj / <i class="fas fa-user-plus"></i> Zarejestruj
+                                </button>
+                            </a>
                             <!-- Modal-->
                             <div id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" class="modal fade text-left">
                                 <div role="document" class="modal-dialog">
@@ -99,7 +97,7 @@
                                         <div class="modal-body p-0">
                                             <fieldset class="show" id="tab011">
                                                 <div class="bg-light">
-                                                    <h5 class="text-center mb-4 mt-0 pt-4"> <i class="fas fa-sign-in-alt"></i> Logowanie</h5>
+                                                    <h2 class="text-center mb-4 mt-0 pt-4"> <i class="fas fa-sign-in-alt"></i> Logowanie</h2>
                                                     <form id="loginForm" class="col-xs-12 col-sm-12 col-md-12 col-lg-12" th:action="@{/login}" method="post">
                                                             <br>
                                                             <input class="field col-xs-12 col-sm-12 col-md-12 col-lg-12"  id="username" type="email" name="username" placeholder="Wpisz swój adres e-mail" >
@@ -116,7 +114,7 @@
                                             </fieldset>
                                             <fieldset id="tab021">
                                                 <div class="bg-light">
-                                                    <h5 class="text-center mb-4 mt-0 pt-4"><i class="fas fa-user-plus"></i> Rejestracja</h5>
+                                                    <h2 class="text-center mb-4 mt-0 pt-4"><i class="fas fa-user-plus"></i> Rejestracja</h2>
                                                     <form id="registerForm" class="col-xs-12 col-sm-12 col-md-12 col-lg-12" th:action="@{/register}" th:object="${appUser}" method="post">
                                                         <br>
                                                         <input class="field col-xs-12 col-sm-12 col-md-12 col-lg-12" th:field="*{firstName}" placeholder="Imie" >

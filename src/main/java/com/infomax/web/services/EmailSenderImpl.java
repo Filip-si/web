@@ -9,7 +9,7 @@ import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
 
 @Service
-public class EmailSenderImpl implements EmailSender{
+public class  EmailSenderImpl implements EmailSender{
 
     @Autowired
     private JavaMailSender javaMailSender;

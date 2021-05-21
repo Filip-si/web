@@ -242,13 +242,9 @@
                             Przedpłata 100%
                         </label>
                     </div>
-                    <div class="message" style="position: relative; left: 50%; float:left border:1px black solid; ">
-                        <label>Wiadomość</label>
-                        <input type="text">
-                    </div>
                     <button th:if="${loggedUser} != null" type="submit" class="but1 btn btn-info col-xs-12 col-sm-12 col-md-12 col-lg-12" >Zapisz konfigurację</button>
                 </form>
-                <a href="/register"><button th:if="${loggedUser} == null" type="submit" class="but1 btn btn-info col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <a href="#myModal"><button th:if="${loggedUser} == null" type="submit" class="but1 btn btn-info col-xs-12 col-sm-12 col-md-12 col-lg-12">
                     Utwórz konto aby móc zapisać i wysłać twoją konfigurację</button></a>
             </div>
             <div class="row visualisation col-xs-12 col-sm-12 col-md-12 col-lg-5">
