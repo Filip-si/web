@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<div class="container-fluid">
+
+        <div id="news">
+            <tr class="article col-xs-12 col-sm-6 col-md-4 col-lg-3" th:each="article : ${articleList}">
+                <div style="float: none;">
+                    <div class="imgNews adminNews col-xs-12 col-sm-12 col-md-12 col-lg-12" style="float:none;">
+                        <a  th:href="@{/article/} + ${article.title}">
+                            <div class="ver_mas text-center">
+                                <span id="click" class="lnr lnr-eye">Czytaj więcej</span>
+                            </div>
+                            <article class="desc col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                <td><h2>INFOMAX</h2><h4><span th:text="${article.title}"> </span></h4></td>
+                                <td><h5><span th:text="${article.description}"> </span></h5></td>
+                            </article>
+                            <td>
+                                <img  class="col-xs-12 col-sm-12 col-md-12 col-lg-12" alt="" th:src="*{'data:image/jpeg;base64,'+{article.icon}}" >
+                            </td>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="options-admin" style="float:none;">
+                    <a th:href="@{admin-panel/delete-article/{id}(id=${article.id})}">
+                        <button type="button" class="btn btn-danger" data-toggle="modal"  data-target="delArticleId" >
+
+                                <i class="fas fa-minus"></i>
+
+                        </button>
+                    </a>
+
+                        <button type="button" class="btn btn-warning" data-toggle="modal" th:attr="data-target='#modArticleId'+*{article.id}" data-target="modArticleId"  style="float:none;">
+                            <i class="fas fa-pen"></i>
+                        </button>
+
+                        <button type="button" class="btn btn-success" data-toggle="modal" th:attr="data-target='#addArticleId'" data-target="#addArticle">
+                            <i class="fas fa-plus"></i> Dodaj artykuł
+                        </button>
+
+
+                    <!-- Modal Add Article-->
+                    <div class="modal fade" id="addArticleId" tabindex="-1" role="dialog" aria-labelledby="addArticleLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="addArticleLabel">Dodaj artykuł</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <form class="col-xs-12 col-sm-12 col-md-12 col-lg-12"
+                                      th:action="@{/admin-panel/add-article}"
+                                      method="post"
+                                      th:object="${file}"
+                                      enctype="multipart/form-data">
+                                    <div class="modal-body">
+                                        <br>
+                                        <input class="field col-xs-12 col-sm-12 col-md-12 col-lg-12" name="title" type="text" placeholder="Tytuł gazetki..." >
+                                        <br>
+                                        <br>
+                                        <input class="field col-xs-12 col-sm-12 col-md-12 col-lg-12" name="description" type="text" placeholder="Krótki opis... (do 100 słów)" >
+                                        <br>
+                                        <br>
+                                        <label>Załącz gazetę</label>
+                                        <input class="field col-xs-12 col-sm-12 col-md-12 col-lg-12" name="content" type="file" placeholder="Załącz gazetę" >
+                                        <br>
+                                        <br>
+                                        <label>Załącz ikonę</label>
+                                        <input class="field col-xs-12 col-sm-12 col-md-12 col-lg-12" name="icon" type="file" placeholder="Załącz ikonę" >
+                                        <br>
+                                        <br>
+
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Wróć</button>
+                                        <button  type="submit" class="but1 btn btn-info" >Dodaj nowy artykuł</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Modal Modify Article-->
+                    <div class="modal fade" th:id="*{'modArticleId'+ {article.id}}" tabindex="-1" role="dialog" aria-labelledby="modArticleIdLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="modArticleIdLabel">Modyfikuj artykuł <label th:text="${article.title}"></label></h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <form class="col-xs-12 col-sm-12 col-md-12 col-lg-12"
+                                      th:action="@{/admin-panel/update-article/{id}(id=${article.id})}"
+                                      method="post"
+                                      th:object="${file}"
+                                      enctype="multipart/form-data">
+                                    <div class="modal-body">
+                                        <label>id article</label>
+                                        <br>
+                                        <input class="field col-xs-12 col-sm-12 col-md-12 col-lg-12" name="title" type="text" th:value="${article.title}" placeholder="Tytuł gazetki..." >
+                                        <br>
+                                        <br>
+                                        <input class="field col-xs-12 col-sm-12 col-md-12 col-lg-12" name="description" type="text" th:value="${article.description}" placeholder="Krótki opis... (do 100 słów)" >
+                                        <br>
+                                        <br>
+                                        <label>Załącz gazetę</label>
+                                        <input class="field col-xs-12 col-sm-12 col-md-12 col-lg-12" name="content" type="file" th:value="${article.content}" placeholder="Załącz gazetę" >
+                                        <br>
+                                        <br>
+                                        <label>Załącz ikonę</label>
+                                        <input class="field col-xs-12 col-sm-12 col-md-12 col-lg-12" name="icon" type="file" th:value="${article.icon}" placeholder="Załącz ikonę" >
+                                        <br>
+                                        <br>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Wróć</button>
+                                        <button  type="submit" class="but1 btn btn-info" >Zmień</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </tr>
+        </div>
+</div>
+</body>
+</html>

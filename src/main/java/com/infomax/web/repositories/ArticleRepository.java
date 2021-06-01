@@ -10,4 +10,6 @@ import java.math.BigInteger;
 public interface ArticleRepository extends JpaRepository<Article, BigInteger> {
     Article findByTitle(String title);
     Article findById(Long id);
+
+    void deleteById(Long id);
 }

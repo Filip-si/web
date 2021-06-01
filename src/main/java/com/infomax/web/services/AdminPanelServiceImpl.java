@@ -1,40 +1,39 @@
 package com.infomax.web.services;
 
 
-import com.infomax.web.models.Advert;
-import com.infomax.web.models.AppUser;
-import com.infomax.web.models.AppUserRole;
-import com.infomax.web.models.Article;
-import com.infomax.web.repositories.AdvertRepository;
-import com.infomax.web.repositories.AppUserRepository;
-import com.infomax.web.repositories.AppUserRoleRepository;
-import com.infomax.web.repositories.ArticleRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.infomax.web.models.*;
+import com.infomax.web.repositories.*;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Base64;
 import java.util.List;
 
 @Service
 public class AdminPanelServiceImpl implements AdminPanelService{
-    @Autowired
-    private ArticleRepository articleRepository;
-    @Autowired
-    private AdvertRepository advertRepository;
-    @Autowired
-    private UserPrincipalDetailsService principalDetailsService;
-    @Autowired
-    private AppUserRepository appUserRepository;
-    @Autowired
-    private AppUserRoleRepository appUserRoleRepository;
+    private final ArticleRepository articleRepository;
+    private final AdvertRepository advertRepository;
+    private final AppUserRepository appUserRepository;
+    private final AppUserRoleRepository appUserRoleRepository;
+    private final UserPrincipalDetailsService principalDetailsService;
+    private final TradeFairsRepository tradeFairsRepository;
 
-
+    public AdminPanelServiceImpl(ArticleRepository articleRepository,
+                                 AdvertRepository advertRepository,
+                                 AppUserRepository appUserRepository,
+                                 AppUserRoleRepository appUserRoleRepository,
+                                 UserPrincipalDetailsService principalDetailsService,
+                                 TradeFairsRepository tradeFairsRepository) {
+        this.articleRepository = articleRepository;
+        this.advertRepository = advertRepository;
+        this.appUserRepository = appUserRepository;
+        this.appUserRoleRepository = appUserRoleRepository;
+        this.principalDetailsService = principalDetailsService;
+        this.tradeFairsRepository = tradeFairsRepository;
+    }
 
 
     @Override
@@ -47,13 +46,12 @@ public class AdminPanelServiceImpl implements AdminPanelService{
     /*Manage articles*/
     @Override
     public List<Article> getAll() {
-        List<Article> art = new ArrayList<>();
-        articleRepository.findAll().forEach(art :: add);
         return articleRepository.findAll();
     }
 
-    public List<Article> findAll(){
-        return articleRepository.findAll();
+    @Override
+    public Article findById(Long id) {
+        return articleRepository.findById(id);
     }
 
     @Override
@@ -80,7 +78,7 @@ public class AdminPanelServiceImpl implements AdminPanelService{
 
     @Override
     public void updateArticle(Long id, String title, String description, MultipartFile contentPdf, MultipartFile iconImg) throws IOException{
-        Article toSave = new Article();
+        Article toSave = articleRepository.findById(id);
         String contentPdfName = StringUtils.cleanPath(contentPdf.getOriginalFilename());
         String iconImgName = StringUtils.cleanPath(iconImg.getOriginalFilename());
         if(contentPdfName.contains("..") || iconImgName.contains("..")){
@@ -100,12 +98,28 @@ public class AdminPanelServiceImpl implements AdminPanelService{
 
     @Override
     public void deleteArticle(String title) {
+
+    }
+
+/*    @Override
+    public void deleteArticle(String title) {
         if(articleRepository.findByTitle(title) != null){
             articleRepository.delete(articleRepository.findByTitle(title));
         }else{
             System.out.println("ARTICLE NOT FOUND!");
         }
+    } */
+
+    @Override
+    public void deleteArticle(Long id) {
+        articleRepository.deleteById(id);
+//        if(articleRepository.findByTitle(title) != null){
+//            articleRepository.delete(articleRepository.findByTitle(title));
+//        }else{
+//            System.out.println("ARTICLE NOT FOUND!");
+//        }
     }
+
 
     /*Manage advert*/
 
@@ -152,6 +166,14 @@ public class AdminPanelServiceImpl implements AdminPanelService{
             throw new Exception("User "+email+" not found");
         }
     }
+
+    /*Manage trade fairs*/
+
+    @Override
+    public List<TradeFairs> getAllTradeFairs() {
+        return tradeFairsRepository.findAll();
+    }
+
 
 
 

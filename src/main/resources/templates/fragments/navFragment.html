@@ -2,19 +2,9 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <script>
-                        $(document).ready(function(){
-
-                            if(window.location.href.indexOf('#myModal') != -1) {
-                                $('#myModal').modal('show');
-                              }
-
-                        })
-
-    </script>
-
 </head>
 <body>
+
     <nav class="navbar navbar-expand-lg navbar-light bg-link">
         <div class="row">
             <button class="navbar-toggler col-12" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -106,9 +96,41 @@
                                                             <br><br>
                                                             <p th:if="${loginError}" class="error">Niepoprawne dane logowania<br></p>
                                                         <div class="line"></div>
+
                                                         <div class="modal-footer d-flex flex-column justify-content-center border-0">
+                                                            <a href="#forgotPassword">
+                                                                <button id="forgotPasswordButton" type="button" data-toggle="modal" data-target="#forgotPassword"  class="btn btn-warning py-2 px-4">
+                                                                    Przypomnij hasło
+                                                                </button>
+                                                            </a>
+                                                            <!-- Modal -->
+                                                            <div class="modal fade" id="forgotPassword" tabindex="-1" role="dialog" aria-labelledby="forgotPasswordLabel" aria-hidden="true">
+                                                                <div class="modal-dialog" role="document">
+                                                                    <div class="modal-content">
+                                                                        <div class="modal-header">
+                                                                            <h2 class="text-center mb-4 mt-0 pt-4"> <i class="fas fa-sign-in-alt"></i> Przypomnij hasło</h2>
+                                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                                <span aria-hidden="true">&times;</span>
+                                                                            </button>
+                                                                        </div>
+                                                                        <div class="modal-body">
+                                                                            <form>
+                                                                                <br>
+                                                                                <input class="field col-xs-12 col-sm-12 col-md-12 col-lg-12"  id="remindUsername" type="email" name="remindUsername" placeholder="Wpisz swój adres e-mail" >
+                                                                                <br>
+
+                                                                            </form>
+                                                                        </div>
+                                                                        <div class="modal-footer">
+                                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                                            <button type="button" class="btn btn-primary">Save changes</button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
                                                             <button  type="submit" class="but1 btn btn-success col-xs-12 col-sm-12 col-md-12 col-lg-12" >Zaloguj</button>
                                                         </div>
+
                                                     </form>
                                                 </div>
                                             </fieldset>
@@ -143,6 +165,7 @@
                                         </div>
                                     </div>
                                 </div>
+
                             </div>
                         </div>
                     </li>

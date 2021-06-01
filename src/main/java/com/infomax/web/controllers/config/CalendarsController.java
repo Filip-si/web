@@ -55,4 +55,17 @@ public class CalendarsController {
         configurationServiceImlp.saveConfigFoldJSON(type, line, width, connect, clock, advert, back, calm, pack, gd, copy, trans, pay);
         return "redirect:/user";
     }
+
+    @RequestMapping(value = "/dzielne/send", method = RequestMethod.POST)
+    public String sendConfigurationDzielne(@RequestParam(value = "cal_type") String type, @RequestParam(value = "cal_line") String line, @RequestParam(value = "cal_width") String width,
+                            @RequestParam(value = "cal_conn") String connect, @RequestParam(value = "cal_clock") String clock, @RequestParam(value = "cal_advert") String advert,
+                            @RequestParam(value = "cal_back") String back, @RequestParam(value = "cal_calm") String calm, @RequestParam(value = "cal_pack") String pack,
+                            @RequestParam(value = "cal_gd") String gd, @RequestParam(value = "cal_copy") String copy, @RequestParam(value = "cal_trans") String trans,
+                            @RequestParam(value = "cal_pay") String pay){
+        configurationServiceImlp.save(type, line, width, connect, clock, advert, back, calm, pack, gd, copy, trans, pay);
+        configurationServiceImlp.saveConfigFoldJSON(type, line, width, connect, clock, advert, back, calm, pack, gd, copy, trans, pay);
+        return "redirect:/user";
+    }
+
+
 }
