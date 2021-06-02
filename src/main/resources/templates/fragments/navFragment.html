@@ -50,6 +50,9 @@
                     <li class="nav-item dropdown col-xs-12 col-sm-12 col-md-12 col-lg-3">
                         <a   id="navbarDropdownTradeOnlineLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle" href="targi"><i class="fas fa-store"></i> Targi On-line</a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuUserLink">
+                            <tr th:each="tradeFair : ${tradeFairsList}">
+                                <a class="nav-link opt" th:href="${tradeFair.name}" th:text="${tradeFair.name}"></a>
+                            </tr>
                             <a class="nav-link opt" href="ogrodniczo-rolnicze"><i class="fas fa-tractor"></i> Ogrodniczo - Rolnicze</a>
                             <a class="nav-link opt" href="budowlane"><i class="fas fa-wrench"></i> Budowlane</a>
                             <a class="nav-link opt" href="sakralne"><i class="fas fa-cross"></i> Sakralne</a>

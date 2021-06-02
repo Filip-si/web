@@ -6,5 +6,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface TradeFairsRepository extends JpaRepository<TradeFairs, Long> {
+    TradeFairs findByName(String name);
 
 }

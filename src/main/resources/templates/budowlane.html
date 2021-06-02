@@ -13,10 +13,12 @@
         <div th:replace="fragments/navFragment :: nav"></div>
     </nav>
     <main>
+        <div id="slider">
+            <div th:replace="fragments/sliderFragment :: #slider"></div>
+        </div>
         <div class="trade-title">Targi Budowlane</div>
         <hr>
-<!--
-            <div class="companies" style="float:none;">
+<!--            <div class="companies" style="float:none;">
             <div class="company-card">
                 <div class="front">
                     <img src="/images/akt1.jpg" >
@@ -40,8 +42,7 @@
 
 
             </div>
-        </div>
--->
+        </div>-->
 
         <div class="companies2" style="width: 350px; height: 400px; background-color: green; border-radius: 3px;">
             <img id="zd" src="/images/akt1.jpg" style="width: 300px; height: 200px; position:relative; left:25px; top:25px;">
@@ -52,9 +53,8 @@
                     box-shadow: 0px -2px 10px rgba(0,0,0,1);
                 }
             </style>
-
-
         </div>
+
 
     </main>
     <footer>

@@ -63,7 +63,37 @@
                 <br><br>
             </form>
         </div>
-
+        <div>
+            <div th:replace="fragments/tradeFairsAdminFragment :: #tradeFairs"></div>
+        </div>
+        <hr>
+        <h2 class="titleAdminPanel">Dodaj kategorie targów on-line</h2>
+        <div class="manageCategoryTradeFairs col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <form class="col-xs-12 col-sm-12 col-md-12 col-lg-6" th:action="@{/admin-panel/add-trade-fairs}" method="post" >
+                <h6>Dodaj kategorie</h6>
+                <br>
+                <input class="field col-xs-12 col-sm-12 col-md-12 col-lg-12" name="name" type="text" placeholder="Nazwa..." >
+                <br>
+                <input class="field col-xs-12 col-sm-12 col-md-12 col-lg-12" name="iconLink" type="text" placeholder="Tag do kategorii" >
+                <br>
+                <br>
+                <button type="submit" class="but1 btn-info col-xs-12 col-sm-12 col-md-12 col-lg-12">Dodaj</button>
+                <br><br>
+            </form>
+        </div>
+        <div class="manageCategoryTradeFairs col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <form class="col-xs-12 col-sm-12 col-md-12 col-lg-6" th:action="@{/admin-panel/delete-trade-fairs}" method="post" >
+                <h6>Usuń kategorie</h6>
+                <br>
+                <select name="name">
+                    <option disabled selected>Wybierz kategorie</option>
+                    <option th:each="tradeFair : ${tradeFairsList}" th:text="${tradeFair.name}" th:value="${tradeFair.name}"></option>
+                </select>
+                <br>
+                <button type="submit" class="but1 btn-info col-xs-12 col-sm-12 col-md-12 col-lg-12">Usuń</button>
+                <br><br>
+            </form>
+        </div>
     </main>
     <footer>
     </footer>
